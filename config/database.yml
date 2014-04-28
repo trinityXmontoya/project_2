@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: project2_development
+  database: nplutzik
   pool: 5
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -43,11 +43,11 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: project2_test
+  database: nplutzik
   pool: 5
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: project2_production
+  database: nplutzik
   pool: 5
