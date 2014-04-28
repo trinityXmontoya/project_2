@@ -4,7 +4,6 @@ class CreateCategories < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :badge_photo
-      t.timestamps
     end
   end
 end
