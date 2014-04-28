@@ -9,5 +9,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :bio
       t.timestamps
     end
+    add_index :users, :id, unique: true
   end
 end
