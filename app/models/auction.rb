@@ -20,3 +20,17 @@ end
 
 
 #   user show controller, make a variable for each thing that the
+
+   def time_left
+      return time_limit - Time.now
+    end
+
+   def is_completed?
+      if time_left > 0
+        return false
+      else
+        self.update(completed: true)
+        self.save!
+      return true
+    end
+  end

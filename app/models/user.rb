@@ -19,12 +19,3 @@ end
 # Way 1
 
 
-  def time_left(time)
-    return false unless time
-    if time == 0 || time.now - time_left < 0
-      return false
-    else
-      self.time.now = self.time.now - time_left
-      return self.save
-    end
-  end
