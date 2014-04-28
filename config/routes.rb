@@ -1,4 +1,24 @@
 Project2::Application.routes.draw do
+  get "messages/index"
+  get "messages/show"
+  get "messages/new"
+  get "messages/edit"
+  get "categories/index"
+  get "categories/show"
+  get "categories/new"
+  get "categories/edit"
+  get "bids/index"
+  get "bids/show"
+  get "bids/new"
+  get "bids/edit"
+  get "auctions/index"
+  get "auctions/show"
+  get "auctions/new"
+  get "auctions/edit"
+  get "users/index"
+  get "users/show"
+  get "users/new"
+  get "users/edit"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
