@@ -29,13 +29,3 @@ end
 #
 # @message.bid.user
 # @message.auction.user
-
-    # where(auth.slice(:facebook, :uid)).first_or_initialize.tap do |user|
-    #   current_user = user
-    #   user.id = auth_hash['uid']
-    #   user.oauth_token = auth_hash['credentials']['token']
-    #   # FIXME may need oauth expires at column, don't remember how strict facebook is with this
-    #   user.name = auth_hash['info']['first_name']
-    #   user.profile_photo = auth_hash['info']['image']
-    #   user.location = auth_hash['info']['location']
-    #   user.save!

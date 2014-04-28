@@ -1,4 +1,5 @@
 class AuctionsController < ApplicationController
+
   def index
     if params[:search].present?
       @auctions = Auction.near(params[:search], 50, :order => :distance)
@@ -11,6 +12,10 @@ class AuctionsController < ApplicationController
     @auction = Auction.find params[:id]
   end
 
+  def show
+    @message.update(viewed: true)
+  end
+
   def new
     @auction = Auction.new
   end
@@ -20,4 +25,5 @@ class AuctionsController < ApplicationController
 
   def edit
   end
+
 end
