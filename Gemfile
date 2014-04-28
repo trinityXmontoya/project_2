@@ -52,3 +52,5 @@ group :development, :test do
 end
 
 gem 'geocoder'
+
+gem 'dotenv-rails', :groups => [:development, :test]

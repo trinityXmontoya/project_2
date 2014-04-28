@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  self.primary_key = :id
+
   has_many :bids, dependent: :destroy
   has_many :auctions, dependent: :destroy
 
@@ -9,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :categories, through: :bids
 
   def self.facebook_auth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+    where(auth.slice(:provider, :id)).first_or_initialize.tap do |user|
       user.id = auth.uid
       user.oauth_token = auth.credentials.token
       # FIXME may need oauth expires at column, don't remember how strict facebook is with this

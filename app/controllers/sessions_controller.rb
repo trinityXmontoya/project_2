@@ -1,4 +1,4 @@
-class SessionsController < Application Controller
+class SessionsController < ApplicationController
 
   def create
     user = User.facebook_auth(auth_hash)
