@@ -1,4 +1,6 @@
 Project2::Application.routes.draw do
+
+  root to: 'auctions#index'
   resources :users
   resources :bids
   resources :categories
