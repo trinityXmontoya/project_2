@@ -1,5 +1,9 @@
 Project2::Application.routes.draw do
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 41846627a73503e846be951c1913e8d1da5e721c
 
   root to: 'auctions#index'
   resources :users
@@ -7,6 +11,7 @@ Project2::Application.routes.draw do
   resources :categories
   resources :auctions
   resources :messages
+<<<<<<< HEAD
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 =======
@@ -31,6 +36,8 @@ Project2::Application.routes.draw do
   get "users/new"
   get "users/edit"
 >>>>>>> 9b32de2c71e8d3bc2fec99cbf3e288449c298fa6
+=======
+>>>>>>> 41846627a73503e846be951c1913e8d1da5e721c
 
 
 
