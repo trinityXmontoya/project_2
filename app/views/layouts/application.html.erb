@@ -16,10 +16,10 @@
             <ul class="nav navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;} </ul>
             navbar {min-height:40px !important}">
 <<<<<<< HEAD
-           <li><img src="<%= asset_path 'logo.png' %>" width="120"></li>
-            <li><img src="<%= asset_path 'logo.png' %>" width="120"></li>
+           <li><img src="<%#= asset_path 'logo.png' %>" width="120"></li>
+            <li><img src="<%#= asset_path 'logo.png' %>" width="120"></li>
 =======
-           <li><a href="<%= root_path %>"><img src="<%= asset_path 'logo.png' %>" width="120"></a></li>
+           <li><a href="<%= root_path %>"><img src="<%#= asset_path 'logo.png' %>" width="120"></a></li>
 >>>>>>> 591543ae4b6f2734ac657d0197cd05d244219f0e
             </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -29,8 +29,7 @@
                <li><%= link_to "New Auctions", new_link_path %> </li>
               <li><%= link_to_unless_current 'Logout', logout_path %> </li>
             <% else %>
-            <li><%= link_to "Login", login_path %></li>
-            <li><%= link_to "Sign up", new_user_path %></li>
+            <li><%= link_to "Connect with Facebook", "/auth/facebook" %></li>
             <% end %>
           </ul>
       </div>
