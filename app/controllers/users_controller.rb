@@ -9,7 +9,17 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @badges = @user.categories{created_at :desc}
+    if current_user == @user
+      @auctions = @user.auctions{updated_at :desc}
+      @bids = @user.bids{updated_at :desc}
+      @messages = @user.messages{updated_at :desc}
+      notifications = @messages + @auctions + @bids
+      @notifications = notifications.order{updated_at :desc}
+    end
   end
+
+
 
   def new
     @user = User.new
