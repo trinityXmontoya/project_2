@@ -1,8 +1,5 @@
 class Message < ActiveRecord::Base
-  belongs_to :auction
-  belongs_to :bid
-
-  has_one :user, through: :auction
-  has_one :user, through: :bid
+  belongs_to :sender, class_name: "User", foreign_key: 'sender_id'
+  belongs_to :receiver, class_name: "User",foreign_key: 'reciever_id'
 
 end
