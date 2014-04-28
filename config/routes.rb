@@ -20,5 +20,8 @@ Project2::Application.routes.draw do
   get "users/new"
   get "users/edit"
 
-  
+
+
+get '/auth/:facebook/callback', to: 'sessions#create'
+
 end
