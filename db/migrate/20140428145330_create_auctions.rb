@@ -8,6 +8,7 @@ class CreateAuctions < ActiveRecord::Migration
       t.text :description
       t.datetime :time_limit
       t.boolean :completed
+      t.boolean :viewed
       t.timestamps
     end
   end

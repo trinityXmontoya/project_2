@@ -4,6 +4,7 @@ class CreateBids < ActiveRecord::Migration
       t.references :user
       t.references :auction
       t.string :comment
+      t.boolean :viewed
       t.timestamps
     end
   end
