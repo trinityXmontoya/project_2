@@ -15,11 +15,10 @@ Project2::Application.routes.draw do
   get "auctions/show"
   get "auctions/new"
   get "auctions/edit"
-  get "users/index"
+root to: 'auctions#index'
   get "users/show"
   get "users/new"
   get "users/edit"
-
 
 
 get '/auth/:facebook/callback', to: 'sessions#create'
