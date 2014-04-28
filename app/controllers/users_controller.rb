@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     else
       render 'show'
     end
+  end
 
   def edit
     @user = User.find(params[:id])
