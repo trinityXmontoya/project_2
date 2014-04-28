@@ -6,6 +6,7 @@ class CreateAuctions < ActiveRecord::Migration
       t.string :location
       t.string :title
       t.text :description
+      t.datetime :time_limit
       t.timestamps
     end
   end
