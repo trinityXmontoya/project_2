@@ -31,7 +31,7 @@
 
               <div id="recieved bids">
                 <% @recieved_bids.each do |bid| %>
-                  <%= bid.created_at %><%= bid.comment %>
+                  <%= bid.created_at %><%= bid.comment[0..100] %>
                 <%end %>
               </div>
               <div id="outgoing-bids">
