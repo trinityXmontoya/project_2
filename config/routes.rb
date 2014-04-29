@@ -10,9 +10,10 @@ Project2::Application.routes.draw do
   end
 
   resources :categories
-  
+
   resources :auctions do
     resources :bids
+    post '/bid/:id/add_comment', to: 'bids#add_comment'
   end
 
 
