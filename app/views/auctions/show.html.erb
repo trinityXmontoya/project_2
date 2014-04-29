@@ -1,7 +1,16 @@
 <h1>Auctions#show</h1>
 <p>Find me in app/views/auctions/show.html.erb</p>
 
-
 <div id="auction-bids">
-<%= render '../bids/show' %>
+<%= render '../bids/show_partial' %>
+
+<div id="bid-comment-display">
+  <% if bid.comment.exists? %>
+    <%= bid.comment %>
+  <% else %>
+    <%= render 'bids/form' %>
+  <% end %>
+</div>
+
+<% end %>
 </div>

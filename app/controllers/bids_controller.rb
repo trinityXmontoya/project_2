@@ -1,10 +1,11 @@
 class BidsController < ApplicationController
 
-  def new
-    @bid = Bid.new
-  end
 
   def create
+    @bid=Bid.create()
+    respond_to do |format|
+      format.html {redirect_to @bid.auction}
+
   end
 
   def destroy
@@ -14,8 +15,9 @@ class BidsController < ApplicationController
     @bid = Bid.find(params[:id])
     @bid.update(comment: params[:bid][:content])
     respond_to do |format|
-      format.html { redirect_to @bid}
+      format.html { redirect_to @bid.auction}
       format.js   { }
+    end
   end
 
 end
