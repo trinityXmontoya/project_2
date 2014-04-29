@@ -17,7 +17,7 @@
 
 $('document').ready(function (){
 
-//USERS
+//USERS Profile
 $('#bid-notifications').hide();
 $('#nav-bids').on("click", function(){
   $('#bid-notifications').show();
@@ -28,10 +28,6 @@ $('#nav-auctions').on("click", function(){
   $('#auction-notifications').show();
 });
 
-$('#message-notifications').hide();
-$('#nav-messages').on("click", function(){
-  $('#message-notifications').show();
-});
 
 
 });
