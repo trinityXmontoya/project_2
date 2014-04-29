@@ -29,6 +29,24 @@ end
   end
 
   def edit
+    @auction = Auction.find_by(params[:id])
+  end
+
+  def update
+    @auction = Auction.find_by(params[:id])
+    @auction.update
+      if @auction.save?
+        redirect_to @auction
+      else
+        render 'edit'
+      end
+  end
+
+  def destroy
+    @auction = Auction.find_by(params[:id])
+    @auction.destroy
+    redirect_to '/'
+
   end
 
 end
