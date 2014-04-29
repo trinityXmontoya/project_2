@@ -1,0 +1,7 @@
+
+
+
+var hootID = "<%= dom_id(@hoot) %>";
+var updatedHoot = " <%= j(render @hoot) %> "
+
+$("#"+hootID).replaceWith(updatedHoot);

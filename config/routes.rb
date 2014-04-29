@@ -9,8 +9,10 @@ Project2::Application.routes.draw do
     resources :messages
   end
 
-  resources :bids
   resources :categories
-  resources :auctions
+  
+  resources :auctions do
+    resources :bids
+  end
 
 end

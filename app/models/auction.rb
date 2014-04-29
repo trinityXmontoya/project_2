@@ -9,6 +9,9 @@ class Auction < ActiveRecord::Base
   belongs_to :auction_participants
 
 
+  def calculate_time_left
+    return Time.now - time_limit
+  end
 end
 
 
