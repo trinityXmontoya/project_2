@@ -5,6 +5,7 @@ class CreateBids < ActiveRecord::Migration
       t.references :auction
       t.string :comment
       t.boolean :viewed
+      t.boolean :won
       t.timestamps
     end
   end
