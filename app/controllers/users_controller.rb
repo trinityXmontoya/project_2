@@ -15,22 +15,16 @@ class UsersController < ApplicationController
     @completed_events = @bids + @auctions
   end
 
+  # def create
+  #   @user = User.new(user_params)
 
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      UserMailer.welcome_email(@user).deliver
-      redirect_to @user
-    else
-      render 'show'
-    end
-  end
+  #   if @user.save
+  #     UserMailer.welcome_email(@user).deliver
+  #     redirect_to @user
+  #   else
+  #     render 'show'
+  #   end
+  # end
 
   def edit
     @user = User.find(params[:id])
