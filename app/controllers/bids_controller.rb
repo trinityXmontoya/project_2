@@ -23,6 +23,4 @@ class BidsController < ApplicationController
       format.js   { }
   end
 
-
 end
-nd
