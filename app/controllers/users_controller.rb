@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   before_action :authenticate, only: [:show, :index, :edit, :update, :destroy]
 
   def index
@@ -9,7 +10,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if current_user == @user
       @auctions = @user.auctions{updated_at :desc}
-      @bids = @user.bids{updated_at :desc}
+      @outgoing_bids = @user.bids{updated_at :desc}
+      @recieved_bids = @user.auctions.bids{updated_at :desc}
       @messages = @user.messages{updated_at :desc}
     end
     @completed_events = @bids + @auctions
@@ -34,6 +36,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
+
 
    def update
     @user = User.find(params[:id])
