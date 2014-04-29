@@ -10,10 +10,9 @@ class AuctionsController < ApplicationController
 
   def show
     @auction = Auction.find params[:id]
-  end
-
-  def show
-    @message.update(viewed: true)
+    unless @auction.viewed
+      @auction.mark_as_viewed
+    end
   end
 
   def new
