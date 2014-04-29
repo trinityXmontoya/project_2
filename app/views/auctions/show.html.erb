@@ -1,16 +1,34 @@
-<h1>Auctions#show</h1>
-<p>Find me in app/views/auctions/show.html.erb</p>
+<div id="auction-show-title">
+<h1 id="auction-title"><%= @auction.title %></h1>
+</div>
+
+<div id="auction-show-category">
+    <%= @auction.category_id %>
+ </div>
+
+<div id="auction-show-description">
+<p><%= @auction.description %></p>
+</div>
+
+<div id="auction-show-location">
+  <p><%= @auction.location %></p>
+</div>
+
+<div id="auction-show-timer" >
+<!--   COUNTDOWN -->
+</div>
 
 <div id="auction-bids">
 <%= render '../bids/show_partial' %>
 
-<div id="bid-comment-display">
-  <% if bid.comment.exists? %>
-    <%= bid.comment %>
-  <% else %>
-    <%= render 'bids/form' %>
-  <% end %>
-</div>
+  <div id="bid-comment-display">
+    <% if bid.comment.exists? %>
+      <%= bid.comment %>
+    <% else %>
+      <%= render 'bids/form' %>
+    <% end %>
+  </div>
 
 <% end %>
 </div>
+
