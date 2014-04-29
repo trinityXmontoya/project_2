@@ -25,3 +25,4 @@ class BidsController < ApplicationController
 
 
 end
+nd
