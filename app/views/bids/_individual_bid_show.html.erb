@@ -1,0 +1,17 @@
+<% @bids.each do |bid| %>
+  <% bidder = bid.user %>
+    <%= link_to bidder do %>
+      <%= bidder.name %>
+      <img src="<%= bidder.profile_photo %>">
+    <% end %>
+
+<% if @user == current_user %>
+  <button id="message-user">Message this user!</button>
+<% end %>
+
+bid on
+<%= link_to @auction do %>
+  <%= @auction.title %>
+  <%= @auction.calculate_time_left %>
+  <img src="<%= @auction.img_url %>">
+<% end %>
