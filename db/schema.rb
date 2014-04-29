@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428231053) do
+ActiveRecord::Schema.define(version: 20140429133955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "auction_participants", force: true do |t|
+    t.integer "auction_id"
+    t.integer "user_id"
+    t.boolean "completed"
+  end
+
+  add_index "auction_participants", ["auction_id"], name: "index_auction_participants_on_auction_id", using: :btree
+  add_index "auction_participants", ["user_id"], name: "index_auction_participants_on_user_id", using: :btree
 
   create_table "auctions", force: true do |t|
     t.integer  "user_id"
