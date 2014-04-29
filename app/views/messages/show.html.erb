@@ -1,2 +1,18 @@
-<h1>Messages#show</h1>
-<p>Find me in app/views/messages/show.html.erb</p>
+
+
+
+  <div class="message-info">
+    <% bidder = User.find(@message.receiver_id) %>
+      <% link_to bidder do %>
+        <div class="message-user-info">
+          <%= bidder.profile_photo %>
+          <%= bidder.name %>
+        </div>
+      <% end %>
+        <div class="message">
+          <%= @message.created_at %>
+          <%= @message.content %>
+        </div>
+  </div>
+
+<%= render 'new_message_form' %>

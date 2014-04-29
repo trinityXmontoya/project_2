@@ -1,8 +1,9 @@
 class Message < ActiveRecord::Base
-  belongs_to :auction
-  belongs_to :bid
+  belongs_to :sender, class_name: "User", foreign_key: 'sender_id'
+  belongs_to :receiver, class_name: "User",foreign_key: 'reciever_id'
 
-  has_one :user, through: :auction
-  has_one :user, through: :bid
 
+  def mark_as_viewed
+    self.update(viewed: true)
+  end
 end

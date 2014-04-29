@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   # used for setting custom primary key instead of index
   self.primary_key = :id
 
@@ -7,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :messages, through: :bids
   has_many :messages, through: :auctions
+  has_many :messages, foreign_key: 'sender_id'
 
   has_many :categories, through: :auctions
   has_many :categories, through: :bids
@@ -25,9 +27,3 @@ class User < ActiveRecord::Base
     end
   end
 end
-
-
-# Message.new(user_id: @bid.user_id , messager_id: )
-#
-# @message.bid.user
-# @message.auction.user

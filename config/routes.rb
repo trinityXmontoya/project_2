@@ -5,10 +5,13 @@ Project2::Application.routes.draw do
   get 'auth/failure', to: 'auctions#index'
   get 'logout', to: 'sessions#destroy'
 
-  resources :users
+  resources :users do
+    resources :messages
+  end
+
   resources :bids
   resources :categories
   resources :auctions
-  resources :messages
+
 
 end
