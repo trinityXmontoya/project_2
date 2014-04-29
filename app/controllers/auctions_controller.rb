@@ -22,6 +22,12 @@ class AuctionsController < ApplicationController
   end
 
   def create
+    @auction = Auction.new
+    if @auction.save
+      redirect_to @auction
+    else
+      render 'new'
+    end
   end
 
   def edit

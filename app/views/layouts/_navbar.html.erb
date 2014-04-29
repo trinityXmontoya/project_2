@@ -22,9 +22,9 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
 
-          <li><%= link_to "Hello, " + current_user.name + "!", users_path %></li>
+          <li><%= link_to "Hello, " + current_user.name + "!", user_path(current_user) %></li>
           <li><%= link_to "Current Auctions", users_path %></li>
-          <li><%#= link_to "New Auctions", new_link_path %></li>
+          <li><%= link_to "Create Auction", new_auction_path %></li>
           <li><%= link_to 'Log Out', logout_path %></li>
         <% else %>
           <li><%= link_to "Connect with Facebook", "/auth/facebook" %></li>
