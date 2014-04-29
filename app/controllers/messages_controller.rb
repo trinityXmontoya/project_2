@@ -1,8 +1,7 @@
 class MessagesController < ApplicationController
 
   def index
-    @user = User.find(params[:user_id])
-    @messages = @user.messages{auction_id :desc}
+    @messages = current_user.messages{auction_id :desc}
   end
 
   def show
