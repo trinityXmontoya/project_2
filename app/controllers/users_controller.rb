@@ -36,8 +36,7 @@ class UsersController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
-=======
+
    def update
     @user = User.find(params[:id])
     if current_user == @user
@@ -59,5 +58,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
   end
 
->>>>>>> e772dc5cc64ae545aaa4ee68119f58d86636c1ce
 end
