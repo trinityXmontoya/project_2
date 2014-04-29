@@ -1,9 +1,10 @@
+<% #FIXME this file keeps throwing errors at me so I stopped working on it  %>
 <div id='dashboard'>
 
   <div id="user-info">
     <img id="profile-photo" src="<%= @user.profile_photo %>">
     <h1 id="profile-name"><%= @user.name %></h1>
-    <p id="profile-bio"> <%= @user.bio %> </p>
+    <p id="profile-bio"> <%= @user.bio %></p>
   </div>
 
   <div id="categories">
@@ -27,6 +28,7 @@
 
 <!-- Bid section -->
            <div id="bids-notifications">
+
               <div id="recieved bids">
                 <% @recieved_bids.each do |bid| %>
                   <%= bid.created_at %><%= bid.comment %>
@@ -37,6 +39,9 @@
                  <%= bid.created_at %><%= bid.comment[0..100] %>
                 <% end %>
               </div>
+
+                <%= @bid.created_at %><%= @bid %>
+            <% end %>
           </div>
 
 <!-- Auction section -->
@@ -50,5 +55,6 @@
       </div>
 
     </div>
+
 
   <%end%>

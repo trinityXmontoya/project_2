@@ -1,6 +1,7 @@
 class AuctionsController < ApplicationController
 
   def index
+    # @user = current_user
     if params[:search].present?
       @auctions = Auction.near(params[:search], 50, :order => :distance)
     else
@@ -21,6 +22,12 @@ class AuctionsController < ApplicationController
   end
 
   def create
+    @auction = Auction.new
+    if @auction.save
+      redirect_to @auction
+    else
+      render 'new'
+    end
   end
 
   def edit
