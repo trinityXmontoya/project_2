@@ -1,9 +1,15 @@
 
+
+
 <%= link_to @bidder do %>
 <%= @bidder.name %>
 <img src="<%= @bidder.profile_photo %>">
 <% end %>
-<%= @bid.comment %>
+
+<% if @user == current_user %>
+<button id="message-user">Message this user!</button>
+<% end %>
+
 bid on
 <%= link_to @auction do %>
 <%= @auction.title %>
@@ -27,3 +33,7 @@ at
   <% end %>
 
 </div>
+
+
+<!-- $(document).ready
+$("#message-user").on('click',messageUser) -->
