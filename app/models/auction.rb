@@ -6,6 +6,7 @@ class Auction < ActiveRecord::Base
   has_many :bids
   has_many :messages
   belongs_to :user
+  belongs_to :auction_participants
 
 
 end

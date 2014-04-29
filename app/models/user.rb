@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :categories, through: :auctions
   has_many :categories, through: :bids
 
+  belongs_to :auction_participants
+
 # facebook login
   def self.facebook_auth(auth)
     where(auth.slice(:provider, :id)).first_or_initialize.tap do |user|
