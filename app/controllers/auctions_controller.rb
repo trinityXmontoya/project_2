@@ -1,21 +1,19 @@
 class AuctionsController < ApplicationController
 
   def index
-    # @user = current_user
-    if params[:search].present?
+   if params[:search].present?
       @auctions = Auction.near(params[:search], 50, :order => :distance)
     else
       @auctions = Auction.all
     end
   end
 
-  def show
+def show
     @auction = Auction.find params[:id]
-  end
-
-  def show
-    @message.update(viewed: true)
-  end
+    @user = @auction.user
+    @bids = @auction.bids{updated_at :desc}
+    @bids.mark_all_as_viewed
+end
 
   def new
     @auction = Auction.new
@@ -34,3 +32,5 @@ class AuctionsController < ApplicationController
   end
 
 end
+
+

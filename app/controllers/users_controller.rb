@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   before_action :authenticate, only: [:show, :index, :edit, :update, :destroy]
 
   def index
@@ -34,6 +35,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
+
 
    def update
     @user = User.find(params[:id])
