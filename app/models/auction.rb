@@ -7,5 +7,8 @@ class Auction < ActiveRecord::Base
   has_many :messages
   belongs_to :user
 
+  def mark_as_viewed
+    self.update(viewed: true)
+  end
 
 end
