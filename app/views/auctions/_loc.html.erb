@@ -1,6 +1,6 @@
 <%= form_tag auctions_path, method: :get do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search Near", :name => nil %>
+    <%= text_field_tag :search, params[:query] %>
+    <%= submit_tag "Search for Auctions Near", :name => nil %>
   </p>
 <% end %>

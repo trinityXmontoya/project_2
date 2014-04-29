@@ -1,9 +1,10 @@
 class AuctionsController < ApplicationController
 
   def index
-
+    query = params[:query]
+    @narrowed_results = Auction.search_for query
     # @user = current_user
-    if params[:search].present?
+    if params[:query].present?
       # find auctions based on lat, lng and radius
     else
       @auctions = Auction.all

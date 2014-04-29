@@ -5,6 +5,14 @@ class Auction < ActiveRecord::Base
   belongs_to :user
   belongs_to :auction_participants
 
+  def self.search_for(query)
+    # self.where('')
+    # self.latitude
+    # self.longitude
+  end
+
+  # self.where('name LIKE :query OR description LIKE :query OR year_release LIKE :query', query: "%#{query}%")
+
   def get_location(address)
     address = address.downcase.gsub(" ", "+")
     latlng = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=true&key=#{ENV['GOOGLE_GEOCODING_KEY']}")['results'][0]['geometry']['location']
