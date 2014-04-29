@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :bids, dependent: :destroy
   has_many :auctions, dependent: :destroy
 
-  has_many :messages
+  has_many :messages, foreign_key: 'sender_id'
 
   has_many :categories, through: :auctions
   has_many :categories, through: :bids
