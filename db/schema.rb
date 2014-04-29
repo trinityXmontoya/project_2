@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428231053) do
+ActiveRecord::Schema.define(version: 20140429133955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "auction_participants", force: true do |t|
+    t.integer "auction_id"
+    t.integer "user_id"
+    t.boolean "completed"
+  end
+
+  add_index "auction_participants", ["auction_id"], name: "index_auction_participants_on_auction_id", using: :btree
+  add_index "auction_participants", ["user_id"], name: "index_auction_participants_on_user_id", using: :btree
 
   create_table "auctions", force: true do |t|
     t.integer  "user_id"
@@ -24,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140428231053) do
     t.text     "description"
     t.datetime "time_limit"
     t.boolean  "completed"
+    t.boolean  "viewed"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "latitude"
@@ -34,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140428231053) do
     t.integer  "user_id"
     t.integer  "auction_id"
     t.string   "comment"
+    t.boolean  "viewed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,24 +59,9 @@ ActiveRecord::Schema.define(version: 20140428231053) do
     t.integer  "bid_id"
     t.integer  "auction_id"
     t.text     "message"
+    t.boolean  "viewed"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "pokemons", force: true do |t|
-    t.string  "name"
-    t.integer "pokedex_id"
-    t.string  "img_url"
-    t.string  "poke_type"
-    t.integer "hp_level"
-    t.integer "attack_level"
-    t.integer "defense_level"
-    t.integer "spattack_level"
-    t.integer "spdefense_level"
-    t.integer "speed_level"
-    t.string  "classification"
-    t.string  "height"
-    t.decimal "weight",          precision: 6, scale: 2
   end
 
   create_table "users", id: false, force: true do |t|
