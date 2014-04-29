@@ -1,6 +1,7 @@
 class AuctionsController < ApplicationController
 
   def index
+
     # @user = current_user
     if params[:search].present?
       # find auctions based on lat, lng and radius
@@ -9,13 +10,12 @@ class AuctionsController < ApplicationController
     end
   end
 
-  def show
+def show
     @auction = Auction.find params[:id]
-  end
-
-  def show
-    @message.update(viewed: true)
-  end
+    @user = @auction.user
+    @bids = @auction.bids{updated_at :desc}
+    @bids.mark_all_as_viewed
+end
 
   def new
     @auction = Auction.new
@@ -34,6 +34,26 @@ class AuctionsController < ApplicationController
   end
 
   def edit
+    @auction = Auction.find_by(params[:id])
+  end
+
+  def update
+    @auction = Auction.find_by(params[:id])
+    @auction.update
+      if @auction.save?
+        redirect_to @auction
+      else
+        render 'edit'
+      end
+  end
+
+  def destroy
+    @auction = Auction.find_by(params[:id])
+    @auction.destroy
+    redirect_to '/'
+
   end
 
 end
+
+

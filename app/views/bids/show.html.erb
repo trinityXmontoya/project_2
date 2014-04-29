@@ -1,2 +1,39 @@
-<h1>Bids#show</h1>
-<p>Find me in app/views/bids/show.html.erb</p>
+
+
+
+<%= link_to @bidder do %>
+<%= @bidder.name %>
+<img src="<%= @bidder.profile_photo %>">
+<% end %>
+
+<% if @user == current_user %>
+<button id="message-user">Message this user!</button>
+<% end %>
+
+bid on
+<%= link_to @auction do %>
+<%= @auction.title %>
+<%= @auction.calculate_time_left %>
+<img src="<%= @auction.img_url %>">
+<% end %>
+by
+<%= link_to @user do %>
+<%= @user.name %>
+<img src="<%= @user.profile_photo %>">
+<% end %>
+at
+<%= @bid.created_at.strftime("%D%H")%>
+
+<div id="bid-display">
+
+  <% if @bid.comment.exists? %>
+    <%= @bid.comment %>
+  <% else %>
+    <%= render 'form' %>
+  <% end %>
+
+</div>
+
+
+<!-- $(document).ready
+$("#message-user").on('click',messageUser) -->

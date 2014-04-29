@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$('document').ready(function (){
+
+//USERS Profile
+$('#bid-notifications').hide();
+$('#nav-bids').on("click", function(){
+  $('#bid-notifications').show();
+});
+
+$('#auction-notifications').hide();
+$('#nav-auctions').on("click", function(){
+  $('#auction-notifications').show();
+});
+
+
+
+});

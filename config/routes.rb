@@ -1,5 +1,5 @@
 Project2::Application.routes.draw do
-  root to: 'auctions#index'
+
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: 'auctions#index'
@@ -9,9 +9,11 @@ Project2::Application.routes.draw do
     resources :messages
   end
 
-  resources :bids
   resources :categories
-  resources :auctions
 
+  resources :auctions do
+    resources :bids
+    post '/bid/:id/add_comment', to: 'bids#add_comment',as: :add_comment
+  end
 
 end
