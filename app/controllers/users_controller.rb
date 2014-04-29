@@ -7,7 +7,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if current_user == @user
+      @auctions = @user.auctions{updated_at :desc}
+      @bids = @user.bids{updated_at :desc}
+      @messages = @user.messages{updated_at :desc}
+    end
+    @completed_events = @bids + @auctions
   end
+
+
 
   def new
     @user = User.new

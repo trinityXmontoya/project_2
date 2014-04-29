@@ -1,0 +1,7 @@
+var newMessage = $("<%= j(render @message)%>").hide();
+$('#messages').append(newMessage);
+newHoot.fadeIn(1000);
+
+
+// clear hoot form
+$("input[type='text']").val("");

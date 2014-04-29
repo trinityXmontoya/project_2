@@ -21,7 +21,7 @@
       <ul class="nav navbar-nav navbar-right">
         <%# if current_user %>
           <li>Hello, <%#= current_user.first_name %>!</li>
-          <li><%= link_to "Current Auctions", users_path %></li>
+          <li><%= link_to "Current Auctions", auctions_path %></li>
           <li><%#= link_to "New Auctions", new_link_path %></li>
           <li><%#= link_to_unless_current 'Logout', logout_path %></li>
         <%# else %>
