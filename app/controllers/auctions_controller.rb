@@ -13,6 +13,7 @@ def show
     @user = @auction.user
     @bids = @auction.bids{updated_at :desc}
     @bids.mark_all_as_viewed
+    @new_bid = Bid.new
 end
 
   def new
