@@ -1,4 +1,5 @@
 <!-- tried to fix the stuff throwing errors -->
+<% #FIXME the default font color is too dark and can't see the text in the navbar if it's not a link %>
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -19,14 +20,15 @@
         <li class="active">placeholder<img src="<%#= asset_path 'logo.png' %>" width="120"></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <%# if current_user %>
-          <li>Hello, <%#= current_user.first_name %>!</li>
+        <% if current_user %>
+
+          <li><%= link_to "Hello, " + current_user.name + "!", users_path %></li>
           <li><%= link_to "Current Auctions", users_path %></li>
           <li><%#= link_to "New Auctions", new_link_path %></li>
-          <li><%#= link_to_unless_current 'Logout', logout_path %></li>
-        <%# else %>
+          <li><%= link_to 'Log Out', logout_path %></li>
+        <% else %>
           <li><%= link_to "Connect with Facebook", "/auth/facebook" %></li>
-        <%# end %>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

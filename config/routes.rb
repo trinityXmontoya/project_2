@@ -3,6 +3,7 @@ Project2::Application.routes.draw do
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: 'auctions#index'
+  get 'logout', to: 'sessions#destroy'
 
   resources :users
   resources :bids
