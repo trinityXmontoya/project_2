@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  # used for setting custom primary key instead of index
   self.primary_key = :id
 
   has_many :bids, dependent: :destroy
@@ -10,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :categories, through: :auctions
   has_many :categories, through: :bids
 
+# facebook login
   def self.facebook_auth(auth)
     where(auth.slice(:provider, :id)).first_or_initialize.tap do |user|
       user.id = auth.uid
