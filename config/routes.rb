@@ -1,26 +1,15 @@
 Project2::Application.routes.draw do
-  get "messages/index"
-  get "messages/show"
-  get "messages/new"
-  get "messages/edit"
-  get "categories/index"
-  get "categories/show"
-  get "categories/new"
-  get "categories/edit"
-  get "bids/index"
-  get "bids/show"
-  get "bids/new"
-  get "bids/edit"
-  get "auctions/index"
-  get "auctions/show"
-  get "auctions/new"
-  get "auctions/edit"
-root to: 'auctions#index'
-  get "users/show"
-  get "users/new"
-  get "users/edit"
 
 
-get '/auth/:facebook/callback', to: 'sessions#create'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: 'auctions#index'
+
+  resources :users do
+    resources :messages
+  end
+
+  resources :bids
+  resources :categories
+  resources :auctions
 
 end

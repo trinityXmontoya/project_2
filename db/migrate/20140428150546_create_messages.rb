@@ -1,9 +1,11 @@
 class CreateMessages < ActiveRecord::Migration
   def change
     create_table :messages do |t|
-      t.references :bid
+      t.integer :sender_id
+      t.integer :receiver_id
       t.references :auction
-      t.text :message
+      t.text :content
+      t.boolean :viewed
       t.timestamps
     end
   end

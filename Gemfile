@@ -32,7 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '~> 1.5.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -45,3 +45,12 @@ gem 'omniauth-facebook'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'shoulda-matchers'
+end
+
+gem 'geocoder'
+
+gem 'dotenv-rails', :groups => [:development, :test]
