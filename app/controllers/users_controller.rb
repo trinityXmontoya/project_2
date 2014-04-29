@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   before_action :authenticate, only: [:show, :index, :edit, :update, :destroy]
 
   def index
@@ -15,22 +16,16 @@ class UsersController < ApplicationController
     @completed_events = @bids + @auctions
   end
 
+  # def create
+  #   @user = User.new(user_params)
 
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      UserMailer.welcome_email(@user).deliver
-      redirect_to @user
-    else
-      render 'show'
-    end
-  end
+  #   if @user.save
+  #     UserMailer.welcome_email(@user).deliver
+  #     redirect_to @user
+  #   else
+  #     render 'show'
+  #   end
+  # end
 
   def edit
     @user = User.find(params[:id])
@@ -41,6 +36,8 @@ class UsersController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
+=======
    def update
     @user = User.find(params[:id])
     if current_user == @user
@@ -62,4 +59,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
   end
 
+>>>>>>> e772dc5cc64ae545aaa4ee68119f58d86636c1ce
 end
