@@ -1,0 +1,18 @@
+
+
+
+  <div class="message-info">
+    <% bidder = User.find(@message.receiver_id) %>
+      <% link_to bidder do %>
+        <div class="message-user-info">
+          <%= bidder.profile_photo %>
+          <%= bidder.name %>
+        </div>
+      <% end %>
+        <div class="message">
+          <%= @message.created_at %>
+          <%= @message.content %>
+        </div>
+  </div>
+
+<%= render 'new_message_form' %>
