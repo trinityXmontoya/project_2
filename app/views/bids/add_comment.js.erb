@@ -1,7 +1,9 @@
 
 
 
-var hootID = "<%= dom_id(@hoot) %>";
-var updatedHoot = " <%= j(render @hoot) %> "
+var newBidComment = $("<%= j(render @bid) %>").hide();
+$("#bid-display").append(newBidComment);
+newBidComment.fadeIn(1000);
 
-$("#"+hootID).replaceWith(updatedHoot);
+var newBidForm = $("#new-bid-form");
+newBidForm.hide();
