@@ -1,8 +1,11 @@
 class AuctionsController < ApplicationController
+
   def index
+
   end
 
   def show
+    @message.update(viewed: true)
   end
 
   def new
@@ -10,4 +13,5 @@ class AuctionsController < ApplicationController
 
   def edit
   end
+
 end

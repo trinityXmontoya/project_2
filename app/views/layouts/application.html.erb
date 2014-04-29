@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Project2</title>
+  <title>SnapDate</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style>li{margin-bottom:0;}</style>
 </head>
 <body>
-
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+            <ul class="nav navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;} </ul>
+            navbar {min-height:40px !important}">
+<<<<<<< HEAD
+           <li><img src="<%= asset_path 'logo.png' %>" width="120"></li>
+            <li><img src="<%= asset_path 'logo.png' %>" width="120"></li>
+=======
+           <li><a href="<%= root_path %>"><img src="<%= asset_path 'logo.png' %>" width="120"></a></li>
+>>>>>>> 591543ae4b6f2734ac657d0197cd05d244219f0e
+            </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if current_user  %>
+              <li>Hello, <%= current_user.first_name %>!</li>
+              <li><%= link_to "Current Auctions", "/users/index" %> </li>
+               <li><%= link_to "New Auctions", new_link_path %> </li>
+              <li><%= link_to_unless_current 'Logout', logout_path %> </li>
+            <% else %>
+            <li><%= link_to "Login", login_path %></li>
+            <li><%= link_to "Sign up", new_user_path %></li>
+            <% end %>
+          </ul>
+      </div>
+    </div>
+<div class="container">
 <%= yield %>
-
+</div>
 </body>
 </html>
