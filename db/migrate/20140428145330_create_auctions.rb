@@ -10,6 +10,8 @@ class CreateAuctions < ActiveRecord::Migration
       t.boolean :completed
       t.boolean :viewed
       t.integer :num_of_winners
+      t.string :address
+      t.string :website
       t.timestamps
     end
   end
