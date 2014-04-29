@@ -36,11 +36,19 @@ end
   end
 
   def edit
-    @auction = Auction.find_by(params[:id])
+    @auction = Auction.find(params[:id])
+    if @auction.update
+      latlng = @auction.get_location(@auction.location)
+      @auction.save_location(latlng)
+
+      redirect_to @auction
+    else
+      render 'edit'
+    end
   end
 
   def update
-    @auction = Auction.find_by(params[:id])
+    @auction = Auction.find(params[:id])
     @auction.update
       if @auction.save?
         redirect_to @auction
@@ -50,7 +58,7 @@ end
   end
 
   def destroy
-    @auction = Auction.find_by(params[:id])
+    @auction = Auction.find(params[:id])
     @auction.destroy
     redirect_to '/'
 

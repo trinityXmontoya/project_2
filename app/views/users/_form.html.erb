@@ -2,10 +2,26 @@
 
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :value => @user.email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city, :value => @user.city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zip_code %><br>
+    <%= f.text_field :zip_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bio %><br>
+    <%= f.text_area :bio %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
