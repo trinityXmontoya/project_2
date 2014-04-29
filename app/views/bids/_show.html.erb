@@ -1,0 +1,21 @@
+
+
+<%= render 'individual_bid_show' %>
+
+by
+<%= link_to @user do %>
+  <%= @user.name %>
+  <img src="<%= @user.profile_photo %>">
+<% end %>
+at
+<%= bid.created_at.strftime("%D%H")%>
+
+<div id="bid-comment-display">
+
+  <% if bid.comment.exists? %>
+    <%= bid.comment %>
+  <% else %>
+    <%= render 'form' %>
+  <% end %>
+
+</div>
