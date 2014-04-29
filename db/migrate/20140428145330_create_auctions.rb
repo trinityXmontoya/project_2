@@ -12,6 +12,7 @@ class CreateAuctions < ActiveRecord::Migration
       t.integer :num_of_winners
       t.string :address
       t.string :website
+      t.string :img_url
       t.timestamps
     end
   end
