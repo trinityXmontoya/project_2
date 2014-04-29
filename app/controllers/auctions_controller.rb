@@ -3,7 +3,7 @@ class AuctionsController < ApplicationController
   def index
     # @user = current_user
     if params[:search].present?
-      @auctions = Auction.near(params[:search], 50, :order => :distance)
+      # find auctions based on lat, lng and radius
     else
       @auctions = Auction.all
     end
@@ -24,6 +24,9 @@ class AuctionsController < ApplicationController
   def create
     @auction = Auction.new
     if @auction.save
+      latlng = @auction.get_location(@auction.location)
+      @auction.save_location(latlng)
+
       redirect_to @auction
     else
       render 'new'
