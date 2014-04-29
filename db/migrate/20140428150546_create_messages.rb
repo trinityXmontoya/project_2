@@ -3,6 +3,7 @@ class CreateMessages < ActiveRecord::Migration
     create_table :messages do |t|
       t.integer :sender_id
       t.integer :receiver_id
+      t.references :auction
       t.text :content
       t.boolean :viewed
       t.timestamps
