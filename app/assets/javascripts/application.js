@@ -17,6 +17,7 @@
 
 $('document').ready(function (){
 
+//USERS
 $('#bid-notifications').hide();
 $('#nav-bids').on("click", function(){
   $('#bid-notifications').show();
@@ -31,5 +32,6 @@ $('#message-notifications').hide();
 $('#nav-messages').on("click", function(){
   $('#message-notifications').show();
 });
+
 
 });
