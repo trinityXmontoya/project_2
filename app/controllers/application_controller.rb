@@ -14,4 +14,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def get_location(address)
+    escaped_address = address.downcase.gsub(" ", "+")
+    results = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{escaped_address}&sensor=true&key=#{ENV['GOOGLE_GEOCODING_KEY']}")
+  end
+
+  def save_location(results)
+    self.latitude = results['results'][0]['geometry']['location']['lat']
+    self.longitude = results['results'][0]['geometry']['location']['lng']
+  end
+
 end

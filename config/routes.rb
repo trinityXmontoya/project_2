@@ -17,4 +17,6 @@ Project2::Application.routes.draw do
     post '/bids/:id/add_comment', to: 'bids#accept_bid',as: :accept_bid
   end
 
+  resources :searches
+
 end

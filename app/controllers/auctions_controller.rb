@@ -1,14 +1,7 @@
 class AuctionsController < ApplicationController
 
   def index
-    q = params[:location_zipcode]
-    # @narrowed_results = q.get_coords(q) what object can I call this on? auctions?
-    # @user = current_user
-    if q.present?
-      # find auctions based on lat, lng and radius
-    else
-      @auctions = Auction.all
-    end
+    @auctions = Auction.all
   end
 
   def show
@@ -26,8 +19,8 @@ class AuctionsController < ApplicationController
   def create
     @auction = Auction.new auction_params
     if @auction.save
-      latlng = @auction.get_location(@auction.location)
-      @auction.save_location(latlng)
+      results = @auction.get_location(@auction.location)
+      @auction.save_location(results)
       @auction.save
       redirect_to @auction
     else
