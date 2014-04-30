@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :profile_photo
       t.string :location
       t.string :bio
+      t.string :badges, array: true, default: []
       t.timestamps
     end
     add_index :users, :id, unique: true
