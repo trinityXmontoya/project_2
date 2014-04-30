@@ -15,7 +15,6 @@ class CreateAuctions < ActiveRecord::Migration
       t.string :website
       t.string :img_url
       t.boolean :notifications_sent
-      t.array :badges
       t.timestamps
     end
   end
