@@ -56,9 +56,10 @@ ActiveRecord::Schema.define(version: 20140429133955) do
   end
 
   create_table "messages", force: true do |t|
-    t.integer  "bid_id"
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
     t.integer  "auction_id"
-    t.text     "message"
+    t.text     "content"
     t.boolean  "viewed"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,14 +1,38 @@
-<h1>Auctions#show</h1>
-<p>Find me in app/views/auctions/show.html.erb</p>
+<div id="auction-show-title">
+<h1 id="auction-title"><%= @auction.title %></h1>
+</div>
+
+<div id="auction-show-category">
+    <%= @auction.category_id %>
+ </div>
+
+<div id="auction-show-description">
+<p><%= @auction.description %></p>
+</div>
+
+<div id="auction-show-location">
+  <p><%= @auction.location %></p>
+</div>
+
+<div id="auction-show-timer" >
+<!--   COUNTDOWN -->
+</div>
 
 
+<!-- FOR AUCTION TIMER CLOCK
+
+DAYS:(time_end.day - time_begin.day)
+HOURS: (time_end.hour - time_begin.hour)
+MINUTES: (time_end.minute - time_begin.minute)
+SECONDS: (time_left).round -->
 
 <div id="auction-bids">
 
-  <div id="add_bid">
-    <% unless current_user == @user %>
+
+    <% unless current_user == @user || @auction.is_completed? %>
+     <div id="add_bid">
       <p>Add Bid!</p>
-      <%= form_for @new_bid, remote: true do %>
+      <%= form_for @bid, remote: true do %>
         <%= f.label :comment %>
         <%= f.text_field :comment %>
         <%= f.submit "Commit bid"%>
@@ -16,15 +40,8 @@
     <% end %>
   </div>
 
-<%= render '../bids/show_partial' %>
-
-<div id="bid-comment-display">
-  <% if bid.comment.exists? %>
-    <%= bid.comment %>
-  <% else %>
-    <%= render '../bids/new_comment' %>
-  <% end %>
-</div>
+<%= render '/bids/show_partial' %>
 
 <% end %>
 </div>
+
