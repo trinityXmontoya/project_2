@@ -86,6 +86,4 @@ class Auction < ActiveRecord::Base
       #will work on this method after messages is done
     end
 
-  end
-
 end
