@@ -6,6 +6,7 @@ class CreateMessages < ActiveRecord::Migration
       t.references :auction
       t.text :content
       t.boolean :viewed
+      t.boolean :archived
       t.timestamps
     end
   end

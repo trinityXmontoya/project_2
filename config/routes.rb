@@ -1,5 +1,6 @@
 Project2::Application.routes.draw do
 
+  root to: 'auctions#index'
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: 'auctions#index'
@@ -13,7 +14,7 @@ Project2::Application.routes.draw do
 
   resources :auctions do
     resources :bids
-    post '/bid/:id/add_comment', to: 'bids#add_comment',as: :add_comment
+    post '/bids/:id/add_comment', to: 'bids#accept_bid',as: :accept_bid
   end
 
 end
