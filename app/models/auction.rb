@@ -92,6 +92,7 @@ class Auction < ActiveRecord::Base
                accepted_bids.select { |bid| bid.won == true}
           end
           if accepted_bids.length == self.num_of_req_bids
+              self.time_end = Time.now
               self.end_auction
           end
     end
