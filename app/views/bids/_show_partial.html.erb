@@ -1,15 +1,24 @@
 <% @bids.each do |bid| %>
 <div id="all-bids">
+
+
+<%= content_tag(:div, class: "bid", id: dom_id(hoot), data: {hoot_info: hoot}) do %>
   <% bidder = bid.user %>
     <%= link_to bidder do %>
       <%= bidder.name %>
       <img src="<%= bidder.profile_photo %>">
     <% end %>
 
-<% if @user == current_user %>
-  <button id="message-user">Message this user!</button>
-<% end %>
+  <% if @user == current_user %>
+    <button id="message-user">Message this user!</button>
+  <% end %>
 
+  <%= if current_user == bid.user %>
+  <%= link_to "delete", bid, method: :delete, remote: true %>
+  <% end %>
+
+<% end %>
 
 <!-- PLEASE DO NOT REMOVE, TRINITY'S
 setTimeout(cat.speak,2000); -->
+
