@@ -9,7 +9,7 @@ class Auction < ActiveRecord::Base
   belongs_to :auction_participants
 
    def time_left
-      return time_limit - Time.now
+      return time_end - time_begin
     end
 
    def is_completed?
