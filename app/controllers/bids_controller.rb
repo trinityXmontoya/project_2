@@ -15,8 +15,14 @@ class BidsController < ApplicationController
     end
   end
 
-
   def destroy
+    @bid=Bid.find(params[:id])
+    @auction = @bid.auction
+    @bid.destroy
+     respond_to do |format|
+        format.html {redirect_to @auction}
+        format.js{}
+      end
   end
 
 end
