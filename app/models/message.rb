@@ -12,6 +12,8 @@ class Message < ActiveRecord::Base
     self.update(viewed: true)
   end
 
+  #admin login requires simple email login, not facebook
+
   def self.auction_user(auction, user)
     auction_link = link_to(auction.name,auctions_path(auction))
     Message.create(sender_id: 000000, receiver_id: user.id,
@@ -28,8 +30,9 @@ class Message < ActiveRecord::Base
   def self.auction_loser(auction, user)
     auction_link = link_to(auction.name,auctions_path(auction))
     user_link = link_to(user.name,users_path(user))
+    all_auctions_link = link_to("all our auctions",auctions_path)
     Message.create(sender_id: 000000, receiver_id: user.id,
-    content: "Sorry #{user.name}! You did not win: #{auction_link} by #{user_link}. ")
+    content: "Sorry #{user.name}! You did not win: #{auction_link}. Check out #{}.")
   end
 
 
