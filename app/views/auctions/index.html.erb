@@ -1,2 +1,19 @@
-
+<h1>Auctions</h1>
 <%= render 'loc' %>
+<h3> Sort By </h3>
+<nav id="auctions-index-nav">
+  <li>Title</li>
+  <li>Location</li>
+  <li>Category</li>
+  <li>Created At</li>
+  <li>End Time</li>
+</nav>
+
+<div id="auctions-container">
+ <% @auctions.each do |auction| %>
+  <div class="auction">
+      <%= auction.title %><%= auction.description[0..100] %><%= auction.location %><%= auction.category %>
+      <div class="auctions-timer"><!-- COUNTDOWN --></div>
+  </div>
+<% end%>
+</div>
