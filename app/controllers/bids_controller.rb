@@ -19,13 +19,4 @@ class BidsController < ApplicationController
   def destroy
   end
 
-  def add_comment
-    @bid = Bid.find(params[:id])
-    @bid.update(comment: params[:bid][:comment])
-    respond_to do |format|
-      format.html { redirect_to @bid.auction}
-      format.js   { }
-    end
-  end
-
 end
