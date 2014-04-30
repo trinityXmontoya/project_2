@@ -68,6 +68,7 @@ class Auction < ActiveRecord::Base
     end
 
     def close_messaging
+      #will work on this method after messages is done
     end
 
   end
