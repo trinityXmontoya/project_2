@@ -40,7 +40,7 @@ class Auction < ActiveRecord::Base
     def end_auction
         notify_participants
         mark_notifications_sent
-        end_bidding
+        archive_bids
         close_messaging
     end
 
@@ -76,7 +76,7 @@ class Auction < ActiveRecord::Base
       return true
     end
 
-    def end_bidding
+    def archive_bids
       bids.each do |bid|
         bid.archive_bid
       end
