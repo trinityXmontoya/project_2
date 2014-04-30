@@ -1,5 +1,7 @@
 <%= form_for @auction do |f| %>
 
+  <%#= f.collection_select :category %>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
 
@@ -8,7 +10,6 @@
 
   <%= f.label :location %>
   <%= f.text_field :location %>
-
   <%= f.label :address %>
   <%= f.text_field :address %>
 

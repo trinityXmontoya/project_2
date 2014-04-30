@@ -14,19 +14,7 @@ class UsersController < ApplicationController
       @outgoing_bids = @user.bids{updated_at :desc}
       @messages = @user.messages{updated_at :desc}
     end
-    @completed_events = @bids + @auctions
   end
-
-  # def create
-  #   @user = User.new(user_params)
-
-  #   if @user.save
-  #     UserMailer.welcome_email(@user).deliver
-  #     redirect_to @user
-  #   else
-  #     render 'show'
-  #   end
-  # end
 
   def edit
     @user = User.find(params[:id])
@@ -56,7 +44,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :city, :bio, :zip_code)
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429133955) do
+ActiveRecord::Schema.define(version: 20140430165456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,13 +56,21 @@ ActiveRecord::Schema.define(version: 20140429133955) do
   end
 
   create_table "messages", force: true do |t|
-    t.integer  "sender_id"
-    t.integer  "receiver_id"
+    t.integer  "bid_id"
     t.integer  "auction_id"
-    t.text     "content"
+    t.text     "message"
     t.boolean  "viewed"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "searches", force: true do |t|
+    t.string   "keywords"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "users", id: false, force: true do |t|
@@ -70,11 +78,14 @@ ActiveRecord::Schema.define(version: 20140429133955) do
     t.string   "oauth_token"
     t.string   "name"
     t.string   "profile_photo"
-    t.string   "location"
+    t.string   "city"
     t.string   "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "provider"
+    t.string   "email"
+    t.integer  "oauth_token_expires_at"
+    t.integer  "zip_code"
   end
 
   add_index "users", ["id"], name: "index_users_on_id", unique: true, using: :btree
