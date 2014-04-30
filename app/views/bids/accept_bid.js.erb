@@ -1,2 +1,5 @@
 acceptedBid = $("#<%= dom_id(@bid) %>");
-acceptedBid.addClass("accepted-bid");
+acceptedBid.on("click", changeClass(){
+  acceptedBid.addClass("accepted-bid");
+});
+
