@@ -21,10 +21,28 @@ Auction.create(id: 5, user_id: '100008231200893', category_id: 3, location: 'Que
 >>>>>>> 29c9bc0603af4465d3636800faf924ae11fdaee9
 
 
-Category.create(id: 1, title: 'Adventure', description: 'Explore together!', badge_photo: 'http://m.c.lnkd.licdn.com/mpr/pub/image-OPaKMvn7tBkfxi01Ef3vup2nN2leeSlKX4aB_NQwN8N6owK6OPaBp217NUMeelCVWDR1/trinity-montoya.jpg')
+Category.create(id: 1, title: 'Food and Drinks', description: 'Explore together!', badge_photo: 'http://m.c.lnkd.licdn.com/mpr/pub/image-OPaKMvn7tBkfxi01Ef3vup2nN2leeSlKX4aB_NQwN8N6owK6OPaBp217NUMeelCVWDR1/trinity-montoya.jpg')
 Category.create(id: 2, title: 'Date', description: 'Have a romantic evening out', badge_photo: 'http://files.list.co.uk/images/2011/08/22/some-small-love-story-23506.jpg')
-Category.create(id: 3, title: 'Casual Encounter', description: 'Dispense with the Pleasantries', badge_photo: 'http://millerexpress.ca/wp-content/uploads/2014/01/casual-encounter.jpg')
-
+Category.create(id: 3, title: 'Coffee', description: 'Dispense with the Pleasantries', badge_photo: 'http://millerexpress.ca/wp-content/uploads/2014/01/casual-encounter.jpg')
+Category.create(id: 4, title: 'Culture', description: 'CULTURE!', badge_photo: 'http://m.c.lnkd.licdn.com/mpr/pub/image-OPaKMvn7tBkfxi01Ef3vup2nN2leeSlKX4aB_NQwN8N6owK6OPaBp217NUMeelCVWDR1/trinity-montoya.jpg')
+Category.create(id: 5, title: 'Sights', description: 'Lets see some sights, how beautiful', badge_photo: 'http://files.list.co.uk/images/2011/08/22/some-small-love-story-23506.jpg')
+Category.create(id: 6, title: 'Outdoors', description: 'What a beautiful day out', badge_photo: 'http://millerexpress.ca/wp-content/uploads/2014/01/casual-encounter.jpg')
+Category.create(id: 7, title: 'Adventure', description: 'Explore together!', badge_photo: 'http://m.c.lnkd.licdn.com/mpr/pub/image-OPaKMvn7tBkfxi01Ef3vup2nN2leeSlKX4aB_NQwN8N6owK6OPaBp217NUMeelCVWDR1/trinity-montoya.jpg')
+Category.create(id: 8, title: 'Arts and Culture', description: 'I am so cultured', badge_photo: 'http://files.list.co.uk/images/2011/08/22/some-small-love-story-23506.jpg')
+Category.create(id: 9, title: 'Dancing', description: 'Lets go dancing merengue', badge_photo: 'http://millerexpress.ca/wp-content/uploads/2014/01/casual-encounter.jpg')
+Category.create(id: 10, title: 'Music', description: 'Lets jam together brah!', badge_photo: 'http://m.c.lnkd.licdn.com/mpr/pub/image-OPaKMvn7tBkfxi01Ef3vup2nN2leeSlKX4aB_NQwN8N6owK6OPaBp217NUMeelCVWDR1/trinity-montoya.jpg')
+Category.create(id: 11, title: 'Spirituality', description: 'Peace and Love', badge_photo: 'http://files.list.co.uk/images/2011/08/22/some-small-love-story-23506.jpg')
+Category.create(id: 12, title: 'Tech', description: 'Changing society for the better', badge_photo: 'http://millerexpress.ca/wp-content/uploads/2014/01/casual-encounter.jpg')
+Category.create(id: 13, title: 'Sports and Recreation', description: 'Lets play some football bru!', badge_photo: 'http://m.c.lnkd.licdn.com/mpr/pub/image-OPaKMvn7tBkfxi01Ef3vup2nN2leeSlKX4aB_NQwN8N6owK6OPaBp217NUMeelCVWDR1/trinity-montoya.jpg')
+Category.create(id: 14, title: 'Fashion and Beauty', description: 'You look beautiful', badge_photo: 'http://files.list.co.uk/images/2011/08/22/some-small-love-story-23506.jpg')
+Category.create(id: 15, title: 'Education and Learning', description: 'I have been learning so much', badge_photo: 'http://millerexpress.ca/wp-content/uploads/2014/01/casual-encounter.jpg')
+Category.create(id: 16, title: 'Health and Wellbeing', description: 'Healthy Living', badge_photo: 'http://m.c.lnkd.licdn.com/mpr/pub/image-OPaKMvn7tBkfxi01Ef3vup2nN2leeSlKX4aB_NQwN8N6owK6OPaBp217NUMeelCVWDR1/trinity-montoya.jpg')
+Category.create(id: 17, title: 'Pets and Animals', description: 'Rate my kitten.com', badge_photo: 'http://files.list.co.uk/images/2011/08/22/some-small-love-story-23506.jpg')
+Category.create(id: 18, title: 'Movies and Film', description: 'Lets checkout some films', badge_photo: 'http://millerexpress.ca/wp-content/uploads/2014/01/casual-encounter.jpg')
+Category.create(id: 19, title: 'Movements and Politics', description: 'Mitt Romney is the devil, ZEITGEIST', badge_photo: 'http://m.c.lnkd.licdn.com/mpr/pub/image-OPaKMvn7tBkfxi01Ef3vup2nN2leeSlKX4aB_NQwN8N6owK6OPaBp217NUMeelCVWDR1/trinity-montoya.jpg')
+Category.create(id: 20, title: 'Fitness', description: 'I want to go running, will you join me?', badge_photo: 'http://files.list.co.uk/images/2011/08/22/some-small-love-story-23506.jpg')
+Category.create(id: 21, title: 'Hobbies and Crafts', description: 'Hobbies are so cool', badge_photo: 'http://millerexpress.ca/wp-content/uploads/2014/01/casual-encounter.jpg')
+Category.create(id: 22, title: 'Community and Environment', description: 'Lets cleanup the creek', badge_photo: 'http://m.c.lnkd.licdn.com/mpr/pub/image-OPaKMvn7tBkfxi01Ef3vup2nN2leeSlKX4aB_NQwN8N6owK6OPaBp217NUMeelCVWDR1/trinity-montoya.jpg')
 
 Bid.create(user_id: '100008291315808', auction_id: '1', comment: 'I would love to take you out baby', viewed: true)
 Bid.create(user_id: '100008317954643', auction_id: '5', comment: 'I want to do this with you so badly', viewed: false)
