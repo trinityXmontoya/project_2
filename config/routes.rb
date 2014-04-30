@@ -10,7 +10,7 @@ Project2::Application.routes.draw do
     resources :messages
   end
 
-  resources :categories
+  resources :categories, only: [:index]
 
   resources :auctions do
     resources :bids
