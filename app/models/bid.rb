@@ -5,10 +5,12 @@ belongs_to :auction
 
 has_many :categories
 
- def mark_all_as_viewed
-    self.each do |bid|
-      bid.update(viewed: true)
-    end
+ def mark_as_viewed
+    self.update(viewed: true)
+  end
+
+  def archive_bid
+    self.update(archived: true)
   end
 
 end
