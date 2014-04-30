@@ -6,7 +6,7 @@ class CreateAuctions < ActiveRecord::Migration
       t.string :location
       t.string :title
       t.text :description
-      t.datetime :time_start
+      t.datetime :time_begin
       t.datetime :time_end
       t.boolean :completed
       t.integer :num_of_winners
