@@ -11,6 +11,7 @@ class BidsController < ApplicationController
         format.html {redirect_to @bid.auction}
         format.js{}
       end
+    end
   end
 
 
@@ -19,6 +20,7 @@ class BidsController < ApplicationController
 
   def add_comment
     @bid = Bid.find(params[:id])
+
     @bid.update(comment: params[:bid][:comment])
     respond_to do |format|
       format.html { redirect_to @bid.auction}
