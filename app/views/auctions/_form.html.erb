@@ -9,6 +9,27 @@
   <%= f.label :location %>
   <%= f.text_field :location %>
 
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :category %>
+  <%= f.select :category, ['Adventure', 'Date', 'Dining'] %>
+
+  <%= f.label :img_url %>
+  <%= f.text_field :img_url %>
+
+  <%= f.label :website %>
+  <%= f.url :website %>
+
+  <%= f.label :event_date %>
+  <%= f.datetime :event_date %>
+
+  <%= f.label :time_begin %>
+  <%= f.datetime :time_begin %>
+
+  <%= f.label :time_end %>
+  <%= f.datetime :time_end %>
+
   <%= f.submit %>
 
 <% end %>
