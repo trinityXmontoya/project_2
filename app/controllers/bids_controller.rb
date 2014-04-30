@@ -17,12 +17,16 @@ class BidsController < ApplicationController
 
   def accept_bid
     @bid = Bid.find(params[:bid][:id])
+    unless auction.is_completed?
     @bid.accept
-    @bid.auction.calculate_accepted_bids
+      @bid.auction.calculate_accepted_bids
     respond_to do |format|
         format.html {redirect_to @bid.auction}
         format.js{}
       end
+    else
+      redirect_to @bid.auction, notice: "Bidding for this auction is closed."
+    end
   end
 
 
