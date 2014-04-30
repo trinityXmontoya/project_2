@@ -50,11 +50,13 @@ class Auction < ActiveRecord::Base
 
     def notify_participants
       #notify the auction creator
+      AuctionParticipant.create(auction: self, user: self.user)
       message_user
 
       bids.each do |bid|
         if bid.won
           #notify winners of the auction
+          AuctionParticipant.create(auction: self, user: bid.user)
           message_winner(bid.user)
         else
           #notify losers of the auction
@@ -63,12 +65,12 @@ class Auction < ActiveRecord::Base
       end
     end
 
-    def message_user(bid)
-      Message.auction_user(self,bid.user)
+    def message_user
+      Message.auction_user(self,user)
     end
 
-    def message_winner
-      Message.auction_winner(self,user)
+    def message_winner(bid)
+      Message.auction_winner(self,bid.user)
     end
 
     def message_loser(bid)
