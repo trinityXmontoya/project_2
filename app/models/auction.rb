@@ -22,6 +22,18 @@ class Auction < ActiveRecord::Base
       end
     end
 
+    def mark_notifications_sent
+      self.update(notifications_sent: true)
+      return true
+    end
+
+    def end_auction
+      notify_participants
+      mark_notifications_sent
+      end_bidding
+      close_messaging
+    end
+
     def notify_participants
       #notify the auction creator
       message_user
