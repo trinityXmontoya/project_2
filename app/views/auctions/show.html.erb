@@ -41,14 +41,6 @@ SECONDS: (time_left).round -->
 
 <%= render '../bids/show_partial' %>
 
-<div id="bid-comment-display">
-  <% if bid.comment.exists? %>
-    <%= bid.comment %>
-  <% else %>
-    <%= render '../bids/new_comment' %>
-  <% end %>
-</div>
-
 <% end %>
 </div>
 
