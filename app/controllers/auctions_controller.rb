@@ -1,34 +1,34 @@
 class AuctionsController < ApplicationController
 
   def index
-    query = params[:query]
-    @narrowed_results = Auction.search_for query
+    q = params[:location_zipcode]
+    # @narrowed_results = q.get_coords(q) what object can I call this on? auctions?
     # @user = current_user
-    if params[:query].present?
+    if q.present?
       # find auctions based on lat, lng and radius
     else
       @auctions = Auction.all
     end
   end
 
-def show
-    @auction = Auction.find params[:id]
-    @user = @auction.user
-    @bids = @auction.bids{updated_at :desc}
-    @bids.mark_all_as_viewed
-    @new_bid = Bid.new
-end
+  def show
+      @auction = Auction.find params[:id]
+      @user = @auction.user
+      @bids = @auction.bids{updated_at :desc}
+      @bids.mark_all_as_viewed
+      @new_bid = Bid.new
+  end
 
   def new
     @auction = Auction.new
   end
 
   def create
-    @auction = Auction.new
+    @auction = Auction.new auction_params
     if @auction.save
       latlng = @auction.get_location(@auction.location)
       @auction.save_location(latlng)
-
+      @auction.save
       redirect_to @auction
     else
       render 'new'
@@ -40,6 +40,7 @@ end
     if @auction.update
       latlng = @auction.get_location(@auction.location)
       @auction.save_location(latlng)
+      @auction.update
 
       redirect_to @auction
     else
@@ -61,7 +62,11 @@ end
     @auction = Auction.find(params[:id])
     @auction.destroy
     redirect_to '/'
+  end
 
+  private
+  def auction_params
+    params.require(:auction).permit(:user_id, :category_id, :location, :title, :description, :time_limit, :completed, :viewed, :latitude, :longitude)
   end
 
 end
