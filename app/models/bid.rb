@@ -13,4 +13,7 @@ has_many :categories
     self.update(archived: true)
   end
 
+  #TODO
+  # VALIDATE UNIQUENESS OF BID WITHIN SCOPE OF THE AUCTION_ID
+
 end
