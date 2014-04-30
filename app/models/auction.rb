@@ -30,33 +30,67 @@ class Auction < ActiveRecord::Base
     return Time.now - time_limit
   end
 
-# method:
-
-# is completed
-# check if the auction time limit is 0 then if it is, then set it to completed status to true,
-
-# another method whimenow - created atch calculates what the time limit is, the auction.ti
-
-# if auction.completed is true
-#   time remaining should be in jquery.
-
-#   time.now-time_limit = time_left
-
-
-#   user show controller, make a variable for each thing that the
-
- def time_left
-    return time_limit - Time.now
-  end
-
- def is_completed?
-    if time_left > 0
-      return false
-    else
-      self.update(completed: true)
-      self.save!
-    return true
+   def time_left
+      return time_end - time_begin
     end
-  end
+
+   def is_completed?
+      if time_left > 0
+        return false
+      else
+        self.update(completed: true)
+        self.save!
+      return true
+      end
+    end
+
+    def end_auction
+        notify_participants
+        mark_notifications_sent
+        archive_bids
+        close_messaging
+    end
+
+    def notify_participants
+      #notify the auction creator
+      message_user
+
+      bids.each do |bid|
+        if bid.won
+          #notify winners of the auction
+          message_winner(bid.user)
+        else
+          #notify losers of the auction
+          message_loser(bid.user)
+        end
+      end
+    end
+
+    def message_user(bid)
+      Message.auction_user(self,bid.user)
+    end
+
+    def message_winner
+      Message.auction_winner(self,user)
+    end
+
+    def message_loser(bid)
+      Message.auction_loser(self,bid.user)
+    end
+
+    def mark_notifications_sent
+      self.update(notifications_sent: true)
+      return true
+    end
+
+    def archive_bids
+      bids.each do |bid|
+        bid.archive_bid
+      end
+    end
+
+    def close_messaging
+      #will work on this method after messages is done
+    end
 
 end
