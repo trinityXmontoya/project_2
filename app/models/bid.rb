@@ -5,7 +5,11 @@ belongs_to :auction
 
 has_many :categories
 
- def mark_as_viewed
+  def accept
+    self.update(won: true)
+  end
+
+  def mark_as_viewed
     self.update(viewed: true)
   end
 
