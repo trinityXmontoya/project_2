@@ -19,6 +19,7 @@ def show
     @new_bid = Bid.new
 end
 
+
   def new
     @auction = Auction.new
   end
