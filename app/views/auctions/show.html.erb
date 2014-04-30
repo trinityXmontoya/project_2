@@ -28,8 +28,9 @@ SECONDS: (time_left).round -->
 
 <div id="auction-bids">
 
-  <div id="add_bid">
-    <% unless current_user == @user %>
+
+    <% unless current_user == @user || @auction.is_completed? %>
+     <div id="add_bid">
       <p>Add Bid!</p>
       <%= form_for @bid, remote: true do %>
         <%= f.label :comment %>
