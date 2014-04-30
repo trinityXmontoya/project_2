@@ -41,6 +41,7 @@ class Auction < ActiveRecord::Base
           #notify losers of the auction
           message_loser(bid.user)
         end
+      end
     end
 
     def message_user(bid)
