@@ -19,7 +19,6 @@ class AuctionsController < ApplicationController
     @bid = Bid.new
   end
 
-
   def new
     @auction = Auction.new
   end
@@ -49,6 +48,16 @@ class AuctionsController < ApplicationController
       else
         render 'edit'
       end
+  end
+
+  def accept_badge
+    if self.auction_participants.includes? current_user
+      current_user.badges << auction.category.id
+        respond_to do |format|
+        format.html{redirect_to @auction}
+        format.js {}
+      end
+    end
   end
 
   def destroy
