@@ -2,7 +2,7 @@
 <div id="all-bids">
 
 
-<%= content_tag(:div, class: "bid", id: dom_id(hoot), data: {hoot_info: hoot}) do %>
+<%= content_tag(:div, class: "bid", id: dom_id(bid), data: {bid_info: bid}) do %>
   <% bidder = bid.user %>
     <%= link_to bidder do %>
       <%= bidder.name %>
@@ -11,10 +11,11 @@
 
   <% if @user == current_user %>
     <button id="message-user">Message this user!</button>
+    <%= link_to "Accept this bid!", bid, auction_accept_bid(bid), remote: true %>
   <% end %>
 
   <%= if current_user == bid.user %>
-  <%= link_to "delete", bid, method: :delete, remote: true %>
+  <%= link_to "delete", bid, method: :accept_bid, remote: true %>
   <% end %>
 
 <% end %>
