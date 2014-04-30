@@ -1,0 +1,6 @@
+var newBid = $("<%= j(render @bid)%>").hide();
+$('#all-bids').append(newBid);
+newBid.fadeIn(1000);
+
+// clear bid comment form
+$("input[type='text']").val("");

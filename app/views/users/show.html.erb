@@ -29,10 +29,9 @@
 <!-- Bid section -->
            <div id="bids-notifications">
 
-              <div id="recieved bids">
-                <% @recieved_bids.each do |bid| %>
-                  <%= bid.created_at %><%= bid.comment %>
-                <%end %>
+              <div id="recieved-bids">
+               <%= render '../bids/show_complete' %>
+               
               </div>
               <div id="outgoing-bids">
                 <% @outgoing_bids.each do |bid| %>
