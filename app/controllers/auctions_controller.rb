@@ -21,6 +21,7 @@ class AuctionsController < ApplicationController
 
   def new
     @auction = Auction.new
+    @categories = Category.all
   end
 
   def create

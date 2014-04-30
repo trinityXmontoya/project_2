@@ -1,9 +1,12 @@
 class Auction < ActiveRecord::Base
-  has_many :categories
-  has_many :bids
-  has_many :messages
-  belongs_to :user
-  belongs_to :auction_participants
+    has_many :categories, :through => :categorizations
+    accepts_nested_attributes_for :categorizations
+    has_many :bids
+    has_many :messages
+    belongs_to :user
+    belongs_to :auction_participants
+  end
+
 
   def self.search_for(query)
     # self.where('')
