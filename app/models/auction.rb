@@ -86,4 +86,15 @@ class Auction < ActiveRecord::Base
       #will work on this method after messages is done
     end
 
+    def calculate_accepted_bids
+      accepted_bids = []
+          bids.each do |bid|
+               accepted_bids.select { |bid| bid.won == true}
+          end
+          if accepted_bids.length == self.num_of_req_bids
+              self.end_auction
+          end
+    end
+
+
 end

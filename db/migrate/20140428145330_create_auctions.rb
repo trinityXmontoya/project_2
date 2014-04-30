@@ -9,7 +9,7 @@ class CreateAuctions < ActiveRecord::Migration
       t.datetime :time_begin
       t.datetime :time_end
       t.boolean :completed
-      t.integer :num_of_winners
+      t.integer :num_of_req_bids
       t.string :address
       t.string :website
       t.string :img_url

@@ -16,8 +16,9 @@ class BidsController < ApplicationController
 
 
   def accept_bid
-    @bid = Bid.find(params[:id])
+    @bid = Bid.find(params[:bid][:id])
     @bid.accept
+    @bid.auction.calculate_accepted_bids
     respond_to do |format|
         format.html {redirect_to @bid.auction}
         format.js{}

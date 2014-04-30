@@ -1,7 +1,6 @@
 <% @bids.each do |bid| %>
+
 <div id="all-bids">
-
-
 <%= content_tag(:div, class: "bid", id: dom_id(bid), data: {bid_info: bid}) do %>
   <% bidder = bid.user %>
     <%= link_to bidder do %>
