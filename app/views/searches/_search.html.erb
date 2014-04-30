@@ -5,6 +5,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :distance %><br />
+    <%= f.text_field :distance %>
+  </div>
+
+  <div class="field">
     <%= f.label :category_id %><br />
     <%= f.collection_select :category_id, Category.order(:title), :id, :title, include_blank: true %>
   </div>

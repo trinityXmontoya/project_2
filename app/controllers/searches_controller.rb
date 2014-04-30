@@ -10,6 +10,8 @@ class SearchesController < ApplicationController
         results = @search.get_location(@search.keywords)
         @search.save_location(results)
         @search.save
+        @search.caluculate_results(@search.latitude, @search.longitude, @search.distance)
+        @search.save
         redirect_to @search
       else
         render 'new'

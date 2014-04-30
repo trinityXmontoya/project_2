@@ -7,7 +7,7 @@ class Auction < ActiveRecord::Base
   belongs_to :auction_participants
 
   def get_location(address)
-    escaped_address = address.downcase.gsub(  " ", "+")
+    escaped_address = address.downcase.gsub(" ", "+")
     results = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{escaped_address}&sensor=true&key=#{ENV['GOOGLE_GEOCODING_KEY']}")
   end
 
