@@ -25,14 +25,15 @@ class AuctionsController < ApplicationController
   end
 
   def create
-    @auction = Auction.new
+    @auction = Auction.create(auction_params)
+    @auction.add_end_time
     if @auction.save
       latlng = @auction.get_location(@auction.location)
       @auction.save_location(latlng)
 
       redirect_to @auction
     else
-      render 'new'
+      render 'new', notice: "Please fix the following errors."
     end
   end
 
@@ -54,7 +55,10 @@ class AuctionsController < ApplicationController
     @auction = Auction.find_by(params[:id])
     @auction.destroy
     redirect_to '/'
+  end
 
+  private
+  def auction_params
   end
 
 end
