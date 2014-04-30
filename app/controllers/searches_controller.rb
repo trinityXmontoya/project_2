@@ -10,8 +10,6 @@ class SearchesController < ApplicationController
         results = @search.get_location(@search.keywords)
         @search.save_location(results)
         @search.save
-        @search.caluculate_results(@search.latitude, @search.longitude, @search.distance)
-        @search.save
         redirect_to @search
       else
         render 'new'
@@ -20,11 +18,12 @@ class SearchesController < ApplicationController
 
   def show
     @search = Search.find params[:id]
+    @results = @search.calculate_results(@search.latitude, @search.longitude, @search.distance)
   end
 
   private
   def search_params
-    params.require(:search).permit(:search)
+    params.require(:search).permit(:search, :keywords, :latitude, :longitude, :distance)
   end
 
 end

@@ -10,49 +10,38 @@ class Search < ActiveRecord::Base
     self.longitude = results['results'][0]['geometry']['location']['lng']
   end
 
-  def calculate_results(search_lat, search_long, distance)
+  def calculate_results(search_lat, search_lng, distance)
     results = []
     search_lat = self.latitude
-    search_long = self.longitude
+    search_lng = self.longitude
 
-
-    # how do i get all auctions in here?
     Auction.all.each do |auction|
-
-      # a = search_lat - auction.latitude
-      # b = search_long - auction.longitude
-      # c = (a ** 2) + (b ** 2)
-      # search_distance = Math.sqrt(c)
-      # # distance and how far need to be the same type of measurement
-      # if search_distance < distance
-      #   results << auction
-      # end
-
-      if haversine(search_lat ,search_long ,auction.latitude ,auction.longitude) <= distance
-        return auction
+      searched_distance = auction.haversine(search_lat, search_lng, auction.latitude, auction.longitude)
+      if searched_distance <= distance
+        results << auction
       end
     end
-    # return results
+    return results
   end
 
-  def self.haversine(lat1, long1, lat2, long2)
-    dtor = Math::PI/180
-    r = 6378.14*1000
+  # def haversine(lat1, lng1, lat2, lng2)
+  #   dtor = Math::PI/180
+  #   radius_miles = 3959
 
-    rlat1 = lat1 * dtor
-    rlong1 = long1 * dtor
-    rlat2 = lat2 * dtor
-    rlong2 = long2 * dtor
+  #   rlat1 = lat1 * dtor
+  #   rlng1 = lng1 * dtor
+  #   rlat2 = lat2 * dtor
+  #   rlng2 = lng2 * dtor
 
-    dlon = rlong1 - rlong2
-    dlat = rlat1 - rlat2
+  #   dlng = rlng1 - rlng2
+  #   dlat = rlat1 - rlat2
 
-    a = power(Math::sin(dlat/2), 2) + Math::cos(rlat1) * Math::cos(rlat2) * power(Math::sin(dlon/2), 2)
-    c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1-a))
-    d = r * c
+  #   a = (Math::sin(dlat / 2) ** 2) + Math::cos(rlat1) * Math::cos(rlat2) * (Math::sin(dlng / 2) ** 2)
+  #   c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1 - a))
+  #   d = radius_miles * c
 
-    return d
-  end
+  #   return d
+  # end
 
   def auctions
     @auctions ||= get_auctions
@@ -60,8 +49,17 @@ class Search < ActiveRecord::Base
 
   private
   def get_auctions
-    auctions = Auction.order(:location)
+    auctions = Auction.all.order(:location)
     # rails AR queries for lat and lng on database
   end
 
 end
+
+      # a = search_lat - auction.latitude
+      # b = search_lng - auction.longitude
+      # c = (a ** 2) + (b ** 2)
+      # search_distance = Math.sqrt(c)
+      # # distance and how far need to be the same type of measurement
+      # if search_distance < distance
+      #   results << auction
+      # end
