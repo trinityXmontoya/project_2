@@ -3,4 +3,3 @@ task end_auction: :environment do
   auctions = Auction.where(completed: true, notifications_sent: false)
   auctions.each {|auction| auction.end_auction}
 end
-
