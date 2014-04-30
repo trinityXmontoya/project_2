@@ -21,11 +21,12 @@ end
   end
 
   def create
-    @auction = Auction.new
+    @auction = Auction.create(auction_params)
+    @auction.add_end_time
     if @auction.save
       redirect_to @auction
     else
-      render 'new'
+      render 'new', notice: "Please fix the following errors."
     end
   end
 
@@ -47,7 +48,10 @@ end
     @auction = Auction.find_by(params[:id])
     @auction.destroy
     redirect_to '/'
+  end
 
+  private
+  def auction_params
   end
 
 end
