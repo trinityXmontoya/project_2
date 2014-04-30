@@ -1,6 +1,5 @@
 class BidsController < ApplicationController
 
-
   def create
     @auction = Auction.find(params[:auction_id])
     @bid=Bid.new(auction: @auction, user: @auction.user, comment: params[:bid][:comment] )
@@ -14,6 +13,17 @@ class BidsController < ApplicationController
       end
     end
   end
+
+
+  def accept_bid
+    @bid = Bid.find(params[:id])
+    @bid.accept
+    respond_to do |format|
+        format.html {redirect_to @bid.auction}
+        format.js{}
+      end
+  end
+
 
   def destroy
     @bid=Bid.find(params[:id])
