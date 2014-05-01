@@ -1,12 +1,9 @@
 class Auction < ActiveRecord::Base
-    has_many :categories, :through => :categorizations
-    accepts_nested_attributes_for :categorizations
-    has_many :bids
-    has_many :messages
-    belongs_to :user
-    belongs_to :auction_participants
-  end
-
+  has_many :categories
+  has_many :bids
+  has_many :messages
+  belongs_to :user
+  belongs_to :auction_participants
 
   def self.search_for(query)
     # self.where('')
@@ -18,7 +15,7 @@ class Auction < ActiveRecord::Base
 
   def get_location(address)
     address = address.downcase.gsub(" ", "+")
-    latlng = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=true&key=#{ENV['GOOGLE_GEOCODING_KEY']}")['results'][0]['geometry']['location']
+    latlng = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=true&key=#{ENV['...']}")['results'][0]['geometry']['location']
   end
 
   def save_location(latlng)
@@ -26,11 +23,11 @@ class Auction < ActiveRecord::Base
     self.longitude = latlng['lng']
   end
 
-   def time_left
+  def time_left
       return time_end - time_begin
     end
 
-   def is_completed?
+  def is_completed?
       if time_left > 0
         return false
       else
@@ -98,7 +95,7 @@ class Auction < ActiveRecord::Base
     def calculate_accepted_bids
       accepted_bids = []
           bids.each do |bid|
-               accepted_bids.select { |bid| bid.won == true}
+              accepted_bids.select { |bid| bid.won == true}
           end
           if accepted_bids.length == self.num_of_req_bids
               self.time_end = Time.now

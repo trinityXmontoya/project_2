@@ -1,11 +1,7 @@
 class Category < ActiveRecord::Base
   belongs_to :auction
-<<<<<<< HEAD
-  has_many :categorizations,
-  has_many :auctions, :through => :categorizations
+  has_many :auctions
 
-  validates :name, :presence => true
-=======
 
 
   def self.retrieve_user_badges(user_badges)
@@ -15,9 +11,7 @@ class Category < ActiveRecord::Base
     end
     return badges
   end
-
-
->>>>>>> 59576171e9e1da99a71997f48239b7e31eadcaa1
 end
+
 
 
