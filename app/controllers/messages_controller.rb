@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create(content:params[:message][:content],sender_id: params[:message][:auction].user_id,receiver_id: params[:message][:bid].user_id)
+    @message = Message.create!(content:params[:message][:content],sender_id: current_user.id,receiver_id: (params[:message][:bid]).user_id, auction_id: params[:message][:auction_id])
     @auction = @message.auction
     if @auction.is_completed?
       @message.destroy
@@ -31,6 +31,10 @@ class MessagesController < ApplicationController
   #   end
   # end
 
+  private
+  def message_params
+    params.require(:message).permit(:content)
+  end
 
 
 end

@@ -1,10 +1,11 @@
-<%= form_for [@new_message, current_user], remote: true do |f| %>
+<%= form_for [current_user, @new_message], method: :post, remote: true do |f| %>
 
   <%= f.label :auction_id %>
-  <%= f.select :auction_id, current_user.auctions %>
+  <% auctions = current_user.auctions.each{|auction|auction.title}%>
+  <%= f.select :auction_id, auctions  %>
 
-  <%= f.label :bid_id %>
-  <%= f.select :bid_id, current_user.auctions.bids %>
+  <%= f.label :receiver_id %>
+  <%= f.number_field :receiver_id%>
 
 
   <%= f.label :content %>
