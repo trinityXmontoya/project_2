@@ -34,18 +34,18 @@
               <div id="outgoing-bids">
                <%= render '/bids/show_complete' %>
               </div>
-
+            <% if @bids.length != 0 %>
               <div id="received-bids">
                 <% @outgoing_bids.each do |bid| %>
                  <%= bid.created_at %><%= bid.comment[0..100] %>
-<<<<<<< HEAD
-                 <div><%= form_tag("/create-tweet") do %>
+            <% end %>
+<!-- where did this come from? this can't be here -->
+<!--                  <div><%= form_tag("/create-tweet") do %>
 <%= hidden_field_tag :tweet, auction.content%>
 <%= submit_tag("Tweet") %>
-                </div>
-=======
->>>>>>> 85f5f5e3d27c3eaffb8a9d4e77c60924ab3a8f0d
-                <% end %>
+                </div> -->
+                <!-- end -->
+            <% end %>
               </div>
 
 <!-- Auction section -->
@@ -65,4 +65,7 @@
     </div>
 
   <% end %>
+  <!-- end missing from last merge -->
+<% end %>
+
 
