@@ -1,0 +1,23 @@
+
+  <% if current_user %>
+    <div id='all-messages'>
+      <p style='background-color:red'>I work! Look I work!</p>
+      <% current_user.messages.each do |message| %>
+        <div class='message-info'>
+          <% bidder = User.find(message.receiver_id) %>
+            <% link_to bidder do %>
+              <div class='message-user-info'>
+                <%= bidder.profile_photo %>
+                <%= bidder.name %>
+              </div>
+            <% end %>
+            <% link_to message do %>
+              <div class='message'>
+                <%= message.created_at %>
+                <%= message.content %>
+              </div>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
