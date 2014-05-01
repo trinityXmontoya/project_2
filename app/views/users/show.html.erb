@@ -8,6 +8,7 @@
   </div>
 
   <div id="categories">
+    <h1>Badges:</h1>
     <% @badges.each do |badge| %>
     <img id="badge-photo" src="<%= badge.badge_photo %>">
     <%end%>
@@ -31,21 +32,12 @@
 
               <div id="recieved-bids">
                <%= render '/bids/show_complete' %>
-               <% end %>
               </div>
               <div id="outgoing-bids">
                 <% @outgoing_bids.each do |bid| %>
                  <%= bid.created_at %><%= bid.comment[0..100] %>
                 <% end %>
               </div>
-
-<!--            <div id="bids-notifications">
-              <% @bids.each do |bid| %>
-                <%= @bid.created_at %><%= @bid. %>
-              <% end %>
-                <%= @bid.created_at %><%= @bid %>
-            <% end %>
-          </div> -->
 
 <!-- Auction section -->
            <div id="auctions-notifications">
@@ -61,5 +53,3 @@
 
   <% end %>
 
-
-  <%#end%>

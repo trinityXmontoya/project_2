@@ -2,6 +2,8 @@
 
 <%= render '/bids/show_partial' %>
 
+
+<% @bids.each do |bid| %>
 bid on
 <%= link_to @auction do %>
   <%= @auction.title %>
@@ -10,11 +12,4 @@ bid on
 <% end %>
 at
 <%= bid.created_at.strftime("%D%H")%>
-
-<!--
-<%= link_to @user do %>
-  <%= @user.name %>
-  <img src="<%= @user.profile_photo %>">
-<% end %> -->
-
-</div>
+<% end %>
