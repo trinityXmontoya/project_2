@@ -12,10 +12,6 @@ class Message < ActiveRecord::Base
     self.update(viewed: true)
   end
 
-  def archive
-    self.update(archived: true)
-  end
-
   #admin login requires simple email login, not facebook
 
   def self.badge_acceptance(auction)

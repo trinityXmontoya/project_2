@@ -2,7 +2,7 @@ class BidsController < ApplicationController
 
   def create
     @auction = Auction.find(params[:auction_id])
-    @bid=Bid.new(auction: @auction, user: current_user, comment: params[:bid][:'comment'] )
+    @bid=Bid.new(auction: @auction, user: @auction.user, comment: params[:bid][:comment] )
     if current_user.bids.include? @auction
       redirect_to @auction, notice: "You may only bid on an auction once."
     else
@@ -38,11 +38,6 @@ class BidsController < ApplicationController
         format.html {redirect_to @auction}
         format.js{}
       end
-  end
-
-  private
-  def bid_params
-    params.require(:bid).permit(:bid)
   end
 
 end

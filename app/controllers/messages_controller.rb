@@ -15,15 +15,9 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create(content:params[:message][:content],sender_id: params[:message][:auction].user_id,receiver_id: params[:message][:bid].user_id)
-    @auction = @message.auction
-    if @auction.is_completed?
-      @message.destroy
-      redirect_to @auction, notice: "Sorry, this auction is over and messaging is disabled."
-    else
     respond_to do |format|
       format.html{redirect_to @message}
       format.js {}
-    end
     end
   end
 

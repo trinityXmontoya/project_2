@@ -3,6 +3,7 @@ class CreateAuctions < ActiveRecord::Migration
     create_table :auctions do |t|
       t.references :user, :limit => 8
       t.references :category
+      t.string :location
       t.string :title
       t.text :description
       t.datetime :time_begin

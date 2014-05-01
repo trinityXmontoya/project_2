@@ -7,18 +7,9 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
-<<<<<<< HEAD
-*/
-require bootstrap
-require bootstrap-datetimepicker
-require_self
-require_tree .
-
-#all-messages {
-  position: absolute;
-  margin: 0;
-  right: 0;
-  width: 300px;
-  background-color: blue;
-  height: 100%
-}
+ *
+ *= require bootstrap
+ *= require bootstrap-datetimepicker
+ *= require_self
+ *= require_tree .
+ */

@@ -10,16 +10,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">SnapDate</a>
+      <a class="navbar-brand" href="#">SnapDate</a>
     </div><!-- end brand header-->
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active">placeholder<img src="<%#= asset_path 'logo.png' %>" width="120"></li>
+        <li class="active">placeholder<img src="<%#= asset_path 'logo.png' %>" width="120"></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
+
           <li><%= link_to "Hello, " + current_user.name + "!", user_path(current_user) %></li>
+          <li><%= link_to "Current Auctions", auctions_path %></li>
           <li><%= link_to "Create Auction", new_auction_path %></li>
-          <a id="show-inbox">Message Inbox</a>
           <li><%= link_to 'Log Out', logout_path %></li>
         <% else %>
           <li><%= link_to "Connect with Facebook", "/auth/facebook" %></li>
@@ -28,9 +33,3 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-<%= render '/messages/all_messages' %>
-
-
-
-
