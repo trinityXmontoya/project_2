@@ -1,14 +1,7 @@
 class AuctionsController < ApplicationController
 
   def index
-    query = params[:query]
-    @narrowed_results = Auction.search_for query
-    # @user = current_user
-    if params[:query].present?
-      # find auctions based on lat, lng and radius
-    else
-      @auctions = Auction.all
-    end
+    @auctions = Auction.all
   end
 
   def show
@@ -24,24 +17,34 @@ class AuctionsController < ApplicationController
   end
 
   def create
-    @auction = Auction.create(auction_params)
+    @auction = Auction.new auction_params
     @auction.add_end_time(@auction.time_end)
     if @auction.save
-      latlng = @auction.get_location(@auction.location)
-      @auction.save_location(latlng)
-
+      results = @auction.get_location(@auction.location)
+      @auction.save_location(results)
+      @auction.save
       redirect_to @auction
     else
       render 'new', notice: "Please fix the following errors."
     end
   end
 
+
   def edit
-    @auction = Auction.find_by(params[:id])
+    @auction = Auction.find(params[:id])
+    if @auction.update
+      latlng = @auction.get_location(@auction.location)
+      @auction.save_location(latlng)
+      @auction.update
+
+      redirect_to @auction
+    else
+      render 'edit'
+    end
   end
 
   def update
-    @auction = Auction.find_by(params[:id])
+    @auction = Auction.find(params[:id])
     @auction.update
       if @auction.save?
         redirect_to @auction
@@ -61,13 +64,21 @@ class AuctionsController < ApplicationController
   end
 
   def destroy
-    @auction = Auction.find_by(params[:id])
+    @auction = Auction.find(params[:id])
     @auction.destroy
     redirect_to '/'
   end
 
+  def create_tweet
+    tweet_string = params[:tweet]
+    @send_code = Tweet.create_tweet(tweet_string)
+    render text: @send_code
+  end
+
   private
   def auction_params
+    params.require(:auction).permit(:user_id, :category_id, :title, :description, :time_end, :time_begin, :event_date, :completed, :viewed, :latitude, :longitude)
+
   end
 
 end

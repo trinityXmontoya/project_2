@@ -36,6 +36,10 @@
               <div id="outgoing-bids">
                 <% @outgoing_bids.each do |bid| %>
                  <%= bid.created_at %><%= bid.comment[0..100] %>
+                 <div><%= form_tag("/create-tweet") do %>
+<%= hidden_field_tag :tweet, dare.content%>
+<%= submit_tag("Tweet") %>
+                </div>
                 <% end %>
               </div>
 

@@ -1,5 +1,5 @@
 <h1>Auctions</h1>
-<%= render 'loc' %>
+<%= link_to 'Search Auctions by Location', new_search_path %>
 <h3> Sort By </h3>
 <nav id="auctions-index-nav">
   <li>Title</li>
@@ -11,9 +11,17 @@
 
 <div id="auctions-container">
  <% @auctions.each do |auction| %>
+ <%= link_to auction do %>
   <div class="auction">
-      <%= auction.title %><%= auction.description[0..100] %><%= auction.location %><%= auction.category %>
+    <br>
+      Title: <%= auction.title %>
+      <br>
+      Description:<%= auction.description[0..100] %>
+      <br>
+      Category:<%= Category.find(auction.category_id).title %>
       <div class="auctions-timer"><!-- COUNTDOWN --></div>
+      <br>
   </div>
+<% end%>
 <% end%>
 </div>

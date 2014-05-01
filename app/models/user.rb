@@ -20,11 +20,11 @@ belongs_to :auction_participants
     where(auth.slice(:provider, :id)).first_or_initialize.tap do |user|
       user.id = auth.uid
       user.oauth_token = auth.credentials.token
-      # FIXME may need oauth expires at column, don't remember how strict facebook is with this
-      # FIXME should we add an email attribute to user?
+      user.oauth_token_expires_at = auth.credentials.expires_at
+      user.email = auth.info.email
       user.name = auth.info.first_name
       user.profile_photo = auth.info.image
-      user.location = auth.info.location
+      user.city = auth.info.location
       user.save!
     end
   end

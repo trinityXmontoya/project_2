@@ -6,9 +6,6 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
   <br>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <br>
   <%= f.label :address %>
   <%= f.text_field :address %>
   <br>
@@ -22,13 +19,13 @@
   <%= f.url_field :website %>
   <br>
   <%= f.label :event_date %>
-  <%= f.select_datetime :event_date %>
+  <%= f.datetime_select :event_date %>
   <br>
   <%= f.label :time_begin %>
-  <%= f.select_datetime :time_begin %>
+  <%= f.datetime_select :time_begin %>
   <br>
   <%= f.label :time_end %>
-  <%= f.select_datetime :time_end %>
+  <%= f.datetime_select :time_end %>
   <br>
   <%= f.label :num_of_req_bids %>
   <%= f.number_field(:num_of_req_bids, in: 1..10) %>
@@ -52,6 +49,9 @@
     </div>
 </div>
 <br>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
   <%= f.submit %>
 
 <% end %>
