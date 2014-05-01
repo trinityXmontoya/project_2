@@ -1,5 +1,11 @@
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker1').datetimepicker();
+  });
+</script>
+
 <div class="form-group">
-  <div class="col-sm-8">
+  <div class="col-sm-6">
     <%= form_for @auction do |f| %>
 
       <%= f.label :title %>
@@ -20,8 +26,13 @@
       <%= f.label :website %>
       <%= f.url_field :website, class: 'form-control' %>
       <br>
+      <!-- begin bootstrap datetimepicker -->
       <%= f.label :event_date %>
-      <%= f.datetime_field :event_date, class: 'form-control' %>
+      <div class='input-group date' id='datetimepicker1'>
+        <%= f.datetime_field :event_date, class: 'form-control'%>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+      <!-- end bootstrap datetimepicker -->
+      </div>
       <br>
       <%= f.label :time_begin, "Start Auction On:" %>
       <%= f.datetime_select :time_begin, class: 'form-control' %>
