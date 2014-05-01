@@ -2,34 +2,37 @@
 
   <%= f.label :title %>
   <%= f.text_field :title %>
-
+  <br>
   <%= f.label :description %>
   <%= f.text_field :description %>
-
+  <br>
   <%= f.label :location %>
   <%= f.text_field :location %>
-
+  <br>
   <%= f.label :address %>
   <%= f.text_field :address %>
-
-  <%= f.label :category %>
-  <%= f.select :category, ['Adventure', 'Date', 'Dining'] %>
-
+  <br>
+  <%= f.label :category_id %>
+  <%= f.select :category_id, Category.all.collect {|category| [category.name,category.id]}%>
+  <br>
   <%= f.label :img_url %>
   <%= f.text_field :img_url %>
-
+  <br>
   <%= f.label :website %>
-  <%= f.url :website %>
-
+  <%= f.url_field :website %>
+  <br>
   <%= f.label :event_date %>
-  <%= f.datetime :event_date %>
-
+  <%= f.datetime_field :event_date %>
+  <br>
   <%= f.label :time_begin %>
-  <%= f.datetime :time_begin %>
-
+  <%= f.datetime_field :time_begin %>
+  <br>
   <%= f.label :time_end %>
-  <%= f.datetime :time_end %>
-
+  <%= f.datetime_field :time_end %>
+  <br>
+  <%= f.label :num_of_req_bids %>
+  <%= f.number_field(:num_of_req_bids, in: 1..10) %>
+  <br>
   <%= f.submit %>
 
 <% end %>
