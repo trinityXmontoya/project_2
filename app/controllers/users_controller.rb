@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       @messages = @user.messages{updated_at :desc}
     end
     @badges = Category.retrieve_user_badges(@user.badges)
+
   end
 
   def edit

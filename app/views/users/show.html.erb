@@ -35,24 +35,30 @@
               <div id="outgoing-bids">
                <%= render '/bids/show_complete' %>
               </div>
-            <% if @bids.length != 0 %>
+            <% if @bids != nil %>
               <div id="received-bids">
-                <% @outgoing_bids.each do |bid| %>
-                 <%= bid.created_at %><%= bid.comment[0..100] %>
-                <% end %>
+
+                 <% if @outgoing_bids != nil %>
+                  <% @outgoing_bids.each do |bid| %>
+                   <%#= bid.created_at %><%#= bid.comment[0..100] %>
+                  <% end %>
+                 <% end %>
+
               </div>
-            <% end %>
 
 <!-- Auction section -->
            <div id="auctions-notifications">
-            <h4>Current Auctions</h4>
-            <% @auctions.each do |auction| %>
-              <%= link_to auction.title, auction %>
-              <li>Ending at: <%= auction.time_end %></li>
-              <br>
+             <% if @auctions != nil %>
+             <h3>Current Auctions</h3>
+              <% @auctions.each do |auction| %>
+                <ul>
+                  <li><%= link_to auction.title, auction %></li>
+                </ul>
+              <%end%>
             <%end%>
           </div>
       </div>
     </div>
+  <% end %>
 
 <% end %>

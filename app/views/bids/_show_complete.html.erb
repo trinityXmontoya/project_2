@@ -2,7 +2,7 @@
 
 <%= render '/bids/show_partial' %>
 
-
+<% if @bids != nil %>
 <% @bids.each do |bid| %>
 bid on
 <%= link_to bid.auction do %>
@@ -12,4 +12,5 @@ bid on
 <% end %>
 at
 <%= bid.created_at.strftime("%D%H")%>
+<% end %>
 <% end %>
