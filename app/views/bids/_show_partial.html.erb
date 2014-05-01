@@ -12,8 +12,8 @@
     <% end %>
 
   <% if @user == current_user %>
-    <button id="message-user">Message this user!</button>
-    <%= link_to "Accept this bid!", bid, auction_accept_bid_path(bid), remote: true %>
+    <%= button_to "Message User", @message, action: :message_user, method: :post %>
+    <%= button_to "Accept this bid!", [bid.auction,bid], action: :accept_bid, method: :post, remote: true %>
   <% end %>
 
   <% if current_user == bid.user %>

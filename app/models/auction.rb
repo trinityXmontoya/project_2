@@ -18,7 +18,7 @@ class Auction < ActiveRecord::Base
   end
 
   def calculate_time_left
-    return Time.now - time_limit
+    return Time.now - time_end
   end
 
   def time_left
