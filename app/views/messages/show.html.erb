@@ -8,11 +8,12 @@
           <%= bidder.profile_photo %>
           <%= bidder.name %>
         </div>
-      <% end %>
+
         <div class="message">
           <%= @message.created_at %>
           <%= @message.content %>
         </div>
   </div>
 
-<%= render 'new_message_form' %>
+<%= render 'new_message_form', receiver_id: bidder %>
+<% end %>

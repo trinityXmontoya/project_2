@@ -36,30 +36,33 @@
               </div>
             <% if @bids.length != 0 %>
               <div id="received-bids">
+<<<<<<< HEAD
                 <% @outgoing_bids.each do |bid| %>
                  <%= bid.created_at %><%= bid.comment[0..100] %>
 <<<<<<< HEAD
 
                  <div><%= form_tag("/create-tweet") do %>
-<%= hidden_field_tag :tweet, auction.content%>
-<%= submit_tag("Tweet") %>
+                  <%= hidden_field_tag :tweet, auction.content%>
+                  <%= submit_tag("Tweet") %>
                 </div>
 
                 <% end %>
 =======
             <% end %>
-<!-- where did this come from? this can't be here -->
-<!--                  <div><%= form_tag("/create-tweet") do %>
-<%= hidden_field_tag :tweet, auction.content%>
-<%= submit_tag("Tweet") %>
-                </div> -->
-                <!-- end -->
-            <% end %>
->>>>>>> 287e1f6cec29851dba494ee4d1f3fdc1057f963e
+              <div>
+                 <% unless @outgoing_bids == nil %>
+                  <% @outgoing_bids.each do |bid| %>
+                   <%#= bid.created_at %><%#= bid.comment[0..100] %>
+                    <% end %>
+                  <% else %>
+                <%= link_to "Please Enter a Bid first", auction_bid_path %>
+                     <% end %>
+
               </div>
 
 <!-- Auction section -->
            <div id="auctions-notifications">
+             <% unless @auctions == nil %>
             <% @auctions.each do |auction| %>
               <%#= link_to auction.title, auction %><%= auction.description[0..100] %>
               <%= auction.title %><%= auction.description[0..100] %>
@@ -67,6 +70,14 @@
               <%= auction.time_end %>
               <br>
               <%end%>
+                  <% else %>
+                  <%= link_to "Please choose an auction", root_path %>
+                 <% end %>
+
+
+              <%end%>
+
+
           </div>
 
 
