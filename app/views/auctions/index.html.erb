@@ -11,22 +11,25 @@
 
 <div id="auctions-container">
  <% @auctions.each do |auction| %>
- <%= link_to auction do %>
-  <div class="auction">
-    <!-- why are all of these in here -->
- <!--      <%= auction.title %><%= auction.description[0..100] %><%= auction.category_id %> -->
 
-      Title: <%= auction.title %>
-      <%= auction.time_end %>
-      <%= auction.time_begin %>
-      <br>
+  <div class="auction">
+
+      <a href="/auctions/<%= auction.id %>">
+      <h3> Title: <%= auction.title %> </h3>
+      </a>
+
+      <div id="auctions-end">
+      <h4>Auction End:</h4>
+      <div id="DateCountdown" data-date="<%= auction.time_end %>" style="width: 400px;"></div>
+      </div>
       Description:<%= auction.description[0..100] %>
       <br>
       Category:<%= Category.find(auction.category_id).title %>
-      <div class="auctions-timer"><!-- COUNTDOWN --></div>
+      <br>
+
       <br>
   </div>
-<% end%>
+
 <% end%>
 </div>
-<div id="DateCountdown" data-date="2015-01-14 00:00:00" style="width: 600px;"></div>
+
