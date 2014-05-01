@@ -1,9 +1,11 @@
 class Bid < ActiveRecord::Base
 
-belongs_to :user
-belongs_to :auction
+  belongs_to :user
+  belongs_to :auction
 
-has_many :categories
+  has_many :categories
+
+  validates :user_id, :auction_id, presence: true
 
   def accept
     update(won: true)

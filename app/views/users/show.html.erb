@@ -2,6 +2,7 @@
 <div id='dashboard'>
 
   <div id="user-info">
+
     <img id="profile-photo" src="<%= @user.profile_photo %>">
     <h1 id="profile-name"><%= @user.name %></h1>
     <p id="profile-bio"> <%= @user.bio %></p>
@@ -33,13 +34,15 @@
               <div id="outgoing-bids">
                <%= render '/bids/show_complete' %>
               </div>
-
+            <% if @bids.length != 0 %>
               <div id="received-bids">
+
                  <% if @outgoing_bids != nil %>
                   <% @outgoing_bids.each do |bid| %>
                    <%#= bid.created_at %><%#= bid.comment[0..100] %>
                   <% end %>
                  <% end %>
+
               </div>
 
 <!-- Auction section -->
@@ -63,4 +66,7 @@
     </div>
 
   <% end %>
+  <!-- end missing from last merge -->
+<% end %>
+
 

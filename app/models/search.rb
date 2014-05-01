@@ -1,5 +1,7 @@
 class Search < ActiveRecord::Base
 
+  validates :keywords, presence: true
+
   def get_location(address)
     escaped_address = address.downcase.gsub(" ", "+")
     results = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{escaped_address}&sensor=true&key=#{ENV['GOOGLE_GEOCODING_KEY']}")
@@ -22,15 +24,6 @@ class Search < ActiveRecord::Base
       end
     end
     return results
-  end
-
-  def auctions
-    @auctions ||= get_auctions
-  end
-
-  private
-  def get_auctions
-    auctions = Auction.all.order(:location)
   end
 
 end

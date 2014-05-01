@@ -13,9 +13,9 @@
  <% @auctions.each do |auction| %>
  <%= link_to auction do %>
   <div class="auction">
-      <%= auction.title %><%= auction.description[0..100] %>
-      <%= auction.category_id %>
-    <br>
+    <!-- why are all of these in here -->
+ <!--      <%= auction.title %><%= auction.description[0..100] %><%= auction.category_id %> -->
+
       Title: <%= auction.title %>
       <%= auction.time_end %>
       <%= auction.time_begin %>
@@ -29,4 +29,4 @@
 <% end%>
 <% end%>
 </div>
-<div style ="height: 300px; width 500px"id="DateCountdown" data-date="2015-01-14 00:00:00" style="width: 100%;"></div>
+<div id="DateCountdown" data-date="2015-01-14 00:00:00" style="width: 600px;"></div>
