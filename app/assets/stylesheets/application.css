@@ -7,20 +7,21 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
-<<<<<<< HEAD
+
+*= require bootstrap
+*= require bootstrap-datetimepicker
+*= require_self
+*= require_tree .
 */
-require bootstrap
-require bootstrap-datetimepicker
-require_self
-require_tree .
 
 #all-messages {
-  position: absolute;
-  margin: 0;
+  display: inline-block;
+  position: fixed;
+  margin: 0 0 0 25px;
   right: 0;
-  width: 300px;
+  width: 350px;
   background-color: blue;
-  height: 100%
+  height: 100%;
 }
 
 #profile-photo{
@@ -37,4 +38,34 @@ require_tree .
 .textDiv_days{
   background: #010f79;
 }
+#auctions-end{
+  position:relative;
+}
+
+a :hover{
+  text-decoration: none;
+  color: #010f79;
+}
+
+#auctions-index-nav{
+  margin-left: 5%;
+}
+#auctions-index-nav li{
+  display:inline-block;
+  margin: 20px;
+  text-align: center;
+  font-size: 18px
+}
+
+.auction{
+  background: rgba(0,0,0,.05);
+  padding: 20px;
+  margin: 15px;
+  border-radius: 10px;
+}
+#all-messages{
+  height: 200px;
+  background: rgba(0,0,0.05)
+}
+
 

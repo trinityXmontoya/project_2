@@ -1,4 +1,5 @@
 
+
 category1 = Category.create(id: 300, title: 'Food and Drinks', description: 'Explore together!', badge_photo: '/images/badgeicons/foodanddrinks.png')
 category2 = Category.create(id: 301, title: 'Date', description: 'Have a romantic evening out', badge_photo: '/images/badgeicons/datenight.png')
 category3 = Category.create(id: 302, title: 'Coffee', description: 'Dispense with the Pleasantries', badge_photo: '/images/badgeicons/coffee.png')
@@ -44,3 +45,4 @@ Bid.create(user_id: 54365808, auction_id: 200, comment: 'I would love to take yo
 Bid.create(user_id: 54364643, auction_id: 201, comment: 'I want to do this with you so badly', viewed: false, won: false)
 Bid.create(user_id: 54365808, auction_id: 202, comment: 'Lets do it', viewed: true, won: false)
 Bid.create(user_id: 54364643, auction_id: 203, comment: 'Ooh la la', viewed: false, won: true)
+
