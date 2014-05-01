@@ -17,9 +17,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li><%= link_to "Hello, " + current_user.name + "!", user_path(current_user) %></li>
-          <li><%= link_to "Create Auction", new_auction_path %></li>
-          <a id="show-inbox">Message Inbox</a>
+
+          <li><a href="/auctions"><i class="fa fa-gavel"></i> Auctions</a></li>
+          <li><a href="/auctions/new"><i class="fa fa-plus"></i> Create</a></li>
+          <li><a id="show-inbox"><i class="fa fa-comments"></i> Messages</a></li>
+          <li><a href="/users/<%= current_user.id%>"><i class="fa fa-user"></i></a></li>
           <li><%= link_to 'Log Out', logout_path %></li>
         <% else %>
           <li><%= link_to "Connect with Facebook", "/auth/facebook" %></li>
