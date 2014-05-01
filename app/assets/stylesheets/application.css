@@ -62,6 +62,9 @@ a :hover{
   padding: 20px;
   margin: 15px;
   border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  float: left;
 }
 #all-messages{
   height: 200px;
@@ -71,4 +74,15 @@ a :hover{
 #tweet{
   float:right;
   position: relative;
+}
+
+.categories{
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  margin: 1em;
+}
+
+.categories-container {
+  text-align: center;
 }
