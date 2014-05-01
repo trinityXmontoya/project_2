@@ -1,9 +1,8 @@
 <h1>Auctions</h1>
-<%= link_to 'Search Auctions by Location', new_search_path %>
+<div id="search-box"><%= render '/searches/search' %><div>
 <h3> Sort By </h3>
 <nav id="auctions-index-nav">
   <li>Title</li>
-  <li>Location</li>
   <li>Category</li>
   <li>Created At</li>
   <li>End Time</li>
@@ -24,8 +23,12 @@
       </div>
       Description:<%= auction.description[0..100] %>
       <br>
-      Category:<%= Category.find(auction.category_id).title %>
+      <% if false %>
+      <% if auction.category_id != nil %>
+      Category:<img src="<%= Category.find(auction.category_id).badge_photo %>"><h5><%= Category.find(auction.category_id).title %></h5>
+      <% end %>
       <br>
+      <% end %>
 
       <br>
   </div>
