@@ -11,14 +11,14 @@
 // about supported directives.
 //
 
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
 //= require bootstrap
 //= require bootstrap.min
 //= require moment
 //= require bootstrap-datetimepicker
 //= require TimeCircles
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
 //= require auctions
 //= require bids
 //= require categories
