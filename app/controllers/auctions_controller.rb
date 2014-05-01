@@ -30,6 +30,7 @@ class AuctionsController < ApplicationController
     end
   end
 
+
   def edit
     @auction = Auction.find(params[:id])
     if @auction.update
@@ -70,6 +71,12 @@ class AuctionsController < ApplicationController
     @auction = Auction.find(params[:id])
     @auction.destroy
     redirect_to '/'
+  end
+
+  def create_tweet
+    tweet_string = params[:tweet]
+    @send_code = Tweet.create_tweet(tweet_string)
+    render text: @send_code
   end
 
   private

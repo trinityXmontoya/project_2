@@ -7,8 +7,8 @@ class Auction < ActiveRecord::Base
   belongs_to :auction_participants
 
   def get_location(address)
-    escaped_address = address.downcase.gsub(" ", "+")
-    results = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{escaped_address}&sensor=true&key=#{ENV['GOOGLE_GEOCODING_KEY']}")
+    address = address.downcase.gsub(" ", "+")
+    latlng = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=true&key=#{ENV['...']}")
   end
 
   def save_location(results)
@@ -35,7 +35,7 @@ class Auction < ActiveRecord::Base
     end
 
     def add_end_time(date)
-      # self.update(time_end: self.time_end.hour = ({hour: 21}))
+      self.update(time_end: date.change(hour: 21))
     end
 
     def end_auction
@@ -43,6 +43,7 @@ class Auction < ActiveRecord::Base
         mark_notifications_sent
         archive_bids
         close_messaging
+        return true
     end
 
     def notify_participants
@@ -86,7 +87,19 @@ class Auction < ActiveRecord::Base
     end
 
     def close_messaging
-      #will work on this method after messages is done
+      messages = Message.where(auction_id: self.id)
+      messages.each {|message| message.archive}
+    end
+
+    def calculate_accepted_bids
+      accepted_bids = []
+          bids.each do |bid|
+              accepted_bids.select { |bid| bid.won == true}
+          end
+          if accepted_bids.length == self.num_of_req_bids
+              self.time_end = Time.now
+              self.end_auction
+          end
     end
 
   def haversine(lat1, lng1, lat2, lng2)

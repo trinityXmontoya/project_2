@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if current_user == @user
       @auctions = @user.auctions{updated_at :desc}
-      # @bids = @user.auctions.bids{updated_at :desc}
       @bids = Bid.retrieve_user_bids(@user)
       @outgoing_bids = @user.bids{updated_at :desc}
       @messages = @user.messages{updated_at :desc}
