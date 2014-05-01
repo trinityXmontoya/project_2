@@ -8,6 +8,7 @@ class CreateAuctions < ActiveRecord::Migration
       t.text :description
       t.datetime :time_begin
       t.datetime :time_end
+      t.datetime :event_date
       t.boolean :completed
       t.integer :num_of_req_bids
       t.string :address

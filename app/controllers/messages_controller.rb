@@ -13,7 +13,6 @@ class MessagesController < ApplicationController
     end
   end
 
-
   def create
     @message = Message.create(content:params[:message][:content],sender_id: params[:message][:auction].user_id,receiver_id: params[:message][:bid].user_id)
     respond_to do |format|

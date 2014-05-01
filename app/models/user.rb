@@ -29,13 +29,4 @@ belongs_to :auction_participants
     end
   end
 
-  def retrieve_user_bids
-  self.auctions.each do |auction|
-    auction.bids.each do |bid|
-      bid_array << bid
-    end
-  end
-  return bid_array
-  end
-
 end
