@@ -6,15 +6,19 @@ belongs_to :auction
 has_many :categories
 
   def accept
-    self.update(won: true)
+    update(won: true)
   end
 
   def mark_as_viewed
-    self.update(viewed: true)
+    update(viewed: true)
   end
 
   def archive_bid
-    self.update(archived: true)
+    update(archived: true)
+  end
+
+  def self.retrieve_user_bids(user)
+    where(user: user)
   end
 
   #TODO

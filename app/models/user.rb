@@ -28,4 +28,5 @@ belongs_to :auction_participants
       user.save!
     end
   end
+
 end
