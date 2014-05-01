@@ -42,7 +42,7 @@
 <!-- Auction section -->
            <div id="auctions-notifications">
             <% @auctions.each do |auction| %>
-              <%= @auction.title %><%= @auction.description[0..100] %>
+              <%= link_to auction.title, auction %><%= auction.description[0..100] %>
               <%end%>
           </div>
 

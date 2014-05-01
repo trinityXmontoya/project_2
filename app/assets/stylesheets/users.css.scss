@@ -1,0 +1,20 @@
+/*<div id='dashboard'>
+
+  <div id="user-info">
+    <img id="profile-photo" src="<%= @user.profile_photo %>">
+    <h1 id="profile-name"><%= @user.name %></h1>
+    <p id="profile-bio"> <%= @user.bio %></p>
+  </div>
+
+  <div id="categories">
+    <h1>Badges:</h1>
+    <% @badges.each do |badge| %>
+    <img id="badge-photo" src="<%= badge.badge_photo %>">
+    <%end%>
+  </div>
+
+</div>
+*/
+#user-info {
+  width: 500px;
+}
