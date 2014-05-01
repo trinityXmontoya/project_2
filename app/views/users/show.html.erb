@@ -38,34 +38,20 @@
               <div id="received-bids">
                 <% @outgoing_bids.each do |bid| %>
                  <%= bid.created_at %><%= bid.comment[0..100] %>
-            <% end %>
-<!-- where did this come from? this can't be here -->
-<!--                  <div><%= form_tag("/create-tweet") do %>
-<%= hidden_field_tag :tweet, auction.content%>
-<%= submit_tag("Tweet") %>
-                </div> -->
-                <!-- end -->
-            <% end %>
+                <% end %>
               </div>
+            <% end %>
 
 <!-- Auction section -->
            <div id="auctions-notifications">
+            <h4>Current Auctions</h4>
             <% @auctions.each do |auction| %>
-              <%#= link_to auction.title, auction %><%= auction.description[0..100] %>
-              <%= auction.title %><%= auction.description[0..100] %>
-              <%= auction.time_begin %>
-              <%= auction.time_end %>
+              <%= link_to auction.title, auction %>
+              <li>Ending at: <%= auction.time_end %></li>
               <br>
-              <%end%>
+            <%end%>
           </div>
-
-
       </div>
-
     </div>
 
-  <% end %>
-  <!-- end missing from last merge -->
 <% end %>
-
-
