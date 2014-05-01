@@ -6,7 +6,7 @@ class Auction < ActiveRecord::Base
   belongs_to :user
   belongs_to :auction_participants
 
-  validates :title, :description, :address, :category, :img_urls, :website, :event_date, :time_begin, :time_end, presence: true
+  validates :title, :description, :address, :category_id, :user_id, :img_url, :website, :event_date, :time_begin, :time_end, presence: true
 
   def get_location(address)
     escaped_address = address.downcase.gsub(" ", "+")
