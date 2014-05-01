@@ -13,6 +13,11 @@
  <% @auctions.each do |auction| %>
  <%= link_to auction do %>
   <div class="auction">
+<!-- pulled in from dev on last merge at 2:50 pm -->
+      <%= auction.title %><%= auction.description[0..100] %>
+      <%= auction.category_id %>
+    <br>
+<!-- end pulled in  -->
       Title: <%= auction.title %>
       <%= auction.time_end %>
       <%= auction.time_begin %>

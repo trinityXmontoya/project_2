@@ -1,5 +1,6 @@
 class Auction < ActiveRecord::Base
 
+
   has_many :categories
   has_many :bids
   has_many :messages
@@ -19,14 +20,14 @@ class Auction < ActiveRecord::Base
   end
 
   def calculate_time_left
-    return Time.now - time_limit
+    return Time.now - time_end
   end
 
   def time_left
       return time_end - time_begin
     end
 
-  def is_completed?
+    def is_completed?
       if time_left > 0
         return false
       else

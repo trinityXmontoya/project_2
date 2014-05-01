@@ -1,5 +1,6 @@
 $('document').ready(function (){
-  var all_messages = $("#all-messages")
+
+  var all_messages = $("#all-messages");
   all_messages.hide();
 
 
@@ -11,6 +12,7 @@ $("#show-inbox").on("click",function(){
 $("#show-inbox").on("dblclick",function(){
   // $("all-messages").css('visibility':'visible');
  all_messages.hide();
+});
 
 
 $("#DateCountdown").TimeCircles({
