@@ -9,16 +9,23 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-////= require jquery
+
+//= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
+//= require bootstrap.min
 //= require moment
 //= require bootstrap-datetimepicker
 //= require TimeCircles
-//= require_tree .
+//= require auctions
+//= require bids
+//= require categories
+//= require messages
+//= require users
+//= require main
 //= require_self
 //= require_main
-
 
 $('document').ready(function (){
   var all_messages = $("#all-messages");
@@ -89,3 +96,4 @@ $("#show-inbox").on("dblclick",function(){
 
 });
 });
+
