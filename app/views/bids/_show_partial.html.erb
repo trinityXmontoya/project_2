@@ -3,10 +3,11 @@
 <div id="all-bids">
 
 <%= content_tag(:div, class: "bid", id: dom_id(bid), data: {bid_info: bid}) do %>
-  <% bidder = bid.user %>
+  <% bidder = User.find(bid.user_id) %>
     <%= link_to bidder do %>
       <%= bidder.name %>
       <img src="<%= bidder.profile_photo %>">
+      <%= bid.comment %>
     <% end %>
 
   <% if @user == current_user %>
@@ -15,7 +16,7 @@
   <% end %>
 
   <% if current_user == bid.user %>
-  <%= link_to "delete", bid, method: :accept_bid, remote: true %>
+  <%= button_to "delete bid", [bid.auction,bid], method: :delete, remote: true %>
   <% end %>
 
   <% end %>

@@ -13,24 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap
+//= require bootstrap.min
+//= require auctions
+//= require bids
+//= require categories
+//= require messages
+//= require users
+//= require main
 //= require_self
-
-$('document').ready(function (){
-  var all_messages = $("#all-messages")
-  all_messages.hide();
-
-//MESSAGES
-
-$("#show-inbox").on("click",function(){
-  // $("all-messages").css('visibility':'visible');
-  all_messages.show();
-});
-
-$("#show-inbox").on("dblclick",function(){
-  // $("all-messages").css('visibility':'visible');
- all_messages.hide();
-});
 
 //USERS Profile
 
@@ -45,4 +36,4 @@ $("#show-inbox").on("dblclick",function(){
 // });
 
 
-});
+// });
