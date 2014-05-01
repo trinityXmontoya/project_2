@@ -35,11 +35,8 @@ class Auction < ActiveRecord::Base
     end
 
     def add_end_time(date)
-<<<<<<< HEAD
       # self.update(time_end: self.time_end.hour = ({hour: 21}))
-=======
       self.update(time_end: date.change(hour: 21))
->>>>>>> development
     end
 
     def end_auction
@@ -124,7 +121,6 @@ class Auction < ActiveRecord::Base
 
     return d
   end
-<<<<<<< HEAD
 
   def calculate_accepted_bids
     accepted_bids = []
@@ -136,7 +132,5 @@ class Auction < ActiveRecord::Base
             self.end_auction
         end
   end
-=======
->>>>>>> development
 
 end
