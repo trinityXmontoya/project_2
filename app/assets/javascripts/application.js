@@ -24,8 +24,12 @@ $('document').ready(function (){
   var all_messages = $("#all-messages");
   all_messages.hide();
 
+
+
 $('#show-inbox').click( function(){
+    $('#message-box-title').hide();
     $('#all-messages').slideToggle();
+    $('#message-box-title').fadeToggle(1000);
 });
 
 $("#DateCountdown").TimeCircles({
@@ -57,10 +61,6 @@ $("#DateCountdown").TimeCircles({
     }
 });
 
-//USERS Profile
-$('#bid-notifications').hide();
-$('#nav-bids').on("click", function(){
-  $('#bid-notifications').show();
 
 //MESSAGES
 
@@ -78,5 +78,8 @@ $('#nav-bids').on("click", function(){
 // });
 
 
+
+
 });
-});
+
+

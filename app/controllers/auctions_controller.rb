@@ -2,6 +2,8 @@ class AuctionsController < ApplicationController
 
   def index
     @auctions = Auction.all
+    @search = Search.new
+    @categories = Category.all
   end
 
   def show

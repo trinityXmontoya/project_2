@@ -19,7 +19,7 @@
 
     <% unless current_user == @user || @auction.is_completed? %>
      <div id="add_bid">
-      <h1>Submit Interest!</h1>
+      <h1>You Interested?</h1>
 
       <%= form_for [@auction, @bid], method: :post, authenticity_token: true, remote: true do |f| %>
         <%= f.label :comment %>

@@ -1,4 +1,4 @@
-/*
+  /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -31,12 +31,9 @@ require_tree .
 
 #profile-name{
   display: inline;
-  margin: 20px;
+  margin: 20px
 }
 
-.textDiv_days{
-  background: #010f79;
-}
 #auctions-end{
   position:relative;
 }
@@ -62,9 +59,31 @@ a :hover{
   margin: 15px;
   border-radius: 10px;
 }
+
 #all-messages{
-  height: 200px;
-  background: rgba(0,0,0.05)
+  height: 250px;
+  background: rgba(0,0,0,.1);
+  overflow: scroll;
 }
+
+#message-box-title{
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+
+.message-info{
+  background:
+}
+
+#categories{
+  width: 30%;
+  background: rgba(0,0,0,.05);
+  float: right;
+  padding: 20px;
+  border-radius: 10px;
+}
+
 
 

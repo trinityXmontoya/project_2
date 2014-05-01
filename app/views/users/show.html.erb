@@ -1,4 +1,5 @@
 <% #FIXME this file keeps throwing errors at me so I stopped working on it  %>
+<br>
 <div id='dashboard'>
 
   <div id="user-info">
@@ -7,16 +8,19 @@
     <h1 id="profile-name"><%= @user.name %></h1>
     <p id="profile-bio"> <%= @user.bio %></p>
   </div>
-
+<br>
   <div id="categories">
     <h1>Badges:</h1>
+    <h4><a href="/categories">Categories Information</a></h4>
     <% @badges.each do |badge| %>
-    <img id="badge-photo" src="<%= badge.badge_photo %>">
+    <img id="badge-photo" src="<%= badge.badge_photo %>"><h4> <%= badge.title %></h4>
     <%end%>
+
   </div>
 
 </div>
 
+<br>
 <!-- Notification center (only visible to profile owner) -->
 
   <% if current_user %>

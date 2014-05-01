@@ -1,21 +1,23 @@
-<%= form_for @search do |f| %>
-  <div class="field">
-    <%= f.label :keywords %><br />
+
+  <%= form_for @search do |f| %>
+
+    <h5> City: </h5>
     <%= f.text_field :keywords %>
-  </div>
 
-  <div class="field">
-    <%= f.label :distance %><br />
+
+
+    <h5> Distance to Search - miles: </h5>
     <%= f.text_field :distance %>
-  </div>
 
-  <div class="field">
-    <%= f.label :category_id %><br />
-    <%= f.collection_select :category_id, Category.order(:title), :id, :title, include_blank: true %>
-  </div>
 
-  <div class="actions">
+
+    <h5> Category: </h5>
+    <%= f.collection_select :category_id, @categories.order(:title), :id, :title, include_blank: true %>
+
+
+<br>
+
     <%= f.submit "Search" %>
-  </div>
+
 
 <% end %>
