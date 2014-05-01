@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :categories, through: :auctions
   has_many :categories, through: :bids
 
-belongs_to :auction_participants
+  belongs_to :auction_participants
 
 # facebook login
   def self.facebook_auth(auth)
