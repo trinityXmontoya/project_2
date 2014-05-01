@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if current_user == @user
       @auctions = @user.auctions{updated_at :desc}
+      # @bids = @user.auctions.bids{updated_at :desc}
       @bids = Bid.retrieve_user_bids(@user)
       @outgoing_bids = @user.bids{updated_at :desc}
       @messages = @user.messages{updated_at :desc}
@@ -26,16 +27,15 @@ class UsersController < ApplicationController
     end
   end
 
-
-   def update
-    @user = User.find(params[:id])
-    if current_user == @user
-      @user.update(user_params)
-      redirect_to @user
-    else
-      redirect_to root_path
-    end
+ def update
+  @user = User.find(params[:id])
+  if current_user == @user
+    @user.update(user_params)
+    redirect_to @user
+  else
+    redirect_to root_path
   end
+end
 
   def destroy
     @user = User.find(params[:id])

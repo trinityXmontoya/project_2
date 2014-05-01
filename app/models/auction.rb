@@ -6,12 +6,9 @@ class Auction < ActiveRecord::Base
   belongs_to :user
   belongs_to :auction_participants
 
-
-  # self.where('name LIKE :query OR description LIKE :query OR year_release LIKE :query', query: "%#{query}%")
-
   def get_location(address)
-    address = address.downcase.gsub(" ", "+")
-    latlng = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=true&key=#{ENV['...']}")['results'][0]['geometry']['location']
+    escaped_address = address.downcase.gsub(" ", "+")
+    results = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{escaped_address}&sensor=true&key=#{ENV['GOOGLE_GEOCODING_KEY']}")
   end
 
   def save_location(results)
@@ -38,6 +35,7 @@ class Auction < ActiveRecord::Base
     end
 
     def add_end_time(date)
+      # self.update(time_end: self.time_end.hour = ({hour: 21}))
       self.update(time_end: date.change(hour: 21))
     end
 
@@ -122,6 +120,17 @@ class Auction < ActiveRecord::Base
     d = radius_miles * c
 
     return d
+  end
+
+  def calculate_accepted_bids
+    accepted_bids = []
+        bids.each do |bid|
+            accepted_bids.select { |bid| bid.won == true}
+        end
+        if accepted_bids.length == self.num_of_req_bids
+            self.time_end = Time.now
+            self.end_auction
+        end
   end
 
 end

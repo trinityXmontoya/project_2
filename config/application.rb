@@ -21,7 +21,6 @@ module Project2
     # config.i18n.default_locale = :de
 
     # config for bootstrap fonts
-
-    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    config.assets.paths << Rails.root.join("app", "assets")
   end
 end

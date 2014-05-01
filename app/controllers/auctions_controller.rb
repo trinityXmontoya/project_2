@@ -45,12 +45,15 @@ class AuctionsController < ApplicationController
 
   def update
     @auction = Auction.find(params[:id])
-    @auction.update
-      if @auction.save?
-        redirect_to @auction
-      else
-        render 'edit'
-      end
+    @auction.update auction_params
+    if @auction.save
+      results = @auction.get_location(@auction.location)
+      @auction.save_location(results)
+      @auction.save
+      redirect_to @auction
+    else
+      render 'edit'
+    end
   end
 
   def accept_badge
@@ -77,7 +80,7 @@ class AuctionsController < ApplicationController
 
   private
   def auction_params
-    params.require(:auction).permit(:user_id, :category_id, :title, :description, :time_end, :time_begin, :event_date, :completed, :viewed, :latitude, :longitude, :address)
+    params.require(:auction).permit(:user_id, :category_id, :location, :title, :description, :time_begin, :time_end, :event_date, :completed, :num_of_req_bids, :address, :website, :img_url, :notifications_sent, :created_at, :updated_at, :latitude, :longitude)
   end
 
 end
