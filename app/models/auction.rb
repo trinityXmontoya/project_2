@@ -46,6 +46,7 @@ class Auction < ActiveRecord::Base
         mark_notifications_sent
         archive_bids
         close_messaging
+        return true
     end
 
     def notify_participants
@@ -89,7 +90,8 @@ class Auction < ActiveRecord::Base
     end
 
     def close_messaging
-      #will work on this method after messages is done
+      messages = Message.where(auction_id: self.id)
+      messages.each {|message| message.archive}
     end
 
     def calculate_accepted_bids
