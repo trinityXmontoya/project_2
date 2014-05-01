@@ -2,6 +2,8 @@ class AuctionsController < ApplicationController
 
   def index
     @auctions = Auction.all
+    @search = Search.new
+    @categories = Category.all
   end
 
   def show
@@ -11,6 +13,7 @@ class AuctionsController < ApplicationController
     # @bids.each {|bid| bid.mark_as_viewed}
     @bid = Bid.new
     @message = Message.new
+    # @auction_category = @auction.get_category(@auction)
   end
 
   def new

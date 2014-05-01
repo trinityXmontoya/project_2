@@ -1,6 +1,5 @@
 class Auction < ActiveRecord::Base
 
-
   has_many :categories
   has_many :bids
   has_many :messages
@@ -135,5 +134,9 @@ class Auction < ActiveRecord::Base
             self.end_auction
         end
   end
+
+  # def get_category(auction)
+  #   Category.where(auction.category_id Category.id)
+  # end
 
 end

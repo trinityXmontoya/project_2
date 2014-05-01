@@ -22,7 +22,9 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     if current_user == @user
-      render 'edit'
+      respond_to do |format|
+        format.js {}
+      end
     else
       redirect_to root_path
     end

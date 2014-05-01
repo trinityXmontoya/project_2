@@ -1,13 +1,9 @@
-// var setTwitterButtonTitles;
 
-// setTwitterButtonTitles = function() {
-//   return $('.auction').forEach(function(auction) {
-//     var _auctionTitle;
-//     _auctionTitle = auction.find('h3').text();
-//     return auction.find('.twitter-share-button').attr('data-text').val(_auctionTitle);
-//   });
-// };
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
 
-// $(function() {
-//   return setTwitterButtonTitles();
-// });
+$(function () {
+  $('#datetimepicker1').datetimepicker();
+});
+
