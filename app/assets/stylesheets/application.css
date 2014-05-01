@@ -22,3 +22,19 @@ require_tree .
   background-color: blue;
   height: 100%
 }
+
+#profile-photo{
+  width:75px;
+  height:75px;
+  border-radius: 45px;
+}
+
+#profile-name{
+  display: inline;
+  margin: 20px;
+}
+
+.textDiv_days{
+  background: #010f79;
+}
+

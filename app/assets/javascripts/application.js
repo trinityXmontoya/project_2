@@ -9,19 +9,24 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+////= require jquery
+//= require jquery_ujs
+//= require turbolinks
 //= require moment
 //= require bootstrap-datetimepicker
 //= require TimeCircles
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require_self
+//= require_main
+
 
 $('document').ready(function (){
-  var all_messages = $("#all-messages")
+  var all_messages = $("#all-messages");
   all_messages.hide();
+
+$('#show-inbox').click( function(){
+    $('#all-messages').slideToggle();
+});
 
 $("#DateCountdown").TimeCircles({
     "animation": "ticks",
@@ -82,4 +87,5 @@ $("#show-inbox").on("dblclick",function(){
 // });
 
 
+});
 });
