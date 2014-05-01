@@ -1,14 +1,15 @@
-<%= form_for(@new_message, remote: true) do |f| %>
+<%= form_for [@new_message, current_user], remote: true do |f| %>
 
-  <%= f.label :auction %>
-  <%= f.select (:auction_id, @user.auctions) %>
+  <%= f.label :auction_id %>
+  <%= f.select :auction_id, current_user.auctions %>
 
-  <%= f.label :bid %>
-  <%= f.select (:bid_id,)%>
+  <%= f.label :bid_id %>
+  <%= f.select :bid_id, current_user.auctions.bids %>
 
 
   <%= f.label :content %>
   <%= f.text_field :content %>
 
   <%= f.submit "Send it!" %>
+
 <% end %>
