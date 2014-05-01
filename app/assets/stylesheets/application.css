@@ -38,4 +38,34 @@
 .textDiv_days{
   background: #010f79;
 }
+#auctions-end{
+  position:relative;
+}
+
+a :hover{
+  text-decoration: none;
+  color: #010f79;
+}
+
+#auctions-index-nav{
+  margin-left: 5%;
+}
+#auctions-index-nav li{
+  display:inline-block;
+  margin: 20px;
+  text-align: center;
+  font-size: 18px
+}
+
+.auction{
+  background: rgba(0,0,0,.05);
+  padding: 20px;
+  margin: 15px;
+  border-radius: 10px;
+}
+#all-messages{
+  height: 200px;
+  background: rgba(0,0,0.05)
+}
+
 
