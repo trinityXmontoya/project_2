@@ -7,11 +7,13 @@ class AuctionsController < ApplicationController
   end
 
   def show
-    @auction = Auction.find params[:id]
+    @auction = Auction.find(params[:id])
     @user = @auction.user
-    @bids = @auction.bids{updated_at :desc}
-    @bids.each {|bid| bid.mark_as_viewed}
+    @bids = @auction.bids{created_at :desc}
+    # @bids.each {|bid| bid.mark_as_viewed}
     @bid = Bid.new
+    @message = Message.new
+    # @auction_category = @auction.get_category(@auction)
   end
 
   def new

@@ -8,6 +8,9 @@
 
 <div id="auction-show-description">
 <p><%= @auction.description %></p>
+by
+<%= @user.name %>
+<img src="<%= @user.profile_photo %>">
 </div>
 
 <div id="auction-show-timer" >
@@ -19,9 +22,13 @@
 
     <% unless current_user == @user || @auction.is_completed? %>
      <div id="add_bid">
+
       <h1>You Interested?</h1>
 
+      <h1>I'm Interested!</h1>
+
       <%= form_for [@auction, @bid], method: :post, authenticity_token: true, remote: true do |f| %>
+
         <%= f.label :comment %>
         <%= f.text_field :comment %>
         <%= f.submit "I'm Interested"%>

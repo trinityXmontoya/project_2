@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20140430180216) do
   end
 
   create_table "messages", force: true do |t|
-    t.integer  "sender_id"
-    t.integer  "receiver_id"
+    t.integer  "sender_id",   limit: 8
+    t.integer  "receiver_id", limit: 8
     t.integer  "auction_id"
     t.text     "content"
     t.boolean  "viewed"

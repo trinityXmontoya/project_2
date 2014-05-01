@@ -2,14 +2,15 @@
 
 <%= render '/bids/show_partial' %>
 
-
+<% if @bids != nil %>
 <% @bids.each do |bid| %>
 bid on
-<%= link_to @auction do %>
-  <%= @auction.title %>
-  <%= @auction.calculate_time_left %>
-  <img src="<%= @auction.img_url %>">
+<%= link_to bid.auction do %>
+  <%= bid.auction.title %>
+  <%= bid.auction.calculate_time_left %>
+  <img src="<%= bid.auction.img_url %>">
 <% end %>
 at
 <%= bid.created_at.strftime("%D%H")%>
+<% end %>
 <% end %>

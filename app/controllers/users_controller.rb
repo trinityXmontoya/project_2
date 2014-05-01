@@ -12,16 +12,19 @@ class UsersController < ApplicationController
       @auctions = @user.auctions{updated_at :desc}
       # @bids = @user.auctions.bids{updated_at :desc}
       @bids = Bid.retrieve_user_bids(@user)
-      @outgoing_bids = @user.bids{updated_at :desc}
+      @outgoing_bids = Bid.retrieve_user_auction_bids(@user)
       @messages = @user.messages{updated_at :desc}
     end
     @badges = Category.retrieve_user_badges(@user.badges)
+
   end
 
   def edit
     @user = User.find(params[:id])
     if current_user == @user
-      render 'edit'
+      respond_to do |format|
+        format.js {}
+      end
     else
       redirect_to root_path
     end
@@ -45,7 +48,7 @@ end
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :city, :bio, :zip_code)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :city, :bio, :zip_code, :location)
   end
 
 end

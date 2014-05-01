@@ -2,18 +2,21 @@
   <% if current_user %>
     <div id='all-messages'>
       <h3 id="message-box-title">Messages</h3>
-      <% current_user.messages.each do |message| %>
+
+      <% Message.where(sender_id: current_user.id).each do |message| %>
+
         <div class='message-info'>
           <% bidder = User.find(message.receiver_id) %>
-            <% link_to bidder do %>
+            <%= link_to bidder do %>
               <div class='message-user-info'>
-                <%= bidder.profile_photo %>
+                <img width="40px" height="40px" src="<%= bidder.profile_photo %>">
                 <%= bidder.name %>
               </div>
             <% end %>
-            <% link_to message do %>
+            <%= link_to [current_user,message] do %>
               <div class='message'>
-                <%= message.created_at %>
+                <%= message.created_at.strftime("%D%H") %>
+                <!-- add limit to amount of text displayed -->
                 <%= message.content %>
               </div>
             <% end %>
