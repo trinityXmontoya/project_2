@@ -30,7 +30,17 @@ Category.create(id: 80, title: 'Hobbies and Crafts', description: 'Hobbies are s
 Category.create(id: 81, title: 'Community and Environment', description: 'Lets cleanup the creek', badge_photo: 'http://m.c.lnkd.licdn.com/mpr/pub/image-OPaKMvn7tBkfxi01Ef3vup2nN2leeSlKX4aB_NQwN8N6owK6OPaBp217NUMeelCVWDR1/trinity-montoya.jpg')
 
 
-Bid.create(user_id: 54365808, auction_id: 1, comment: 'I would love to take you out baby', viewed: true, won: true)
-Bid.create(user_id: 54364643, auction_id: 5, comment: 'I want to do this with you so badly', viewed: false, won: false)
+Bid.create(user_id: 54365808, auction_id: 25, comment: 'I would love to take you out baby', viewed: true, won: true)
+Bid.create(user_id: 54364643, auction_id: 26, comment: 'I want to do this with you so badly', viewed: false, won: false)
 Bid.create(user_id: 54365808, auction_id: 1, comment: 'Lets do it', viewed: true, won: false)
-Bid.create(user_id: 54364643, auction_id: 5, comment: 'Ooh la la', viewed: false, won: true)
+Bid.create(user_id: 54364643, auction_id: 27, comment: 'Ooh la la', viewed: false, won: true)
+
+
+User.create(id: 100008291315808, oauth_token: 'CAAD5kONraegBAHZCjY4ZBawKxcpGkmFTIo0T5AwJttQGEUzNkbYjJjeU6M4nzbZBi3J8nvFNm2cSZAjhTvRXn1rZBosF51aMnZAwwddvqmREFeoZCZAYPhBwloiZBAJIyMyuBZBXAmBkg8KMD9zmD1sZCZAdCrJwu4PZB64frZAExn0xOzRkFzftAeuuA04aGrSBH5KjkvG0wisXNQrgZDZD', name: 'Nancy Amhbiacaehjh McDonaldsky', profile_photo: 'http://i.telegraph.co.uk/multimedia/archive/01711/C-Jimi-Ladyland-po_1711987i.jpg', location: 'New York City', bio: 'They call me Nancy', provider: 'Facebook')
+
+User.create(id: 100008317954643, oauth_token: 'CAAD5kONraegBAGfZAeYLL3jRlXDzNUO1SqD0eKgWEzv9dVud2kPA8DkIYtIZAsOgAq5rsF75Ea2LBbwlgPpFGjdEeWr7cWTRZAPEHIXFaOMZCTlwl5o9m6jGkSwpTIxN598QD3ZBvX6E4apZAy4kf4OGL1YFkPPJNCbBvx1e0dZCR0Cubgm2BrWOKZCYwXAhJOO7xLam44bnBAZDZD', name: 'Will Amhcagiedfdc Changberg', profile_photo: 'http://i.telegraph.co.uk/multimedia/archive/01711/C-Jimi-Ladyland-po_1711987i.jpg', location: 'Chicago', bio: 'Will and Grace', provider: 'Facebook')
+
+User.create(id: 100008280519676, oauth_token: 'CAAD5kONraegBAM34VPYGDJrx4Hrzjt2zcl1Hhd7XiRLbZAKf6MEM7DOq0tjFXWw1SC0gunh53ztonkRqDigEzopp6pZCuEERHBbQAfeU46oGr8ivJKXpMPKZBYQdbGeqFlm2ENCq779ZAVorYYw69sZBmVkL79MUybUEzG9vz2ffRgHBScNrggKMS998AkmRZAgXjZBnZCKzMAZDZD', name: 'Dave Amhbhjeaifgf Letuchyescusenskywitzbergmansonstein', profile_photo: 'http://i.telegraph.co.uk/multimedia/archive/01711/C-Jimi-Ladyland-po_1711987i.jpg', location: 'New York City', bio: 'Medium sized Dave', provider: 'Facebook')
+
+
+Admin.create(id: 000000, oauth_token: 'CAAD5kONraegBADrb9eAFn0V1Viei2A4Lv638UBFPZCAfDVb3l15QiYFmOfDjwzQqHpEIJA7Ma7g34CI9wnacssngkiZBhBZAKx6ZCpTL5wRH6VY1ZCqqKRC735mxXiy1U2niQlrIsvN70rbNvPlm1ZB9KwwdY9kkRkem11mLqZCck0ne1Xjxiv0iMGIGD4Gu5DDMyqDlCqi0AZDZD', name: 'Open Graph Test User', profile_photo: 'http://i.telegraph.co.uk/multimedia/archive/01711/C-Jimi-Ladyland-po_1711987i.jpg', location: 'San Francisco' , bio: 'Open graph is amazing', provider: 'Facebook')
