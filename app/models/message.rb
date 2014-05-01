@@ -4,8 +4,8 @@ class Message < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
 
-  belongs_to :sender, class_name: "User", foreign_key: 'sender_id'
-  belongs_to :receiver, class_name: "User", foreign_key: 'receiver_id'
+  belongs_to :sender, class_name: "User", foreign_key: 'receiver_id'
+  belongs_to :receiver, class_name: "User", foreign_key:  'sender_id'
 
   validates :sender_id, :receiver_id, :auction_id, :content, presence: true
 
