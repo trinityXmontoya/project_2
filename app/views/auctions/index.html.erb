@@ -18,7 +18,7 @@
       <br>
       Description:<%= auction.description[0..100] %>
       <br>
-      Category:<%= Category.find(auction.category_id).title %>
+      Category:<%#= auction.category_id.title %>
       <div class="auctions-timer"><!-- COUNTDOWN --></div>
       <br>
   </div>
