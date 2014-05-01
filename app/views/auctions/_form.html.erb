@@ -1,5 +1,10 @@
 <%= form_for @auction do |f| %>
 
+<%= form_tag("/create-tweet") do %>
+<%= hidden_field_tag :tweet, auction.
+  content%>
+
+<%= submit_tag("Tweet") %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br>
