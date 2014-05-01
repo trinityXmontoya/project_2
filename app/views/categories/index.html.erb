@@ -1,9 +1,19 @@
 <div id="categories-container">
  <% @categories.each do |category| %>
-  <div class="category">
-      <%= category.title %><%= category.description[0..100] %>
-      <img src="<%= category.badge_photo %>">
-          <div class="category-timer"><!-- COUNTDOWN --></div>
+
+  <div class="auction">
+
+      <a href="/categories/<%= category.id %>">
+      <h3> Title: <%= category.title %> </h3>
+      </a>
+
+      Description:<%= category.description[0..100] %>
+      <br>
+      Category:<%= category.title %>
+      <br>
+        <%= image_tag "images/badgeicons/#{category.title.downcase.gsub(/\s/, '')}.png" %>
+      <br>
   </div>
+
 <% end%>
 </div>

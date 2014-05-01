@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20140430180216) do
     t.boolean  "completed"
     t.integer  "num_of_req_bids"
     t.string   "address"
+    t.integer  "lat"
+    t.integer  "long"
     t.string   "website"
     t.string   "img_url"
     t.boolean  "notifications_sent"
