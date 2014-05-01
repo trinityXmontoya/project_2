@@ -17,6 +17,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require_self
 
 $('document').ready(function (){
   var all_messages = $("#all-messages")

@@ -13,9 +13,15 @@
  <% @auctions.each do |auction| %>
  <%= link_to auction do %>
   <div class="auction">
-
-      <%= auction.title %><%= auction.description[0..100] %><%= auction.location %><%= auction.category_id %>
-
+      <%#= auction.title %><%= auction.description[0..100] %><%= auction.location %><%= auction.category_id %>
+    <br>
+      Title: <%= auction.title %>
+      <%= auction.time_end %>
+      <%= auction.time_begin %>
+      <br>
+      Description:<%= auction.description[0..100] %>
+      <br>
+      Category:<%= Category.find(auction.category_id).title %>
       <div class="auctions-timer"><!-- COUNTDOWN --></div>
       <br>
   </div>

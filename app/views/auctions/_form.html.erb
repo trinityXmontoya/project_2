@@ -10,7 +10,7 @@
   <%= f.text_field :address %>
   <br>
   <%= f.label :category_id %>
-  <%= f.select :category_id, Category.all.collect {|category| [category.title, category.id]} %>
+  <%= f.select :category_id, Category.all.collect {|category| [category.title,category.id]}%>
   <br>
   <%= f.label :img_url %>
   <%= f.text_field :img_url %>

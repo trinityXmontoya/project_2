@@ -20,7 +20,7 @@ class AuctionsController < ApplicationController
     @auction = Auction.new auction_params
     @auction.add_end_time(@auction.time_end)
     if @auction.save
-      results = @auction.get_location(@auction.location)
+      results = @auction.get_location(@auction.address)
       @auction.save_location(results)
       @auction.save
       redirect_to @auction
@@ -33,7 +33,7 @@ class AuctionsController < ApplicationController
   def edit
     @auction = Auction.find(params[:id])
     if @auction.update
-      latlng = @auction.get_location(@auction.location)
+      latlng = @auction.get_location(@auction.address)
       @auction.save_location(latlng)
       @auction.update
 
