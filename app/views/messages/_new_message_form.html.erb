@@ -1,12 +1,18 @@
 <%= form_for [current_user, @new_message], method: :post, remote: true do |f| %>
 
   <%= f.label :auction_id %>
-  <% auctions = current_user.auctions.each{|auction|auction.title}%>
-  <%= f.select :auction_id, auctions  %>
+  <%= f.select :auction_id, Auction.where(user: current_user).collect {|auction| [auction.title,auction.id]}  %>
+
+
+   <% bidders=[] %>
+  <% current_user.auctions.where('completed=? OR completed=?', nil,false).each do |auction| %>
+      <%    auction.bids.each do |bid| %>
+    <% bidders << bid.user %>
+   <%  end %>
+   <%  end %>
 
   <%= f.label :receiver_id %>
-  <%= f.number_field :receiver_id%>
-
+  <%= f.select :receiver_id, bidders %>
 
   <%= f.label :content %>
   <%= f.text_field :content %>
