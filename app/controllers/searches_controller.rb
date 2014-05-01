@@ -23,7 +23,7 @@ class SearchesController < ApplicationController
 
   private
   def search_params
-    params.require(:search).permit(:search, :keywords, :latitude, :longitude, :distance)
+    params.require(:search).permit(:search, :keywords, :category_id, :latitude, :longitude, :distance)
   end
 
 end
