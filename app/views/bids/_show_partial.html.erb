@@ -13,7 +13,7 @@
 
   <% if @user == current_user %>
     <button id="message-user">Message this user!</button>
-    <%= link_to "Accept this bid!", bid, auction_accept_bid(bid), remote: true %>
+    <%= link_to "Accept this bid!", bid, auction_accept_bid_path(bid), remote: true %>
   <% end %>
 
   <% if current_user == bid.user %>
