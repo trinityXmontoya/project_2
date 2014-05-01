@@ -21,6 +21,14 @@ has_many :categories
     where(user: user)
   end
 
+  def self.retrieve_user_auction_bids(user)
+    auction_bids=[]
+      user.auctions.each do |auction|
+      auction_bids << Bid.find_by(auction: auction)
+    end
+    return auction_bids
+  end
+
   #TODO
   # VALIDATE UNIQUENESS OF BID WITHIN SCOPE OF THE AUCTION_ID
 
