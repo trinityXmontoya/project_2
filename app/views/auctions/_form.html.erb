@@ -30,6 +30,9 @@
   <%= f.label :time_end %>
   <%= f.datetime_field :time_end %>
   <br>
+  <%= f.label :num_of_req_bids %>
+  <%= f.number_field(:num_of_req_bids, in: 1..10) %>
+  <br>
   <%= f.submit %>
 
 <% end %>
