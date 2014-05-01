@@ -10,7 +10,7 @@
 <br>
   <div id="categories">
     <h1>Badges:</h1>
-    <h4><a href="/categories">Categories Information</a></h4>
+    <h4><a href="/categories  ">Categories Information</a></h4>
     <% @badges.each do |badge| %>
     <img id="badge-photo" src="<%= badge.badge_photo %>"><h4> <%= badge.title %></h4>
     <%end%>
@@ -55,11 +55,13 @@
               <div>
                  <% unless @outgoing_bids == nil %>
                   <% @outgoing_bids.each do |bid| %>
-                   <%#= bid.created_at %><%#= bid.comment[0..100] %>
+<%= bid.created_at %><%= bid.comment[0..100] %>
                     <% end %>
                   <% else %>
                 <%= link_to "Please Enter a Bid first",  new_auction_bid %>
-                     <% end %>
+                    <% end %>
+
+
 
               </div>
 
@@ -81,9 +83,9 @@
              <% if @auctions != nil %>
              <h3>Current Auctions</h3>
               <% @auctions.each do |auction| %>
-                <ul>
-                  <li><%= link_to auction.title, auction %></li>
-                </ul>
+
+
+
               <%end%>
             <%end%>
           </div>
