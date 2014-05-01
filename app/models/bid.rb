@@ -17,7 +17,7 @@ has_many :categories
     update(archived: true)
   end
 
-  def retrieve_user_bids(user)
+  def self.retrieve_user_bids(user)
     where(user: user)
   end
 
