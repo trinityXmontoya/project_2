@@ -1,5 +1,7 @@
 class Category < ActiveRecord::Base
   belongs_to :auction
+  has_many :auctions
+
 
 
   def self.retrieve_user_badges(user_badges)
@@ -9,8 +11,7 @@ class Category < ActiveRecord::Base
     end
     return badges
   end
-
-
 end
+
 
 

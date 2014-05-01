@@ -1,7 +1,7 @@
 class CreateAuctions < ActiveRecord::Migration
   def change
     create_table :auctions do |t|
-      t.references :user
+      t.references :user, :limit => 8
       t.references :category
       t.string :location
       t.string :title
