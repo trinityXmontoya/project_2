@@ -12,7 +12,7 @@
 <div id="auctions-container">
  <% @auctions.each do |auction| %>
   <div class="auction">
-      <%= auction.title %><%= auction.description[0..100] %><%= auction.location %><%= auction.category %>
+      <%= auction.title %><%= auction.description[0..100] %><%= auction.location %><%= auction.category_id %>
       <div class="auctions-timer"><!-- COUNTDOWN --></div>
   </div>
 <% end%>

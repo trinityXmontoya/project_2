@@ -2,10 +2,16 @@
 <html>
 <head>
   <title>SnapDate</title>
+
+<% #FIXME looking for a js? %>
+<!--   couldn't find file 'bootstrap-datetimepicker'
+  (in /Users/alexshook/code/project_2/app/assets/stylesheets/application.css:12) -->
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%#= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
+  <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 <%= render 'layouts/navbar' %>
 <body>

@@ -64,9 +64,10 @@ ActiveRecord::Schema.define(version: 20140430180216) do
   end
 
   create_table "messages", force: true do |t|
-    t.integer  "bid_id"
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
     t.integer  "auction_id"
-    t.text     "message"
+    t.text     "content"
     t.boolean  "viewed"
     t.boolean  "archived"
     t.datetime "created_at"
@@ -90,7 +91,7 @@ ActiveRecord::Schema.define(version: 20140430180216) do
     t.string   "profile_photo"
     t.string   "city"
     t.string   "bio"
-    t.string   "badges",        default: [], array: true
+    t.string   "badges",                 default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "provider"
