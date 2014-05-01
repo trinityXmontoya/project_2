@@ -18,7 +18,6 @@ class AuctionsController < ApplicationController
 
   def create
     @auction = Auction.new auction_params
-    # @auction = Auction.create(auction_params)
     @auction.add_end_time(@auction.time_end)
     if @auction.save
       results = @auction.get_location(@auction.location)
@@ -29,6 +28,7 @@ class AuctionsController < ApplicationController
       render 'new', notice: "Please fix the following errors."
     end
   end
+
 
   def edit
     @auction = Auction.find(params[:id])
@@ -70,6 +70,12 @@ class AuctionsController < ApplicationController
     @auction = Auction.find(params[:id])
     @auction.destroy
     redirect_to '/'
+  end
+
+  def create_tweet
+    tweet_string = params[:tweet]
+    @send_code = Tweet.create_tweet(tweet_string)
+    render text: @send_code
   end
 
   private

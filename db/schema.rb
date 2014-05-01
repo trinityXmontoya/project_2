@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20140430180216) do
   create_table "auctions", force: true do |t|
     t.integer  "user_id",            limit: 8
     t.integer  "category_id"
-    t.string   "location"
     t.string   "title"
     t.text     "description"
     t.datetime "time_begin"

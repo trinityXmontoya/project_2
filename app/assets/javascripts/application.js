@@ -19,6 +19,8 @@
 //= require_tree .
 
 $('document').ready(function (){
+  var all_messages = $("#all-messages")
+  all_messages.hide();
 
 $("#DateCountdown").TimeCircles({
     "animation": "ticks",
@@ -53,13 +55,30 @@ $("#DateCountdown").TimeCircles({
 $('#bid-notifications').hide();
 $('#nav-bids').on("click", function(){
   $('#bid-notifications').show();
+
+//MESSAGES
+
+$("#show-inbox").on("click",function(){
+  // $("all-messages").css('visibility':'visible');
+  all_messages.show();
 });
 
-$('#auction-notifications').hide();
-$('#nav-auctions').on("click", function(){
-  $('#auction-notifications').show();
+$("#show-inbox").on("dblclick",function(){
+  // $("all-messages").css('visibility':'visible');
+ all_messages.hide();
 });
 
+//USERS Profile
+
+// $('#bid-notifications').hide();
+// $('#nav-bids').on("click", function(){
+//   $('#bid-notifications').show();
+// });
+
+// $('#auction-notifications').hide();
+// $('#nav-auctions').on("click", function(){
+//   $('#auction-notifications').show();
+// });
 
 
 });
