@@ -1,0 +1,6 @@
+<h1>Search Results (we can change this name later)</h1>
+
+<%#= render @search.auctions %>
+<% @results.each do |result| %>
+  <%= link_to result.title, result %>
+<% end %>

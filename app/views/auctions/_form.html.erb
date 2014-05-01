@@ -1,10 +1,5 @@
 <%= form_for @auction do |f| %>
 
-<%= form_tag("/create-tweet") do %>
-<%= hidden_field_tag :tweet, auction.
-  content%>
-
-<%= submit_tag("Tweet") %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br>
@@ -13,6 +8,7 @@
   <br>
   <%= f.label :location %>
   <%= f.text_field :location %>
+
   <br>
   <%= f.label :address %>
   <%= f.text_field :address %>
@@ -57,6 +53,9 @@
     </div>
 </div>
 <br>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
   <%= f.submit %>
 
 <% end %>
