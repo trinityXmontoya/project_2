@@ -26,14 +26,20 @@ ActiveRecord::Schema.define(version: 20140430180216) do
   add_index "auction_participants", ["user_id"], name: "index_auction_participants_on_user_id", using: :btree
 
   create_table "auctions", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "user_id",            limit: 8
     t.integer  "category_id"
     t.string   "location"
     t.string   "title"
     t.text     "description"
-    t.datetime "time_limit"
+    t.datetime "time_begin"
+    t.datetime "time_end"
+    t.datetime "event_date"
     t.boolean  "completed"
-    t.boolean  "viewed"
+    t.integer  "num_of_req_bids"
+    t.string   "address"
+    t.string   "website"
+    t.string   "img_url"
+    t.boolean  "notifications_sent"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "latitude"
@@ -45,6 +51,8 @@ ActiveRecord::Schema.define(version: 20140430180216) do
     t.integer  "auction_id"
     t.string   "comment"
     t.boolean  "viewed"
+    t.boolean  "won"
+    t.boolean  "archived"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -60,6 +68,7 @@ ActiveRecord::Schema.define(version: 20140430180216) do
     t.integer  "auction_id"
     t.text     "message"
     t.boolean  "viewed"
+    t.boolean  "archived"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -75,12 +84,13 @@ ActiveRecord::Schema.define(version: 20140430180216) do
   end
 
   create_table "users", id: false, force: true do |t|
-    t.integer  "id"
+    t.string   "id"
     t.string   "oauth_token"
     t.string   "name"
     t.string   "profile_photo"
     t.string   "city"
     t.string   "bio"
+    t.string   "badges",        default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "provider"

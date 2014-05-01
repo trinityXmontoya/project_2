@@ -18,13 +18,15 @@ class AuctionsController < ApplicationController
 
   def create
     @auction = Auction.new auction_params
+    # @auction = Auction.create(auction_params)
+    @auction.add_end_time(@auction.time_end)
     if @auction.save
       results = @auction.get_location(@auction.location)
       @auction.save_location(results)
       @auction.save
       redirect_to @auction
     else
-      render 'new'
+      render 'new', notice: "Please fix the following errors."
     end
   end
 
@@ -43,12 +45,25 @@ class AuctionsController < ApplicationController
 
   def update
     @auction = Auction.find(params[:id])
-    @auction.update
-      if @auction.save?
-        redirect_to @auction
-      else
-        render 'edit'
+    @auction.update auction_params
+    if @auction.save
+      results = @auction.get_location(@auction.location)
+      @auction.save_location(results)
+      @auction.save
+      redirect_to @auction
+    else
+      render 'edit'
+    end
+  end
+
+  def accept_badge
+    if self.auction_participants.includes? current_user
+      current_user.badges << auction.category.id
+        respond_to do |format|
+        format.html{redirect_to @auction}
+        format.js {}
       end
+    end
   end
 
   def destroy
@@ -59,7 +74,10 @@ class AuctionsController < ApplicationController
 
   private
   def auction_params
+<<<<<<< HEAD
     params.require(:auction).permit(:user_id, :category_id, :location, :title, :description, :time_limit, :completed, :viewed, :latitude, :longitude)
+=======
+>>>>>>> development
   end
 
 end

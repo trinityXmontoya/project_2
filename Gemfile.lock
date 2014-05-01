@@ -26,6 +26,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     arel (4.0.2)
+    bootstrap3-datetimepicker-rails (3.0.0)
+      momentjs-rails (~> 2.5.0)
     builder (3.1.4)
     capybara (2.2.1)
       mime-types (>= 1.16)
@@ -71,6 +73,8 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.3)
     minitest (4.7.5)
+    momentjs-rails (2.5.1)
+      railties (>= 3.1)
     multi_json (1.9.3)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -179,12 +183,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap3-datetimepicker-rails (~> 3.0.0)
   capybara
   coffee-rails (~> 4.0.0)
   dotenv-rails
   httparty
   jbuilder (~> 1.2)
   jquery-rails
+  momentjs-rails (~> 2.5.0)
   omniauth-facebook (~> 1.5.1)
   pg
   pry-rails
