@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       @auctions = @user.auctions{updated_at :desc}
       # @bids = @user.auctions.bids{updated_at :desc}
       @bids = Bid.retrieve_user_bids(@user)
-      @outgoing_bids = @user.bids{updated_at :desc}
+      @outgoing_bids = Bid.retrieve_user_auction_bids(@user)
       @messages = @user.messages{updated_at :desc}
     end
     @badges = Category.retrieve_user_badges(@user.badges)
