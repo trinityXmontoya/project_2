@@ -77,7 +77,7 @@ class AuctionsController < ApplicationController
 
   private
   def auction_params
-    params.require(:auction).permit(:user_id, :category_id, :location, :title, :description, :time_limit, :completed, :viewed, :latitude, :longitude)
+    params.require(:auction).permit(:user_id, :category_id, :location, :title, :description, :time_end, :time_begin, :event_date, :completed, :viewed, :latitude, :longitude)
   end
 
 end
