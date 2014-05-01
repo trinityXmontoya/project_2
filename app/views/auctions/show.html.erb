@@ -9,7 +9,7 @@
 <div id="auction-show-description">
 <p><%= @auction.description %></p>
 by
-<%= @user.name %>
+<%= current_user.name %>
 <img src="<%= @user.profile_photo %>">
 </div>
 

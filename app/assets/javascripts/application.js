@@ -36,7 +36,7 @@ $('document').ready(function (){
 $('#show-inbox').click( function(){
     $('#message-box-title').hide();
     $('#all-messages').slideToggle();
-    $('#message-box-title').fadeToggle(1000);
+   ;
 });
 
 $("#DateCountdown").TimeCircles({
@@ -69,20 +69,21 @@ $("#DateCountdown").TimeCircles({
 });
 
 
+
 //MESSAGES
 
 
 //USERS Profile
 
-// $('#bid-notifications').hide();
-// $('#nav-bids').on("click", function(){
-//   $('#bid-notifications').show();
-// });
+$('#bid-notifications').hide();
+$('#nav-bids').on("click", function(){
+  $('#bid-notifications').show();
+});
 
-// $('#auction-notifications').hide();
-// $('#nav-auctions').on("click", function(){
-//   $('#auction-notifications').show();
-// });
+$('#auction-notifications').hide();
+$('#nav-auctions').on("click", function(){
+  $('#auction-notifications').show();
+});
 
 
 

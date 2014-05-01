@@ -1,12 +1,6 @@
 <h1>Auctions</h1>
-<div id="search-box"><%= render '/searches/search' %><div>
-<h3> Sort By </h3>
-<nav id="auctions-index-nav">
-  <li>Title</li>
-  <li>Category</li>
-  <li>Created At</li>
-  <li>End Time</li>
-</nav>
+<%= render '/searches/search' %>
+
 
 <div id="auctions-container">
  <% @auctions.each do |auction| %>
