@@ -10,26 +10,20 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require moment
-//= require bootstrap-datetimepicker
+
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap
+//= require bootstrap.min
+//= require moment
+//= require bootstrap-datetimepicker
+//= require TimeCircles
+//= require auctions
+//= require bids
+//= require categories
+//= require messages
+//= require users
+//= require main
+//= require_self
 
-$('document').ready(function (){
-
-//USERS Profile
-$('#bid-notifications').hide();
-$('#nav-bids').on("click", function(){
-  $('#bid-notifications').show();
-});
-
-$('#auction-notifications').hide();
-$('#nav-auctions').on("click", function(){
-  $('#auction-notifications').show();
-});
-
-
-
-});

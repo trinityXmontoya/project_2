@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429133955) do
+ActiveRecord::Schema.define(version: 20140430180216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20140429133955) do
   create_table "auctions", force: true do |t|
     t.integer  "user_id",            limit: 8
     t.integer  "category_id"
-    t.string   "location"
     t.string   "title"
     t.text     "description"
     t.datetime "time_begin"
@@ -64,8 +63,8 @@ ActiveRecord::Schema.define(version: 20140429133955) do
   end
 
   create_table "messages", force: true do |t|
-    t.integer  "sender_id"
-    t.integer  "receiver_id"
+    t.integer  "sender_id",   limit: 8
+    t.integer  "receiver_id", limit: 8
     t.integer  "auction_id"
     t.text     "content"
     t.boolean  "viewed"
@@ -74,17 +73,30 @@ ActiveRecord::Schema.define(version: 20140429133955) do
     t.datetime "updated_at"
   end
 
+  create_table "searches", force: true do |t|
+    t.string   "keywords"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "distance"
+  end
+
   create_table "users", id: false, force: true do |t|
     t.string   "id"
     t.string   "oauth_token"
     t.string   "name"
     t.string   "profile_photo"
-    t.string   "location"
+    t.string   "city"
     t.string   "bio"
-    t.string   "badges",        default: [], array: true
+    t.string   "badges",                 default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "provider"
+    t.string   "email"
+    t.integer  "oauth_token_expires_at"
+    t.integer  "zip_code"
   end
 
   add_index "users", ["id"], name: "index_users_on_id", unique: true, using: :btree

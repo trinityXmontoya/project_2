@@ -3,19 +3,21 @@
 <div id="all-bids">
 
 <%= content_tag(:div, class: "bid", id: dom_id(bid), data: {bid_info: bid}) do %>
-  <% bidder = bid.user %>
+  <% bidder = User.find(bid.user_id) %>
     <%= link_to bidder do %>
       <%= bidder.name %>
       <img src="<%= bidder.profile_photo %>">
+      <%= bid.comment %>
+
     <% end %>
 
   <% if @user == current_user %>
-    <button id="message-user">Message this user!</button>
-    <%= link_to "Accept this bid!", bid, auction_accept_bid(bid), remote: true %>
+    <%= button_to "Message User", @message, action: :message_user, method: :post %>
+    <%= button_to "Accept this bid!", [bid.auction,bid], action: :accept_bid, method: :post, remote: true %>
   <% end %>
 
   <% if current_user == bid.user %>
-  <%= link_to "delete", bid, method: :accept_bid, remote: true %>
+  <%= button_to "delete bid", [bid.auction,bid], method: :delete, remote: true %>
   <% end %>
 
   <% end %>

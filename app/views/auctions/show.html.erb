@@ -8,14 +8,12 @@
 
 <div id="auction-show-description">
 <p><%= @auction.description %></p>
-</div>
-
-<div id="auction-show-location">
-  <p><%= @auction.location %></p>
+by
+<%= @user.name %>
+<img src="<%= @user.profile_photo %>">
 </div>
 
 <div id="auction-show-timer" >
-<!--   COUNTDOWN -->
 </div>
 
 
@@ -28,20 +26,19 @@ SECONDS: (time_left).round -->
 
 <div id="auction-bids">
 
-
     <% unless current_user == @user || @auction.is_completed? %>
      <div id="add_bid">
-      <p>Add Bid!</p>
-      <%= form_for @bid, remote: true do %>
+      <h1>Bid on this!</h1>
+      <%= form_for [@auction, @bid], method: :post, remote: true do |f| %>
         <%= f.label :comment %>
         <%= f.text_field :comment %>
-        <%= f.submit "Commit bid"%>
+        <%= f.submit "Submit Bid!"%>
       <% end %>
     <% end %>
+
   </div>
 
 <%= render '/bids/show_partial' %>
 
-<% end %>
 </div>
 

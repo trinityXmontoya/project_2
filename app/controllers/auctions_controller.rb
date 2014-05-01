@@ -1,22 +1,16 @@
 class AuctionsController < ApplicationController
 
   def index
-    query = params[:query]
-    @narrowed_results = Auction.search_for query
-    # @user = current_user
-    if params[:query].present?
-      # find auctions based on lat, lng and radius
-    else
-      @auctions = Auction.all
-    end
+    @auctions = Auction.all
   end
 
   def show
-    @auction = Auction.find params[:id]
+    @auction = Auction.find(params[:id])
     @user = @auction.user
-    @bids = @auction.bids{updated_at :desc}
-    @bids.each {|bid| bid.mark_as_viewed}
+    @bids = @auction.bids{created_at :desc}
+    # @bids.each {|bid| bid.mark_as_viewed}
     @bid = Bid.new
+    @message = Message.new
   end
 
   def new
@@ -24,12 +18,12 @@ class AuctionsController < ApplicationController
   end
 
   def create
-    @auction = Auction.create(auction_params)
+    @auction = Auction.new auction_params
     @auction.add_end_time(@auction.time_end)
     if @auction.save
-      latlng = @auction.get_location(@auction.location)
-      @auction.save_location(latlng)
-
+      results = @auction.get_location(@auction.address)
+      @auction.save_location(results)
+      @auction.save
       redirect_to @auction
     else
       render 'new', notice: "Please fix the following errors."
@@ -38,17 +32,29 @@ class AuctionsController < ApplicationController
 
 
   def edit
-    @auction = Auction.find_by(params[:id])
+    @auction = Auction.find(params[:id])
+    if @auction.update
+      latlng = @auction.get_location(@auction.address)
+      @auction.save_location(latlng)
+      @auction.update
+
+      redirect_to @auction
+    else
+      render 'edit'
+    end
   end
 
   def update
-    @auction = Auction.find_by(params[:id])
-    @auction.update
-      if @auction.save?
-        redirect_to @auction
-      else
-        render 'edit'
-      end
+    @auction = Auction.find(params[:id])
+    @auction.update auction_params
+    if @auction.save
+      results = @auction.get_location(@auction.location)
+      @auction.save_location(results)
+      @auction.save
+      redirect_to @auction
+    else
+      render 'edit'
+    end
   end
 
   def accept_badge
@@ -62,7 +68,7 @@ class AuctionsController < ApplicationController
   end
 
   def destroy
-    @auction = Auction.find_by(params[:id])
+    @auction = Auction.find(params[:id])
     @auction.destroy
     redirect_to '/'
   end
@@ -75,6 +81,7 @@ class AuctionsController < ApplicationController
 
   private
   def auction_params
+    params.require(:auction).permit(:user_id, :category_id, :location, :title, :description, :time_begin, :time_end, :event_date, :completed, :num_of_req_bids, :address, :website, :img_url, :notifications_sent, :created_at, :updated_at, :latitude, :longitude)
   end
 
 end

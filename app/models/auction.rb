@@ -1,33 +1,31 @@
 class Auction < ActiveRecord::Base
+
+
   has_many :categories
   has_many :bids
   has_many :messages
   belongs_to :user
   belongs_to :auction_participants
 
-  def self.search_for(query)
-    # self.where('')
-    # self.latitude
-    # self.longitude
-  end
-
-  # self.where('name LIKE :query OR description LIKE :query OR year_release LIKE :query', query: "%#{query}%")
-
   def get_location(address)
-    address = address.downcase.gsub(" ", "+")
-    latlng = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=true&key=#{ENV['...']}")['results'][0]['geometry']['location']
+    escaped_address = address.downcase.gsub(" ", "+")
+    results = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{escaped_address}&sensor=true&key=#{ENV['GOOGLE_GEOCODING_KEY']}")
   end
 
-  def save_location(latlng)
-    self.latitude = latlng['lat']
-    self.longitude = latlng['lng']
+  def save_location(results)
+    self.latitude = results['results'][0]['geometry']['location']['lat']
+    self.longitude = results['results'][0]['geometry']['location']['lng']
+  end
+
+  def calculate_time_left
+    return Time.now - time_end
   end
 
   def time_left
       return time_end - time_begin
     end
 
-  def is_completed?
+    def is_completed?
       if time_left > 0
         return false
       else
@@ -38,7 +36,8 @@ class Auction < ActiveRecord::Base
     end
 
     def add_end_time(date)
-      self.update(time_end: date.now.change({hour: 21}))
+      # self.update(time_end: self.time_end.hour = ({hour: 21}))
+      self.update(time_end: date.change(hour: 21))
     end
 
     def end_auction
@@ -46,6 +45,7 @@ class Auction < ActiveRecord::Base
         mark_notifications_sent
         archive_bids
         close_messaging
+        return true
     end
 
     def notify_participants
@@ -89,7 +89,8 @@ class Auction < ActiveRecord::Base
     end
 
     def close_messaging
-      #will work on this method after messages is done
+      messages = Message.where(auction_id: self.id)
+      messages.each {|message| message.archive}
     end
 
     def calculate_accepted_bids
@@ -103,5 +104,34 @@ class Auction < ActiveRecord::Base
           end
     end
 
+  def haversine(lat1, lng1, lat2, lng2)
+    dtor = Math::PI/180
+    radius_miles = 3959
+
+    rlat1 = lat1 * dtor
+    rlng1 = lng1 * dtor
+    rlat2 = lat2 * dtor
+    rlng2 = lng2 * dtor
+
+    dlng = rlng1 - rlng2
+    dlat = rlat1 - rlat2
+
+    a = (Math::sin(dlat / 2) ** 2) + Math::cos(rlat1) * Math::cos(rlat2) * (Math::sin(dlng / 2) ** 2)
+    c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1 - a))
+    d = radius_miles * c
+
+    return d
+  end
+
+  def calculate_accepted_bids
+    accepted_bids = []
+        bids.each do |bid|
+            accepted_bids.select { |bid| bid.won == true}
+        end
+        if accepted_bids.length == self.num_of_req_bids
+            self.time_end = Time.now
+            self.end_auction
+        end
+  end
 
 end

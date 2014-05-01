@@ -30,23 +30,31 @@
 <!-- Bid section -->
            <div id="bids-notifications">
 
-              <div id="recieved-bids">
+              <div id="outgoing-bids">
                <%= render '/bids/show_complete' %>
               </div>
-              <div id="outgoing-bids">
+
+              <div id="received-bids">
                 <% @outgoing_bids.each do |bid| %>
                  <%= bid.created_at %><%= bid.comment[0..100] %>
+<<<<<<< HEAD
                  <div><%= form_tag("/create-tweet") do %>
 <%= hidden_field_tag :tweet, auction.content%>
 <%= submit_tag("Tweet") %>
                 </div>
+=======
+>>>>>>> 85f5f5e3d27c3eaffb8a9d4e77c60924ab3a8f0d
                 <% end %>
               </div>
 
 <!-- Auction section -->
            <div id="auctions-notifications">
             <% @auctions.each do |auction| %>
-              <%= @auction.title %><%= @auction.description[0..100] %>
+              <%#= link_to auction.title, auction %><%= auction.description[0..100] %>
+              <%= auction.title %><%= auction.description[0..100] %>
+              <%= auction.time_begin %>
+              <%= auction.time_end %>
+              <br>
               <%end%>
           </div>
 
