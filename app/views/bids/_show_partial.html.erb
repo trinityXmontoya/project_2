@@ -1,6 +1,7 @@
 <% @bids.each do |bid| %>
 
 <div id="all-bids">
+
 <%= content_tag(:div, class: "bid", id: dom_id(bid), data: {bid_info: bid}) do %>
   <% bidder = bid.user %>
     <%= link_to bidder do %>
@@ -13,9 +14,11 @@
     <%= link_to "Accept this bid!", bid, auction_accept_bid(bid), remote: true %>
   <% end %>
 
-  <%= if current_user == bid.user %>
+  <% if current_user == bid.user %>
   <%= link_to "delete", bid, method: :accept_bid, remote: true %>
   <% end %>
 
+  <% end %>
+</div>
 <% end %>
 
