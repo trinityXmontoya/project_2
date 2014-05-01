@@ -5,8 +5,8 @@ class CreateMessages < ActiveRecord::Migration
       t.integer :receiver_id, limit: 8
       t.references :auction
       t.text :content
-      t.boolean :viewed
-      t.boolean :archived
+      t.boolean :viewed, default: false
+      t.boolean :archived, default: false
       t.timestamps
     end
   end
