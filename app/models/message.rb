@@ -16,12 +16,10 @@ class Message < ActiveRecord::Base
 
   def self.badge_acceptance(auction)
     participants = AuctionParticipant.find_participants(auction)
-    badge_acceptance_link= link_to("#{auction.category.name} badge", auction_accept_badge_path(auction), remote: true)
-    participants.each do {|participant|
-
+    badge_acceptance_link = link_to("#{auction.category.name} badge", auction_accept_badge_path(auction), remote: true)
+    participants.each { |participant|
       self.create(sender_id: 000000, receiver_id: participant.id,
     content: "Head on over to accept your #{badge_acceptance_link}")
-
     }
   end
 
