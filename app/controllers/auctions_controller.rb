@@ -25,7 +25,7 @@ class AuctionsController < ApplicationController
 
   def create
     @auction = Auction.create(auction_params)
-    @auction.add_end_time
+    @auction.add_end_time(@auction.time_end)
     if @auction.save
       latlng = @auction.get_location(@auction.location)
       @auction.save_location(latlng)

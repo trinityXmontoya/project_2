@@ -1,8 +1,5 @@
 class Category < ActiveRecord::Base
   belongs_to :auction
-  has_many :auctions
-
-
 
   def self.retrieve_user_badges(user_badges)
      badges = []
