@@ -5,7 +5,6 @@
 
   <%= f.label :receiver_id %>
   <%= f.select :receiver_id, @bidders.each {|bidder| [bidder.name, bidder.id]} %>
- <%= @bidders %>
   <%= f.label :content %>
   <%= f.text_field :content %>
 
