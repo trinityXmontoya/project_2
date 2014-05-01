@@ -1,40 +1,47 @@
-<%= form_for @auction do |f| %>
+<div class="form-group">
+  <div class="col-sm-8">
+    <%= form_for @auction do |f| %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <br>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <br>
-  <%= f.label :category_id %>
-  <%= f.select :category_id, Category.all.collect {|category| [category.title,category.id]}%>
-  <br>
-  <%= f.label :img_url %>
-  <%= f.text_field :img_url %>
-  <br>
-  <%= f.label :website %>
-  <%= f.url_field :website %>
-  <br>
-  <%= f.label :event_date %>
-  <%= f.datetime_field :event_date %>
-  <br>
-  <%= f.label :time_begin, "Start Auction On:" %>
-  <%= f.datetime_select :time_begin %>
-  <br>
-  <%= f.label :time_end, "End Auction On:" %>
-  <%= f.datetime_select :time_end %>
-  <br>
-  <%= f.label :num_of_req_bids, "How many people can attend?" %>
-  <%= f.number_field(:num_of_req_bids, in: 1..10) %>
-  <br>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+      <br>
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control', rows: '3' %>
+      <br>
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+      <br>
+      <%= f.label :category_id %>
+      <%= f.select :category_id, Category.all.collect {|category| [category.title,category.id]}, class: 'form-control' %>
+      <br>
+      <%= f.label :img_url %>
+      <%= f.text_field :img_url, class: 'form-control' %>
+      <br>
+      <%= f.label :website %>
+      <%= f.url_field :website, class: 'form-control' %>
+      <br>
+      <%= f.label :event_date %>
+      <%= f.datetime_field :event_date, class: 'form-control' %>
+      <br>
+      <%= f.label :time_begin, "Start Auction On:" %>
+      <%= f.datetime_select :time_begin, class: 'form-control' %>
+      <br>
+      <%= f.label :time_end, "End Auction On:" %>
+      <%= f.datetime_select :time_end, class: 'form-control' %>
+      <br>
+      <%= f.label :num_of_req_bids, "How many people can attend?" %>
+      <%= f.number_field(:num_of_req_bids, in: 1..10, class: 'form-control') %>
+      <br>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
 
-  <%= f.submit %>
+      <%= button_tag(type: 'submit', class: 'btn btn-default') do %>
+        Create Auction
+      <% end %>
 
-<% end %>
+    <% end %>
+  </div>
+
+</div>
 
 <!-- <div class="container">
   <div class="row">
