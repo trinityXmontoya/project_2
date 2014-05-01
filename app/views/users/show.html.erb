@@ -8,8 +8,8 @@
   </div>
 
   <div id="categories">
-    <% @completed_events.each do |completed_event| %>
-    <img id="badge-photo" src="<%= completed_event.category.badge_photo %>">
+    <% @badges.each do |badge| %>
+    <img id="badge-photo" src="<%= badge.badge_photo %>">
     <%end%>
   </div>
 

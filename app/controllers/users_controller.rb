@@ -10,11 +10,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if current_user == @user
       @auctions = @user.auctions{updated_at :desc}
-      @bids = @user.retrieve_user_bids
+      @bids = Bid.retrieve_user_bids(@user)
       @outgoing_bids = @user.bids{updated_at :desc}
       @messages = @user.messages{updated_at :desc}
     end
-    @completed_events = @bids + @auctions
+    @badges = Category.retrieve_user_badges(@user.badges)
   end
 
   # def create
