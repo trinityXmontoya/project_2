@@ -11,6 +11,9 @@
  *= require_self
  *= require_tree .
  */
+ /*
+*= require jquery.ui.all
+*/
 
 #all-messages {
   position: absolute;

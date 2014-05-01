@@ -26,7 +26,7 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
-
+gem 'jquery-ui-rails'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -49,4 +49,6 @@ end
 group :development, :test, :production do
   gem 'momentjs-rails', '~> 2.5.0'
   gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0'
+
+
 end
