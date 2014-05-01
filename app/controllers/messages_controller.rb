@@ -7,19 +7,19 @@ class MessagesController < ApplicationController
     unless @message.viewed
       @message.mark_as_viewed
     end
+    @bidders = @user.find_bidders
   end
 
   def create
-    # @message = Message.create!(content:params[:message][:content],sender_id: current_user.id,receiver_id: (params[:message][:bid], auction_id: params[:message][:auction_id])
-    @auction = @message.auction
+    @message = Message.new(content:params[:message][:'content'],sender_id: current_user.id,receiver_id: (params[:message][:'receiver_id']), auction_id: params[:message][:auction_id])
+    @auction = Auction.find(@message.auction_id)
     if @auction.is_completed?
-      @message.destroy
       redirect_to @auction, notice: "Sorry, this auction is over and messaging is disabled."
     else
-    respond_to do |format|
-      format.html{redirect_to @message}
-      format.js {}
-    end
+      @message.save!
+      respond_to do |format|
+        format.html{redirect_to @message, notice: "Message sent!"}
+      end
     end
   end
 

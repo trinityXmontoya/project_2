@@ -29,4 +29,20 @@ class User < ActiveRecord::Base
     end
   end
 
+  def find_bidders
+    bid_ids=[]
+    bidders=[]
+    self.auctions.where('completed=? OR completed=?', nil,false).each do |auction|
+      auction.bids.each do |bid|
+        bid_ids << bid.user_id
+      end
+      return bid_ids
+    end
+    bid_ids.each do |bid_id|
+      bidders << User.find(bid_id)
+    end
+    return bidders
+  end
+
+
 end
