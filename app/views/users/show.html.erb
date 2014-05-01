@@ -42,11 +42,15 @@
                 </div>
                 <% end %>
               </div>
+              <% end %>
 
 <!-- Auction section -->
            <div id="auctions-notifications">
             <% @auctions.each do |auction| %>
-              <%= @auction.title %><%= @auction.description[0..100] %>
+              <%= auction.title %><%= auction.description[0..100] %>
+              <%= auction.time_begin %>
+              <%= auction.time_end %>
+              <br>
               <%end%>
           </div>
 
