@@ -1,4 +1,7 @@
-
+Category.destroy_all
+User.destroy_all
+Auction.destroy_all
+Bid.destroy_all
 
 category1 = Category.create(id: 300, title: 'Food and Drinks', description: 'Explore together!', badge_photo: '/images/badgeicons/foodanddrinks.png')
 category2 = Category.create(id: 301, title: 'Date', description: 'Have a romantic evening out', badge_photo: '/images/badgeicons/datenight.png')
