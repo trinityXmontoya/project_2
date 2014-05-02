@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
 
 # facebook login
   def self.facebook_auth(auth)
-    where(auth.slice(:provider, :id)).first_or_initialize.tap do |user|
-      user.id = auth.uid
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.uid = auth.uid
       user.oauth_token = auth.credentials.token
       user.oauth_token_expires_at = auth.credentials.expires_at
       user.email = auth.info.email
