@@ -1,6 +1,6 @@
-require 'rubygems'
-require 'oauth'
-require 'json'
+# require 'rubygems'
+# require 'oauth'
+# require 'json'
 
 class Tweet
 
