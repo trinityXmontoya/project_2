@@ -5,10 +5,12 @@ $('document').ready(function (){
   var all_messages = $("#all-messages");
   all_messages.hide();
 
+
+
 $(function () {
   $('#datetimepicker1').datetimepicker();
+  $('#datetimepicker2').datetimepicker();
 });
-
 
 $('#show-inbox').click( function(){
     $('#message-box-title').hide();
@@ -44,7 +46,6 @@ $("#DateCountdown").TimeCircles({
         }
     }
 });
-
 
 
 //MESSAGES

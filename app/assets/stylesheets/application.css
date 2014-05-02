@@ -30,9 +30,32 @@
   position:relative;
 }
 
+#badge-display{
+  display: inline-block;
+}
+
 a :hover{
   text-decoration: none;
   color: #010f79;
+}
+
+/*AUCTIONS*/
+#auction-bids{
+  float:right;
+  margin: 0;
+  display: inline-block;
+}
+
+.accept-bid-button{
+  display: inline-block;
+}
+
+#auction-info {
+  display: inline-block;
+}
+
+#tweet{
+  float:left;
 }
 
 #auctions-index-nav{
@@ -52,8 +75,20 @@ a :hover{
   border-radius: 10px;
 }
 
+.auction-display-category {
+  float: left;
+  text-align: center;
+  margin: 0 15px 0 0 ;
+  width: 100px;
+  color: black;
+}
+/*MESSAGES*/
+
 #all-messages{
-  height: 250px;
+  height: 100%;
+  width: 300px;
+  float:right;
+  padding: 20px;
   background: rgba(0,0,0,.1);
 
 }
@@ -64,20 +99,38 @@ a :hover{
   margin-left: 50px;
 }
 
-
 .message-info{
-  background:
+  margin: 15px 0 0 0;
 }
 
-#tweet{
-  float:right;
-  position: relative;
-}
 
+
+/*CATEGORIES*/
 #categories{
   width: 30%;
   background: rgba(0,0,0,.05);
   float: right;
   padding: 20px;
   border-radius: 10px;
+}
+
+.category {
+  display: inline-block;
+  background: rgba(0,0,0,.05);
+  padding: 20px;
+  margin: 15px;
+  border-radius: 10px;
+  text-align: center;
+  width: 260px;
+  height: 250px;
+}
+
+#categories-container {
+  margin: 0 auto;
+}
+
+/*FORM*/
+
+.auction-create-form {
+  margin: 0 0 30px 0;
 }
