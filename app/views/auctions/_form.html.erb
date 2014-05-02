@@ -1,6 +1,8 @@
 <script type="text/javascript">
   $(function () {
     $('#datetimepicker1').datetimepicker();
+    $('#datetimepicker2').datetimepicker();
+    $('#datetimepicker3').datetimepicker();
   });
 </script>
 
@@ -29,16 +31,23 @@
       <!-- begin bootstrap datetimepicker -->
       <%= f.label :event_date %>
       <div class='input-group date' id='datetimepicker1'>
-        <%= f.datetime_field :event_date, class: 'form-control'%>
+        <%= f.datetime_field :event_date, class: 'form-control' %>
         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-      <!-- end bootstrap datetimepicker -->
       </div>
       <br>
       <%= f.label :time_begin, "Start Auction On:" %>
-      <%= f.datetime_select :time_begin, class: 'form-control' %>
+        <div class='input-group date' id='datetimepicker2'>
+        <%= f.datetime_field :time_begin, class: 'form-control' %>
+      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+      </div>
       <br>
       <%= f.label :time_end, "End Auction On:" %>
-      <%= f.datetime_select :time_end, class: 'form-control' %>
+        <div class='input-group date' id='datetimepicker3'>
+        <%= f.datetime_field :time_end, class: 'form-control' %>
+      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+      </div>
+
+      <!-- end bootstrap datetimepicker -->
       <br>
       <%= f.label :num_of_req_bids, "How many people can attend?" %>
       <%= f.number_field(:num_of_req_bids, in: 1..10, class: 'form-control') %>
