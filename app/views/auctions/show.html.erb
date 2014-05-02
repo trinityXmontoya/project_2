@@ -1,50 +1,56 @@
+<div id="container-show">
 <div id="auction-show-title">
-<h1 id="auction-title"><%= @auction.title %> by:<h3> <%= @user.name %></h3> <h3 id="tweet"> Share This Auction
+<h1 id="auction-title"><%= @auction.title %> by:<h3> <img id="auction-img" src="<%= @user.profile_photo %>">  <%= @user.name %></h3>
+  <h3 id="tweet"> Share This Auction
 <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a></h3></h1>
 </div>
-<img src="<%= @user.profile_photo %>">
+
+
+
+
 
 <div id="auction-show-category">
-    <%= @auction.category_id %>
+    <h5>Category: </h3><%= @auction.category_id %>
  </div>
 
 <div id="auction-show-description">
 <h5> Description </h5>
 <p><%= @auction.description %></p>
-by
 
-<%= current_user.name %>
-<img src="<%= @user.profile_photo %>">
-</div>
 
 
 </div>
-<h3> Auction Ends: </h3>
+<h5> Auction Ends: </h5>
 <div id="auction-show-timer" >
   <div id="DateCountdown" data-date="<%= @auction.time_end %>" style="width: 600px;"></div>
 </div>
 
 
-<div id="auction-bids">
+
 
     <% unless current_user == @user || @auction.is_completed? %>
      <div id="add_bid">
 
-      <h1>You Interested?</h1>
+      <h5>You Interested?</h5>
 
-      <h1>I'm Interested!</h1>
 
-      <%= form_for [@auction, @bid], method: :post, remote: true do |f| %>
+
+<div id="auction-bids">
+ <%= form_for [@auction, @bid], method: :post, authenticity_token: true, remote: true do |f| %>
         <%= f.label :comment %>
         <%= f.text_field :comment %>
         <%= f.submit "I'm Interested"%>
-      <% end %>
+       </div><% end %>
     <% end %>
 
-  </div>
 
+<br>
+
+<h3> Bids: </h3>
+<br>
 <%= render '/bids/show_partial' %>
 
+</div>
 </div>
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

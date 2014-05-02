@@ -38,13 +38,13 @@ Auction.create(id: 202, lat: 40.65 , event_date: '2014-04-28', long: -73.95 , us
 Auction.create(id: 203, lat: 40.65 , event_date: '2014-04-28', long: -73.95 , user_id: user2.id, category_id: category5.id, title: 'I Should Write a nice Title but I am full of myself', description:'I should write a nice title but I am full of myself and think Im better than you', time_begin:'2014-05-16', time_end:'2014-05-17', completed: false, num_of_req_bids: 3, address:'435 Narcissist Street', website:'http://www.narcissist.com', img_url:'http://216.218.248.240/datastore/21/59/b/2159267dabd1c5339232053779d0c143.jpg', notifications_sent: false)
 Auction.create(id: 204, lat: 40.65 , event_date: '2014-04-28', long: -73.95 , user_id: user1.id, category_id: category5.id, title: 'Make Love  with my Hat On', description:'I want to make love with my hat on', time_begin:'2014-05-07', time_end:'2014-05-09', completed: true, num_of_req_bids: 8, address:'53 Hat Court', website:'http://www.hat.com', img_url: 'http://216.218.248.240/datastore/21/59/b/2159267dabd1c5339232053779d0c143.jpg', notifications_sent: true)
 
-Bid.create(user_id: 54365808, auction_id: 200, comment: 'I would love to take you out baby', viewed: true, won: true)
-Bid.create(user_id: 54364643, auction_id: 201, comment: 'I want to do this with you so badly', viewed: false, won: false)
-Bid.create(user_id: 54365808, auction_id: 202, comment: 'Lets do it', viewed: true, won: false)
-Bid.create(user_id: 54364643, auction_id: 203, comment: 'Ooh la la', viewed: false, won: true)
+Bid.create(user_id: 516276458, auction_id: 200, comment: 'I would love to take you out baby', viewed: true, won: true)
+Bid.create(user_id: 516276458, auction_id: 201, comment: 'I want to do this with you so badly', viewed: false, won: false)
+Bid.create(user_id: 516276458, auction_id: 202, comment: 'Lets do it', viewed: true, won: false)
+Bid.create(user_id: 516276458, auction_id: 203, comment: 'Ooh la la', viewed: false, won: true)
 
-Message.create(id:1 , sender_id: 611953053 , receiver_id:0000 , content: "What's up joe?" )
-Message.create(id:2 , sender_id: 611953053 , receiver_id: 0000 , content: "What's up jammer?" )
-Message.create(id:3 , sender_id: 0000 , receiver_id: 611953053 , content: "How are you" )
-Message.create(id:4 , sender_id: 0000 , receiver_id: 611953053 , content: "I'd love to meet you!" )
+Message.create(id:1 , sender_id: 516276458, receiver_id:0000 , content: "What's up joe?" )
+Message.create(id:2 , sender_id: 516276458, receiver_id: 0000 , content: "What's up jammer?" )
+Message.create(id:3 , sender_id: 0000 , receiver_id: 516276458, content: "How are you" )
+Message.create(id:4 , sender_id: 0000 , receiver_id: 516276458, content: "I'd love to meet you!" )
 

@@ -1,7 +1,7 @@
 
 <% if @bids != nil %>
 <% @bids.each do |bid| %>
-
+<div style="margin: 50px;"></div>
 <div id="all-bids">
 
 <%= content_tag(:div, class: "bid", id: dom_id(bid), data: {bid_info: bid}) do %>
@@ -12,18 +12,27 @@
       <%= bid.comment %>
 
     <% end %>
-
+<br>
+<div id="bid-buttons">
+<div class="bid-button">
   <% if @user == current_user %>
     <%= button_to "Message User", @message, action: :message_user, method: :post %>
+  </div>
+  <div class="bid-button">
     <%= button_to "Accept this bid!", [bid.auction,bid], action: :accept_bid, method: :post, remote: true %>
   <% end %>
-
+    </div>
+  <div class="bid-button">
+ <br>
   <% if current_user == bid.user %>
+
   <%= button_to "delete bid", [bid.auction,bid], method: :delete, remote: true %>
   <% end %>
-
-  <% end %>
 </div>
+  <% end %>
+
+
+
 <% end %>
 <% end %>
 
