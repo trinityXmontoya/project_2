@@ -2,15 +2,16 @@ class BidsController < ApplicationController
 
   def create
     @auction = Auction.find(params[:auction_id])
-    @bid=Bid.new(auction: @auction, user: current_user, comment: params[:bid][:'comment'])
+    @bid = Bid.new(auction: @auction, user: current_user, comment: params[:bid][:'comment'])
     if current_user.auctions.include? @auction
       redirect_to @auction, notice: "You may only bid on an auction once."
     else
       @bid.save
-      respond_to do |format|
-        format.html {redirect_to @auction}
-        format.js{}
-      end
+    end
+
+    respond_to do |format|
+      format.html {redirect_to @auction}
+      format.js {}
     end
   end
 
@@ -18,12 +19,12 @@ class BidsController < ApplicationController
   def accept_bid
     @bid = Bid.find(params[:bid][:id])
     unless auction.is_completed?
-    @bid.accept
-      @bid.auction.calculate_accepted_bids
-    respond_to do |format|
-        format.html {redirect_to @bid.auction}
-        format.js{}
-      end
+      @bid.accept
+        @bid.auction.calculate_accepted_bids
+      respond_to do |format|
+          format.html {redirect_to @bid.auction}
+          format.js{}
+        end
     else
       redirect_to @bid.auction, notice: "Bidding for this auction is closed."
     end
