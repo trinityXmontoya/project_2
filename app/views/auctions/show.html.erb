@@ -33,8 +33,10 @@
 
       <h5>You Interested?</h5>
 
-      <%= form_for [@auction, @bid], method: :post, authenticity_token: true, remote: true do |f| %>
+
+
 <div id="auction-bids">
+ <%= form_for [@auction, @bid], method: :post, authenticity_token: true, remote: true do |f| %>
         <%= f.label :comment %>
         <%= f.text_field :comment %>
         <%= f.submit "I'm Interested"%>
