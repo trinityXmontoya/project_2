@@ -1,4 +1,5 @@
-<h1>Auctions</h1>
+<h1>Auctions</h1> <h3 id="tweet"> Share This Auction
+<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a></h3>
 
 
 <%= render '/searches/search' %>
@@ -8,7 +9,7 @@
  <% @auctions.each do |auction| %>
 
 
-  <div class="auction">
+  <div class="auction-index">
 
 
       <a href="/auctions/<%= auction.id %>">
@@ -23,7 +24,13 @@
       </a>
 
       <div id="auctions-end">
-      Description: <%= auction.description[0..100] %>
+
+      Description: <%= auction.description %>
+
+      <h4>Auction End:</h4>
+      <div id="DateCountdown" data-date="<%= auction.time_end %>" style="width: 400px;"></div>
+      </div>
+
       <br>
       <h4 style="display: inline-block">Auction Ends In: </h4>
       <% num = [4,12,27,9,14]%>
@@ -31,10 +38,11 @@
       </div>
       <br>
 
+
       <br>
   </div>
 
 <% end%>
 </div>
 
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+

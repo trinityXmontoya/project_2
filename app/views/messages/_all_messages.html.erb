@@ -1,9 +1,11 @@
 <% if current_user %>
     <div id='all-messages'>
+
       <h3 id="message-box-title">Messages</h3>
       <br>
       <br>
       <br>
+
       <% Message.where(sender_id: current_user.id).each do |message| %>
         <div class='message-info'>
           <% bidder = User.find(message.receiver_id) %>
@@ -15,9 +17,11 @@
             <% end %>
             <%= link_to [current_user,message] do %>
               <div class='message'>
-                <%= message.created_at.strftime("%D%H") %>
+               <!--  <%= message.created_at.strftime("%D%H") %> -->
                 <!-- add limit to amount of text displayed -->
-                <%= message.content %>
+                <p> <%= message.content %>
+
+                Message Back <p>
               </div>
             <% end %>
         </div>

@@ -1,6 +1,8 @@
 <script type="text/javascript">
   $(function () {
     $('#datetimepicker1').datetimepicker();
+    $('#datetimepicker2').datetimepicker();
+    $('#datetimepicker3').datetimepicker();
   });
 </script>
 
@@ -26,13 +28,15 @@
       <%= f.label :website %>
       <%= f.url_field :website, class: 'form-control', placeholder: "optional" %>
       <br>
+
       <!-- begin bootstrap datetimepicker -->
       <%= f.label :event_date %>
       <div class='input-group date' id='datetimepicker1'>
-        <%= f.datetime_field :event_date, class: 'form-control'%>
+        <%= f.datetime_field :event_date, class: 'form-control' %>
         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
       </div>
       <br>
+
 
       <%= f.label :auction_begin %>
       <div class='input-group date' id='datetimepicker2'>
@@ -48,6 +52,8 @@
       </div>
       <br>
 
+
+      <!-- end bootstrap datetimepicker -->
       <br>
       <%= f.label :num_of_req_bids, "How many people are you looking for?" %>
       <%= f.number_field(:num_of_req_bids, in: 1..10, class: 'form-control') %>
