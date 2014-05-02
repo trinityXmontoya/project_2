@@ -22,5 +22,6 @@ module Project2
 
     # config for bootstrap fonts
     config.assets.paths << Rails.root.join("app", "assets")
+    config.serve_static_assets = true
   end
 end
