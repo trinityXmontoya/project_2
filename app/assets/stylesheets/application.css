@@ -49,6 +49,11 @@ a :hover{
   padding: 20px;
   margin: 15px;
   border-radius: 10px;
+/*  width: 60%;
+  /*height: auto;*/
+/*  height: 300px;
+  float: left;
+  display:block;*/*/
 }
 
 #all-messages{
@@ -79,4 +84,37 @@ a :hover{
   float: right;
   padding: 20px;
   border-radius: 10px;
+}
+
+.categories{
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  margin: 1em;
+}
+
+.categories-container {
+  text-align: center;
+
+}
+
+.category{
+  width: 300px;
+  display: inline;
+}
+
+
+#main-logo{
+  height: 21px;
+}
+
+footer {
+  text-align: right;
+  padding-right: 5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-image: url('logofiles/stock-footage-group-of-young-people-hanging-out-at-beach-around-campfire.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -80px;
 }
