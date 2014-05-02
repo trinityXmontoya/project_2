@@ -3,10 +3,10 @@ class CreateMessages < ActiveRecord::Migration
     create_table :messages do |t|
       t.integer :sender_id, limit: 8
       t.integer :receiver_id, limit: 8
-      t.references :auction
+      t.references :auction, default: false
       t.text :content
-      t.boolean :viewed
-      t.boolean :archived
+      t.boolean :viewed, default: false
+      t.boolean :archived, default: false
       t.timestamps
     end
   end

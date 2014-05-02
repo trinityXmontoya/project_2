@@ -33,14 +33,14 @@ ActiveRecord::Schema.define(version: 20140430180216) do
     t.datetime "time_begin"
     t.datetime "time_end"
     t.datetime "event_date"
-    t.boolean  "completed"
+    t.boolean  "completed",                    default: false
     t.integer  "num_of_req_bids"
     t.string   "address"
     t.integer  "lat"
     t.integer  "long"
     t.string   "website"
     t.string   "img_url"
-    t.boolean  "notifications_sent"
+    t.boolean  "notifications_sent",           default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "latitude"
@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(version: 20140430180216) do
     t.integer  "user_id"
     t.integer  "auction_id"
     t.string   "comment"
-    t.boolean  "viewed"
-    t.boolean  "won"
-    t.boolean  "archived"
+    t.boolean  "viewed",     default: false
+    t.boolean  "won",        default: false
+    t.boolean  "archived",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,10 +67,10 @@ ActiveRecord::Schema.define(version: 20140430180216) do
   create_table "messages", force: true do |t|
     t.integer  "sender_id",   limit: 8
     t.integer  "receiver_id", limit: 8
-    t.integer  "auction_id"
+    t.integer  "auction_id",            default: 0
     t.text     "content"
-    t.boolean  "viewed"
-    t.boolean  "archived"
+    t.boolean  "viewed",                default: false
+    t.boolean  "archived",              default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
