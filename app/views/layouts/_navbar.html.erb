@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">SocialLight</a>
+      <a class="navbar-brand" href="/"><%= image_tag "logofiles/logo.png", :id => "main-logo" %></a>
     </div><!-- end brand header-->
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -25,7 +25,11 @@
           <li><%= link_to "Hello, " + current_user.name + "!", user_path(current_user) %></li>
           <li><%= link_to 'Log Out', logout_path %></li>
         <% else %>
-          <li><%= link_to "Connect with Facebook", "/auth/facebook" %></li>
+          <li>
+            <%= link_to "/auth/facebook" do %>
+              <%= image_tag("socialmediaicons/ConnectViaFacebook.png") %>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

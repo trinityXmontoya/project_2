@@ -15,8 +15,25 @@
 </head>
 <%= render 'layouts/navbar' %>
 <body>
+
 <div class="container">
   <%= yield %>
 </div>
+
+<footer class='footer'>
+  <%= link_to 'https://www.facebook.com/sociallightco' do %>
+    <%= image_tag "socialmediaicons/facebook.png" %>
+  <% end %>
+
+  <%= mail_to "sociallightco@gmail.com" do %>
+    <%= image_tag "socialmediaicons/google.png" %>
+  <% end %>
+
+  <%= link_to 'https://twitter.com/sociallightco' do %>
+    <%= image_tag "socialmediaicons/twitter.png" %>
+  <% end %>
+
+</footer>
+
 </body>
 </html>

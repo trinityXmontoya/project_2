@@ -4,9 +4,9 @@ class CreateBids < ActiveRecord::Migration
       t.references :user
       t.references :auction
       t.string :comment
-      t.boolean :viewed
-      t.boolean :won
-      t.boolean :archived
+      t.boolean :viewed, default: false
+      t.boolean :won, default: false
+      t.boolean :archived, default: false
       t.timestamps
     end
   end

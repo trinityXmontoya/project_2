@@ -8,12 +8,12 @@ class CreateAuctions < ActiveRecord::Migration
       t.datetime :time_begin
       t.datetime :time_end
       t.datetime :event_date
-      t.boolean :completed
+      t.boolean :completed, default: false
       t.integer :num_of_req_bids
       t.string :address
       t.string :website
       t.string :img_url
-      t.boolean :notifications_sent
+      t.boolean :notifications_sent, default: false
       t.timestamps
     end
   end
