@@ -44,16 +44,27 @@ a :hover{
   font-size: 18px
 }
 
+.auction-index {
+  background: rgba(0,0,0,.05);
+  padding: 20px;
+  margin: 35px 15px 35px 15px;
+  border-radius: 10px;
+}
+
 .auction{
   background: rgba(0,0,0,.05);
   padding: 20px;
-  margin: 15px;
+  margin: 35px 15px 35px 15px;
   border-radius: 10px;
-/*  width: 60%;
+  width: 60%;
   /*height: auto;*/
-/*  height: 300px;
+  height: 300px;
   float: left;
-  display:block;*/*/
+  display:block;
+}
+
+#auctions-container {
+  padding-bottom: 75px;
 }
 
 #all-messages{
