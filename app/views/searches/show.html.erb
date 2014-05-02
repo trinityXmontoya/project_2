@@ -1,6 +1,11 @@
-<h1>Search Results (we can change this name later)</h1>
+<h1>Auctions Happening Near <%= @search.keywords %></h1>
 
-<%#= render @search.auctions %>
-<% @results.each do |result| %>
-  <%= link_to result.title, result %>
+<% if @results != [] %>
+  <% @results.each do |result| %>
+    <ul>
+      <li><%= link_to result.title, result %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <h3>Sorry, no auctions are happening near that location. <%= link_to 'Search again.', root_path %></h3>
 <% end %>
