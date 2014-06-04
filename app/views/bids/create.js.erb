@@ -1,6 +1,6 @@
-var newBid = $("<%= j(render @bid)%>").hide();
+var newBid = $("#<%= dom_id(@bid) %>").hide();
 console.log(newBid);
-$('#all-bids').append(newBid);
+$('#all-bids').prepend(newBid);
 newBid.fadeIn(1000);
 
 // clear bid comment form

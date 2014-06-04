@@ -36,17 +36,19 @@ Auction.create(id: 201, latitude: 40.65 , event_date: '2014-05-20', longitude: -
 Auction.create(id: 202, latitude: 40.65 , event_date: '2014-05-17', longitude: -73.95 , user_id: user3.id, category_id: category7.id, title: 'New to This Online Dating Thing (Swear its my first time)', description:'This is my first time using this app, I swear, but Im looking to go on a nice date preferably at a modern art museum', time_begin:'2014-01-23', time_end:'2014-01-27', completed: true, num_of_req_bids: 2, address:'124 Firsttime Lane', website:'http://www.first.com', img_url:'http://216.218.248.240/datastore/21/59/b/2159267dabd1c5339232053779d0c143.jpg', notifications_sent: true)
 Auction.create(id: 203, latitude: 40.65 , event_date: '2014-05-06', longitude: -73.95 , user_id: user2.id, category_id: category11.id, title: 'Hardwired NYC Meetup', description:"Let\'s learn about 3-D printing and grab a beer after!", time_begin:'2014-05-16', time_end:'2014-05-17', completed: false, num_of_req_bids: 3, address:'435 Narcissist Street', website:'http://www.narcissist.com', img_url:'http://216.218.248.240/datastore/21/59/b/2159267dabd1c5339232053779d0c143.jpg', notifications_sent: false)
 Auction.create(id: 204, latitude: 40.65 , event_date: '2014-05-08', longitude: -73.95 , user_id: user1.id, category_id: category20.id, title: 'SF Comicon!', description:"Let\'s hang out with Batman!", time_begin:'2014-05-07', time_end:'2014-05-09', completed: true, num_of_req_bids: 8, address:'53 Hat Court', website:'http://www.hat.com', img_url: 'http://216.218.248.240/datastore/21/59/b/2159267dabd1c5339232053779d0c143.jpg', notifications_sent: true)
-Auction.create(id: 205, latitude: 40.65 , event_date: '2014-05-11', longitude: -73.95 , user_id: 9505535, category_id: category10.id, title: 'UFO Sighting Club', description:"Come scope UFO's with me in LIC", time_begin:'2014-05-07', time_end:'2014-05-09', completed: true, num_of_req_bids: 3, address:'310 East 75th New York, NY 10021', website:'http://www.ufo.com', img_url: 'http://i.telegraph.co.uk/multimedia/archive/02387/ufo_2387810b.jpg', notifications_sent: true)
+
+Auction.create(id: 205, latitude: 40.65 , event_date: '2014-05-11', longitude: -73.95 , user_id: 611953053, category_id: category10.id, title: 'UFO Sighting Club', description:"Come scope UFO's with me in LIC", time_begin:'2014-05-07', time_end:'2014-05-09', completed: true, num_of_req_bids: 3, address:'310 East 75th New York, NY 10021', website:'http://www.ufo.com', img_url: 'http://i.telegraph.co.uk/multimedia/archive/02387/ufo_2387810b.jpg', notifications_sent: true)
 
 Bid.create(user_id: 54365808, auction_id: 200, comment: 'I\'m diabetic but we can still chill, love the South End', viewed: true, won: true)
 Bid.create(user_id: 54364643, auction_id: 201, comment: 'BRO, I *love* mountainclimbing, pick me!', viewed: false, won: false)
 Bid.create(user_id: 54365808, auction_id: 202, comment: 'Lets do it!', viewed: true, won: false)
 Bid.create(user_id: 54364643, auction_id: 203, comment: 'I would love to join you! I\'ve got a 3D Printer myself!', viewed: false, won: true)
 Bid.create(user_id: 9505535, auction_id: 205, comment: 'I\'ve been abducted 3 times, looking to make it four!', viewed: false, won: false)
-
+Bid.create(user_id: 611953053, auction_id: 205, comment: 'I\'ve been abducted 3 times, looking to make it four!', viewed: false, won: false)
 
 Message.create(id:5 , sender_id: 0000 , receiver_id: 9505535 , content: "I\'ve been abducted twice! How about you?" )
 Message.create(id:1 , sender_id: 9505535 , receiver_id:0000 , content: "What\'s up?" )
 Message.create(id:2 , sender_id: 9505535 , receiver_id: 0000 , content: "What kind of man are you looking for?" )
 Message.create(id:3 , sender_id: 0000 , receiver_id: 9505535 , content: "How are you?" )
 Message.create(id:4 , sender_id: 0000 , receiver_id: 9505535 , content: "I\'d love to meet you!" )
+

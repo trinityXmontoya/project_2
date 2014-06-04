@@ -1,0 +1,29 @@
+
+<% if @bids != nil %>
+<% @bids.each do |bid| %>
+
+<div id="all-bids">
+
+<%= content_tag(:div, class: "bid", id: dom_id(bid), data: {bid_info: bid}) do %>
+  <% bidder = User.find(bid.user_id) %>
+    <%= link_to bidder do %>
+      <%= bidder.name %>
+      <img width="100px" style="border-radius: 100px" src="<%= bidder.profile_photo %>">
+      <%= bid.comment %>
+
+    <% end %>
+
+  <% if @user == current_user %>
+    <%= button_to "Message User", @message, action: :message_user, method: :post %>
+    <div id="accept-bid-button"><%= button_to "Accept this bid!", [bid.auction,bid], action: :accept_bid, method: :post, remote: true %></div>
+  <% end %>
+
+  <% if current_user == bid.user %>
+  <%= button_to "delete bid", [bid.auction,bid], method: :delete, remote: true %>
+  <% end %>
+
+  <% end %>
+</div>
+<% end %>
+<% end %>
+

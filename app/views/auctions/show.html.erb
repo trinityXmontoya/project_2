@@ -1,3 +1,4 @@
+
 <div id="container-show">
 <div id="auction-show-title">
 <h1 id="auction-title"><%= @auction.title %> by:<h3> <img id="auction-img" src="<%= @user.profile_photo %>">  <%= @user.name %></h3>
@@ -19,12 +20,27 @@
 
 
 
+<div id="auction-info">
+  <h3 style="color: orange; font-family: Helvetica "><%= Category.find(@auction.category_id).title %></h3>
+  <h1> <%= @auction.title %> </h1>
+  <h5> posted by <%= link_to @user.name, users_path(@user) %></h5>
+<img width='200px' style="border-radius: 100px" src="<%= @user.profile_photo %>">
+
+<div style="display: inline-block; width: '400px' ">
+<h5> Auction Description </h5>
+<p><%= @auction.description %></p>
 </div>
+
 <h5> Auction Ends: </h5>
 <div id="auction-show-timer" >
   <div id="DateCountdown" data-date="<%= @auction.time_end %>" style="width: 600px;"></div>
 </div>
 
+<div id='tweet'>
+  <h5> Share This Auction</h5>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+</div>
+</div>
 
 
 
@@ -44,11 +60,10 @@
     <% end %>
 
 
-<br>
 
 <h3> Bids: </h3>
-<br>
-<%= render '/bids/show_partial' %>
+<%= render '/bids/bid' %>
+
 
 </div>
 </div>

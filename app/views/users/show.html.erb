@@ -33,7 +33,7 @@
               <div id="outgoing-bids">
                <%= render '/bids/show_complete' %>
               </div>
-            <% if @bids != nil %>
+            <% if @outgoing_bids != nil %>
               <div id="received-bids">
              <% @outgoing_bids.each do |bid| %>
                  <%= bid.created_at %><%= bid.comment[0..100] %>
