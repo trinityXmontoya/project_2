@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430180216) do
+ActiveRecord::Schema.define(version: 20140502165038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140430180216) do
   create_table "auction_participants", force: true do |t|
     t.integer "auction_id"
     t.integer "user_id"
-    t.boolean "completed"
+    t.boolean "completed",  default: false
   end
 
   add_index "auction_participants", ["auction_id"], name: "index_auction_participants_on_auction_id", using: :btree
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20140430180216) do
     t.string   "email"
     t.integer  "oauth_token_expires_at"
     t.integer  "zip_code"
+    t.integer  "uid"
   end
 
   add_index "users", ["id"], name: "index_users_on_id", unique: true, using: :btree
