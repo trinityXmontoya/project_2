@@ -25,5 +25,3 @@
 //= require users
 //= require main
 //= require_self
-//= require_main
-

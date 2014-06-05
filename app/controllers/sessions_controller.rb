@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.facebook_auth(auth_hash)
-    session[:user_id] = user.uid
+    session[:user_id] = user.id
     redirect_to '/'
   end
 

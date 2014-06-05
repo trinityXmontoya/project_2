@@ -16,20 +16,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <% if current_user %>
-<% #FIXME login throws an error on create user because of custom user index need to remove or drop users table and recreate allowing psql to choose primary key  %>
+      <% if current_user == nil %>
+            <li>
+              <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+            </li>
+      <% else %>
           <li><a href="/auctions"><i class="fa fa-gavel"></i> Auctions</a></li>
           <li><a href="/auctions/new"><i class="fa fa-plus"></i> Create</a></li>
           <li><a id="show-inbox"><i class="fa fa-comments"></i> Messages</a></li>
-          <li><a href="/users/<%= current_user.uid%>"><i class="fa fa-user"></i></a></li>
           <li><%= link_to 'Log Out', logout_path %></li>
-        <% else %>
-          <li>
-            <%= link_to "/auth/facebook" do %>
-              <%= image_tag("socialmediaicons/ConnectViaFacebook.png") %>
-            <% end %>
-          </li>
-        <% end %>
+      <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
