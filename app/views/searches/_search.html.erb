@@ -1,14 +1,16 @@
 <%= form_for @search do |f| %>
 
   <div>
-    <%= f.label :keywords, "Enter a city or zip code:" %><br />
+    <%= f.label :keywords, "Enter a city or zip code:" %>
+    <br />
     <%= f.text_field :keywords, class: 'form-control' %>
   </div>
 
   <br />
 
   <div>
-    <%= f.label :category_id, "What are you interested in?" %><br />
+    <%= f.label :category_id, "What are you interested in?" %>
+    <br />
     <%= f.collection_select :category_id, Category.order(:title), :id, :title, {include_blank: 'All'}, class: 'form-control'  %>
   </div>
 

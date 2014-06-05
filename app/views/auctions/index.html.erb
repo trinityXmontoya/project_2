@@ -1,25 +1,19 @@
-<h1>Auctions</h1> <h3 id="tweet"> Share This Auction
-<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a></h3>
-
+<h1>Auctions</h1>
 
 <%= render '/searches/search' %>
 
-
 <div id="auctions-container">
- <% @auctions.each do |auction| %>
-
+  <% @auctions.each do |auction| %>
 
   <div class="auction-index">
-
-
       <a href="/auctions/<%= auction.id %>">
 
-         <% if auction.category_id != nil %>
         <div class='auction-display-category'>
-        <img src="<%= Category.find(auction.category_id).badge_photo %>">
-        <h5><%= Category.find(auction.category_id).title %></h5>
-        </div>
-      <% end %>
+        <% if auction.category_id != nil %>
+          <img src="<%= Category.find(auction.category_id).badge_photo %>">
+          <h5><%= Category.find(auction.category_id).title %></h5>
+        <% end %>
+        </div><!-- end auction-display-category -->
       <h3><%= auction.title %> </h3>
       </a>
 
@@ -35,14 +29,7 @@
       <h4 style="display: inline-block">Auction Ends In: </h4>
       <% num = [4,12,27,9,14]%>
       ~<%= num.sample %> hrs
-      </div>
-      <br>
-
-
-      <br>
-  </div>
-
-<% end%>
-</div>
-
-
+  </div><!-- end auction-index -->
+  <br />
+  <% end %><!-- end each loop -->
+</div><!-- end auctions-container -->
