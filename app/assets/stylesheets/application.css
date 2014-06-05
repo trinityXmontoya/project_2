@@ -219,3 +219,7 @@ footer {
   margin: 50px; background: rgba(0,0,0,.1); border-radius: 10px
 
 }
+
+.space-bottom {
+  padding-bottom: 60px;
+}
