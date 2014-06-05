@@ -18,10 +18,10 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require TimeCircles
-//= require auctions
 //= require bids
 //= require categories
 //= require messages
 //= require users
 //= require main
+//= require_tree ./common
 //= require_self
