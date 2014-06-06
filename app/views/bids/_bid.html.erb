@@ -6,12 +6,11 @@
 
 <%= content_tag(:div, class: "bid", id: dom_id(bid), data: {bid_info: bid}) do %>
   <% bidder = User.find(bid.user_id) %>
+    <img width="50px" style="border-radius: 50px" src="<%= bidder.profile_photo %>">
     <%= link_to bidder do %>
       <%= bidder.name %>
-      <img width="100px" style="border-radius: 100px" src="<%= bidder.profile_photo %>">
+    <% end %>:
       <%= bid.comment %>
-
-    <% end %>
 
   <% if @user == current_user %>
     <%= button_to "Message User", @message, action: :message_user, method: :post %>

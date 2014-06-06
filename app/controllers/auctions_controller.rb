@@ -8,7 +8,7 @@ class AuctionsController < ApplicationController
 
   def show
     @auction = Auction.find(params[:id])
-    @user = @auction.user
+    @user = User.find params[:id]
     @bids = @auction.bids{created_at :desc}
     # @bids.each {|bid| bid.mark_as_viewed}
     @bid = Bid.new

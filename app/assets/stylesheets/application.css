@@ -10,6 +10,8 @@
 
 *= require bootstrap
 *= require bootstrap-datetimepicker
+*= require TimeCircles
+*= require auctions
 *= require_self
 *= require_tree .
 */
@@ -38,65 +40,6 @@ a :hover{
   color: #010f79;
 }
 
-/*AUCTIONS*/
-#auction-bids{
-  float:right;
-  margin: 0;
-  display: inline-block;
-}
-
-.accept-bid-button{
-  display: inline-block;
-}
-
-#auction-info {
-  display: inline-block;
-}
-
-#tweet{
-  float:left;
-}
-
-#auctions-index-nav{
-  margin-left: 5%;
-}
-#auctions-index-nav li{
-  display:inline-block;
-  margin: 20px;
-  text-align: center;
-  font-size: 18px
-}
-
-.auction-index {
-  background: rgba(0,0,0,.05);
-  padding: 20px;
-  margin: 35px 15px 35px 15px;
-  border-radius: 10px;
-}
-
-.auction {
-  background: rgba(0,0,0,.05);
-  padding: 20px;
-  margin: 35px 15px 35px 15px;
-  border-radius: 10px;
-  width: 60%;
-  /*height: auto;*/
-  height: 300px;
-  float: left;
-  display:block;
-}
-
-#auctions-container {
-  padding-bottom: 75px;
-}
-
-.auction-display-category {
-  float: left;
-  text-align: center;
-  margin: 0 15px 0 0 ;
-  width: 100px;
-  color: black;
-}
 /*MESSAGES*/
 
 #all-messages{
