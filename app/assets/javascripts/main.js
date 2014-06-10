@@ -5,15 +5,11 @@ $('document').ready(function (){
   var all_messages = $("#all-messages");
   all_messages.hide();
 
-$(function () {
-  $('#datetimepicker1').datetimepicker();
-});
+$('#message-box-title').hide();
 
-
-$('#show-inbox').click( function(){
-    $('#message-box-title').hide();
+$('#show-inbox').click(function() {
+    $('#message-box-title').show();
     $('#all-messages').slideToggle();
-   ;
 });
 
 $("#DateCountdown").TimeCircles({
@@ -44,7 +40,6 @@ $("#DateCountdown").TimeCircles({
         }
     }
 });
-
 
 
 //MESSAGES

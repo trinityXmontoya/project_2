@@ -53,6 +53,4 @@ group :development, :test, :production do
   gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0'
 end
 
-gem 'rails_12factor', group: :production
-
 ruby "2.1.0"

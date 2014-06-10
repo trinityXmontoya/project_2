@@ -1,8 +1,5 @@
 class User < ActiveRecord::Base
 
-  # used for setting custom primary key instead of index
-  self.primary_key = :id
-
   has_many :bids, dependent: :destroy
   has_many :auctions, dependent: :destroy
 

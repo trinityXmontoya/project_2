@@ -8,7 +8,7 @@ class AuctionsController < ApplicationController
 
   def show
     @auction = Auction.find(params[:id])
-    @user = @auction.user
+    @user = User.find params[:id]
     @bids = @auction.bids{created_at :desc}
     # @bids.each {|bid| bid.mark_as_viewed}
     @bid = Bid.new
@@ -21,6 +21,7 @@ class AuctionsController < ApplicationController
   end
 
   def create
+    #FIXME Auction.new auction_params throws argument out of range error
     @auction = Auction.new auction_params
     @auction.add_end_time(@auction.time_end)
     if @auction.save

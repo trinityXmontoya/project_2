@@ -1,39 +1,35 @@
-<h1>Auctions</h1> <h3 id="tweet"> Share This Auction
-<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a></h3>
-
+<h1>Auctions</h1>
 
 <%= render '/searches/search' %>
 
-
 <div id="auctions-container">
- <% @auctions.each do |auction| %>
-
+  <% @auctions.each do |auction| %>
 
   <div class="auction-index">
-
-
       <a href="/auctions/<%= auction.id %>">
-      <h3> Title: <%= auction.title %> </h3>
+
+        <div class='auction-display-category'>
+        <% if auction.category_id != nil %>
+          <img src="<%= Category.find(auction.category_id).badge_photo %>">
+          <h5><%= Category.find(auction.category_id).title %></h5>
+        <% end %>
+        </div><!-- end auction-display-category -->
+      <h3><%= auction.title %> </h3>
       </a>
 
       <div id="auctions-end">
+
+      Description: <%= auction.description %>
+
       <h4>Auction End:</h4>
       <div id="DateCountdown" data-date="<%= auction.time_end %>" style="width: 400px;"></div>
       </div>
-      <h5>Description: </h5><%= auction.description[0..100] %>
-      <br>
-      <% if false %>
-      <% if auction.category_id != nil %>
-      Category:<img src="<%= Category.find(auction.category_id).badge_photo %>"><h5><%= Category.find(auction.category_id).title %></h5>
-      <% end %>
-      <br>
-      <% end %>
-
 
       <br>
-  </div>
-
-<% end%>
-</div>
-
-
+      <h4 style="display: inline-block">Auction Ends In: </h4>
+      <% num = [4,12,27,9,14]%>
+      ~<%= num.sample %> hrs
+  </div><!-- end auction-index -->
+  <br />
+  <% end %><!-- end each loop -->
+</div><!-- end auctions-container -->

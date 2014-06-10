@@ -8,7 +8,6 @@ class BidsController < ApplicationController
     else
       @bid.save
     end
-
     respond_to do |format|
       format.html {redirect_to @auction}
       format.js {}

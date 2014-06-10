@@ -1,3 +1,5 @@
+
+
 <div class="categories-container">
 
  <% @categories.each do |category| %>
@@ -7,7 +9,8 @@
       <a href="/categories/<%= category.id %>">
       <h3>  <%= category.title %> </h3>
       </a>
-      Description:<%= category.description[0..100] %>
+      Description:<%= category.description%>
+
       <br>
       <br>
         <%= image_tag "images/badgeicons/#{category.title.downcase.gsub(/\s/, '')}.png" %>
