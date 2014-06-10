@@ -5,17 +5,11 @@ $('document').ready(function (){
   var all_messages = $("#all-messages");
   all_messages.hide();
 
+$('#message-box-title').hide();
 
-
-$(function () {
-  $('#datetimepicker1').datetimepicker();
-  $('#datetimepicker2').datetimepicker();
-});
-
-$('#show-inbox').click( function(){
-    $('#message-box-title').hide();
+$('#show-inbox').click(function() {
+    $('#message-box-title').show();
     $('#all-messages').slideToggle();
-   ;
 });
 
 $("#DateCountdown").TimeCircles({

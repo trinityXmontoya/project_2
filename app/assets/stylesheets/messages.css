@@ -1,0 +1,22 @@
+/*MESSAGES*/
+
+#all-messages{
+  height: 100%;
+  width: 300px;
+  float: right;
+  padding: 20px;
+  margin-top: -20px;
+  background: rgba(0,0,0,.1);
+  margin-bottom: 40px;
+  overflow: scroll;
+}
+
+#message-box-title{
+  position: absolute;
+   margin: 0 auto;
+  text-align: center;
+}
+
+.message-info{
+  margin: 15px 0 0 0;
+}
